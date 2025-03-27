@@ -46,6 +46,7 @@ const FadeContent = ({
         transition: `opacity ${duration}ms ${easing}, filter ${duration}ms ${easing}`,
         filter: blur ? (inView ? "blur(0px)" : "blur(10px)") : "none",
       }}
+      data-oid="1tcfe4w"
     >
       {children}
     </div>

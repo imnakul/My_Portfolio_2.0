@@ -54,7 +54,7 @@ export default function Home() {
             <ShootingStars />
             <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm w-full'>
                <div className='relative flex flex-row items-center justify-center gap-4 w-full'>
-                  <span className='absolute left-3 bg-purple-800 text-purple-300 rounded-md p-2 filter-glow'>
+                  <span className='absolute left-3 bg-purple-900 text-white rounded-md p-2 filter-glow'>
                      NAKUL SRIVASTAVA
                   </span>
 
@@ -151,13 +151,13 @@ export default function Home() {
                            <span className='text-sm font-bold space-x-1'>
                               Tech Stacks I use :
                            </span>
-                           <div className='mt-4 flex items-end justify-center bg-gradient-to-b from-gray-800 to-sky-800 rounded-lg p-2 '>
+                           <div className='mt-4 flex items-end justify-center bg-gradient-to-b from-gray-800 to-purple-800 rounded-lg p-2 '>
                               {images.map((image, i) => (
                                  <img
                                     src={image}
                                     alt=''
                                     key={i}
-                                    className='w-12 h-12 mr-4 rounded-lg shadow-md hover:shadow-lg'
+                                    className='w-12 h-12 mr-4 rounded-lg'
                                  ></img>
                               ))}
                            </div>

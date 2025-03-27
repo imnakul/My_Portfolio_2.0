@@ -60,7 +60,7 @@ const AnimatedContent = ({
   });
 
   return (
-    <animated.div ref={ref} style={springProps}>
+    <animated.div ref={ref} style={springProps} data-oid="49yh:.3">
       {children}
     </animated.div>
   );

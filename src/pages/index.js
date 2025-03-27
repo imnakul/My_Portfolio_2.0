@@ -1,24 +1,16 @@
-// import Image from 'next/image'
-// import { Geist, Geist_Mono } from 'next/font/google'
-
 import ShootingStars from '@/components/ui/ShootingStars'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 import FadeContent from '@/components/ui/FadeContent/FadeContent'
+import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
+import CustomCursor from '@/components/ui/CustomCursor'
+import ParticleBackground from '@/components/ui/ParticleBackground'
+import { useEffect, useState } from 'react'
 
-// const geistSans = Geist({
-//    variable: '--font-geist-sans',
-//    subsets: ['latin'],
-// })
-
-// const geistMono = Geist_Mono({
-//    variable: '--font-geist-mono',
-//    subsets: ['latin'],
-// })
 const TABS = [
    { id: 'about-me', name: 'About' },
    { id: 'tech-stack', name: 'Tech' },
-   { id: 'projects', name: 'Project' },
+   { id: 'projects', name: 'Projects' },
    { id: 'contact-me', name: 'Contact' },
 ]
 
@@ -37,30 +29,57 @@ const slugs = [
 ]
 
 export default function Home() {
+   const [activeSection, setActiveSection] = useState('about-me')
+
    const handleTabClick = (id) => {
       const element = document.getElementById(id)
       if (element) {
          element.scrollIntoView({ behavior: 'smooth' })
+         setActiveSection(id)
       }
    }
 
+   useEffect(() => {
+      const handleScroll = () => {
+         const sections = TABS.map((tab) => tab.id)
+
+         for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+               const rect = element.getBoundingClientRect()
+               if (rect.top <= 100 && rect.bottom >= 100) {
+                  setActiveSection(section)
+                  break
+               }
+            }
+         }
+      }
+
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+   }, [])
+
    const images = slugs.map(
-      (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+      (slug) => `https://cdn.simpleicons.org/${slug}/white`
    )
 
    return (
       <>
-         <div className='min-h-screen min-w-full bg-gray-900'>
-            <ShootingStars />
-            <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm w-full'>
-               <div className='relative flex flex-row items-center justify-center gap-4 w-full'>
-                  <span className='absolute left-3 bg-purple-900 text-white rounded-md p-2 filter-glow'>
+         <div className='min-h-screen min-w-full bg-gray-900 hide-cursor'>
+            <CustomCursor />
+            <ShootingStars maxStars={8} />
+            <ParticleBackground particleCount={80} />
+
+            {/* Navigation Bar */}
+            <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] glass-effect w-full'>
+               <div className='relative flex flex-row items-center justify-between px-6 w-full max-w-7xl'>
+                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 px-4 filter-glow font-bold tracking-wider'>
                      NAKUL SRIVASTAVA
                   </span>
 
                   <AnimatedBackground
-                     defaultValue={TABS[0]} // Remove this if you don't want any tab to be highlighted by default.
-                     className='rounded-md bg-zinc-100 dark:bg-purple-600'
+                     defaultValue={activeSection}
+                     className='rounded-md bg-purple-600/50'
                      transition={{
                         type: 'spring',
                         bounce: 0.2,
@@ -71,13 +90,11 @@ export default function Home() {
                      {TABS.map((tab, index) => (
                         <button
                            key={index}
-                           //  data-id={tab}
                            data-id={tab.id}
                            type='button'
                            onClick={() => handleTabClick(tab.id)}
-                           className='px-2 py-0.5 inline-flex items-center justify-center text-center text-zinc-800 transition-transform active:scale-[0.98] dark:text-zinc-50 text-base'
+                           className='px-4 py-2 inline-flex items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium'
                         >
-                           {/* {tab} */}
                            {tab.name}
                         </button>
                      ))}
@@ -85,7 +102,7 @@ export default function Home() {
                </div>
             </div>
 
-            {/* //? About Me Section  */}
+            {/* About Me Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -94,81 +111,118 @@ export default function Home() {
             >
                <div
                   id='about-me'
-                  className='flex items-center justify-center min-h-[90vh] border border-green-500 mb-1 mt-[10vh] pt-[10vh] pl-[20vw] w-full'
+                  className='flex items-center justify-center min-h-[100vh] pt-[15vh] px-6 w-full'
                >
-                  {/* <h1>About Me</h1> */}
-                  <ul className='grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-5 md:grid-rows-3 lg:gap-4 xl:h-[90vh] xl:grid-rows-4 '>
-                     {/* //? mere lie 4 row, 12 col //? 1st col - 1  */}
-                     <li
-                        className={`mt-2 list-none md:[grid-area:1/1/2/7] xl:[grid-area:1/1/3/4] min-w-2xl `}
+                  <div className='max-w-7xl w-full'>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
                      >
-                        <div
-                           className={`relative h-full rounded-xl border p-3 md:rounded-xl md:p-1 `}
-                        >
-                           <GlowingEffect
-                              spread={40}
-                              glow={true}
-                              disabled={false}
-                              proximity={64}
-                              inactiveZone={0.01}
-                           />
+                        <h2 className='text-4xl font-bold mb-8 gradient-text'>
                            About Me
-                        </div>
-                     </li>
-                     <li className='mt-2 list-none md:[grid-area:1/7/2/13] xl:[grid-area:1/4/3/5]'>
-                        <div
-                           className={`relative h-full rounded-xl border p-3 md:rounded-xl md:p-1 `}
-                        >
-                           <GlowingEffect
-                              spread={40}
-                              glow={true}
-                              disabled={false}
-                              proximity={64}
-                              inactiveZone={0.01}
-                           />
-                           <img
-                              src='/profile.jpg'
-                              alt=''
-                              className='size-full rounded-lg shadow-md hover:shadow-lg'
-                           ></img>
-                        </div>
-                     </li>
+                        </h2>
+                     </AnimatedContent>
 
-                     {/* //? 1st col - 2 */}
-                     <li
-                        className={` list-none md:[grid-area:1/7/2/13] xl:[grid-area:3/1/4/5]`}
-                     >
-                        <div
-                           className={`relative h-full rounded-xl border p-2  md:rounded-xl md:p-3`}
-                        >
-                           <GlowingEffect
-                              spread={40}
-                              glow={true}
-                              disabled={false}
-                              proximity={64}
-                              inactiveZone={0.01}
-                           />
-                           <span className='text-sm font-bold space-x-1'>
-                              Tech Stacks I use :
-                           </span>
-                           <div className='mt-4 flex items-end justify-center bg-gradient-to-b from-gray-800 to-purple-800 rounded-lg p-2 '>
-                              {images.map((image, i) => (
-                                 <img
-                                    src={image}
-                                    alt=''
-                                    key={i}
-                                    className='w-12 h-12 mr-4 rounded-lg'
-                                 ></img>
-                              ))}
+                     <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                        <div className='md:col-span-2'>
+                           <div className='glass-effect rounded-xl p-6 card-glow'>
+                              <GlowingEffect
+                                 spread={40}
+                                 glow={true}
+                                 disabled={false}
+                                 proximity={64}
+                                 inactiveZone={0.01}
+                              />
+                              <AnimatedContent
+                                 direction='horizontal'
+                                 distance={50}
+                                 delay={400}
+                              >
+                                 <h3 className='text-2xl font-bold mb-4 text-purple-400'>
+                                    Hello, I'm Nakul
+                                 </h3>
+                                 <p className='text-gray-300 mb-4 leading-relaxed'>
+                                    I'm a passionate web developer with
+                                    expertise in modern frontend technologies. I
+                                    love creating beautiful, responsive, and
+                                    user-friendly websites that deliver
+                                    exceptional user experiences.
+                                 </p>
+                                 <p className='text-gray-300 leading-relaxed'>
+                                    With a strong foundation in JavaScript,
+                                    React, and Next.js, I build scalable
+                                    applications that combine elegant design
+                                    with efficient functionality.
+                                 </p>
+                              </AnimatedContent>
                            </div>
                         </div>
-                     </li>
-                  </ul>
+
+                        <div>
+                           <div className='glass-effect rounded-xl p-4 h-full card-glow'>
+                              <GlowingEffect
+                                 spread={40}
+                                 glow={true}
+                                 disabled={false}
+                                 proximity={64}
+                                 inactiveZone={0.01}
+                              />
+                              <AnimatedContent
+                                 direction='horizontal'
+                                 distance={50}
+                                 delay={500}
+                                 reverse={true}
+                              >
+                                 <img
+                                    src='/profile.jpg'
+                                    alt='Nakul Srivastava'
+                                    className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300'
+                                 />
+                              </AnimatedContent>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div className='mt-6'>
+                        <div className='glass-effect rounded-xl p-6 card-glow'>
+                           <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                           />
+                           <AnimatedContent
+                              direction='vertical'
+                              distance={50}
+                              delay={600}
+                           >
+                              <h3 className='text-xl font-bold mb-4 text-purple-400'>
+                                 Tech Stack
+                              </h3>
+                              <div className='flex flex-wrap items-center justify-center gap-6 bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-lg p-6'>
+                                 {images.map((image, i) => (
+                                    <div key={i} className='group relative'>
+                                       <div className='absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300'></div>
+                                       <div className='relative bg-gray-800 rounded-lg p-2 transform transition-transform duration-300 group-hover:scale-110'>
+                                          <img
+                                             src={image}
+                                             alt={slugs[i]}
+                                             className='w-10 h-10'
+                                          />
+                                       </div>
+                                    </div>
+                                 ))}
+                              </div>
+                           </AnimatedContent>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </FadeContent>
 
-            {/* //? Tech Stack Section  */}
-            {}
+            {/* Tech Stack Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -177,13 +231,119 @@ export default function Home() {
             >
                <div
                   id='tech-stack'
-                  className='flex items-center justify-center min-h-[100vh] border border-pink-500 mb-1'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
-                  <h1>TechStack</h1>
+                  <div className='max-w-7xl w-full'>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
+                     >
+                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                           My Skills
+                        </h2>
+                     </AnimatedContent>
+
+                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                        {[
+                           {
+                              name: 'Frontend',
+                              skills: [
+                                 'React',
+                                 'Next.js',
+                                 'HTML/CSS',
+                                 'Tailwind CSS',
+                                 'JavaScript/TypeScript',
+                              ],
+                           },
+                           {
+                              name: 'Backend',
+                              skills: [
+                                 'Node.js',
+                                 'Express',
+                                 'Firebase',
+                                 'RESTful APIs',
+                                 'MongoDB',
+                              ],
+                           },
+                           {
+                              name: 'Tools',
+                              skills: [
+                                 'Git',
+                                 'GitHub',
+                                 'VS Code',
+                                 'Figma',
+                                 'Vercel',
+                              ],
+                           },
+                           {
+                              name: 'Design',
+                              skills: [
+                                 'Responsive Design',
+                                 'UI/UX Principles',
+                                 'Animations',
+                                 'Accessibility',
+                              ],
+                           },
+                           {
+                              name: 'Soft Skills',
+                              skills: [
+                                 'Problem Solving',
+                                 'Communication',
+                                 'Team Collaboration',
+                                 'Time Management',
+                              ],
+                           },
+                           {
+                              name: 'Learning',
+                              skills: [
+                                 'GraphQL',
+                                 'React Native',
+                                 'AWS',
+                                 'Docker',
+                                 'Three.js',
+                              ],
+                           },
+                        ].map((category, index) => (
+                           <AnimatedContent
+                              key={index}
+                              direction='vertical'
+                              distance={50}
+                              delay={400 + index * 100}
+                           >
+                              <div className='glass-effect rounded-xl p-6 h-full card-glow'>
+                                 <GlowingEffect
+                                    spread={40}
+                                    glow={true}
+                                    disabled={false}
+                                    proximity={64}
+                                    inactiveZone={0.01}
+                                 />
+                                 <h3 className='text-xl font-bold mb-4 text-purple-400'>
+                                    {category.name}
+                                 </h3>
+                                 <ul className='space-y-2'>
+                                    {category.skills.map((skill, i) => (
+                                       <li
+                                          key={i}
+                                          className='flex items-center'
+                                       >
+                                          <span className='w-2 h-2 bg-purple-500 rounded-full mr-2'></span>
+                                          <span className='text-gray-300'>
+                                             {skill}
+                                          </span>
+                                       </li>
+                                    ))}
+                                 </ul>
+                              </div>
+                           </AnimatedContent>
+                        ))}
+                     </div>
+                  </div>
                </div>
             </FadeContent>
 
-            {/* //? Projects Section  */}
+            {/* Projects Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -192,13 +352,96 @@ export default function Home() {
             >
                <div
                   id='projects'
-                  className='flex items-center justify-center min-h-[100vh] border border-yellow-500 mb-1'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
-                  <h1>Projects</h1>
+                  <div className='max-w-7xl w-full'>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
+                     >
+                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                           My Projects
+                        </h2>
+                     </AnimatedContent>
+
+                     <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                        {[
+                           {
+                              title: 'Portfolio Website',
+                              description:
+                                 'A modern portfolio website built with Next.js and Tailwind CSS featuring smooth animations and interactive elements.',
+                              tech: ['Next.js', 'Tailwind CSS', 'React'],
+                              image: 'https://via.placeholder.com/600x400/111/333?text=Portfolio',
+                           },
+                           {
+                              title: 'E-commerce Platform',
+                              description:
+                                 'A full-featured e-commerce platform with product listings, cart functionality, and secure checkout process.',
+                              tech: ['React', 'Node.js', 'MongoDB'],
+                              image: 'https://via.placeholder.com/600x400/111/333?text=E-commerce',
+                           },
+                           {
+                              title: 'Task Management App',
+                              description:
+                                 'A productivity app that helps users organize tasks, set priorities, and track progress with intuitive UI.',
+                              tech: ['React', 'Firebase', 'Tailwind CSS'],
+                              image: 'https://via.placeholder.com/600x400/111/333?text=Task+App',
+                           },
+                           {
+                              title: 'Weather Dashboard',
+                              description:
+                                 'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
+                              tech: ['JavaScript', 'Weather API', 'CSS'],
+                              image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
+                           },
+                        ].map((project, index) => (
+                           <AnimatedContent
+                              key={index}
+                              direction='vertical'
+                              distance={50}
+                              delay={400 + index * 100}
+                           >
+                              <div className='glass-effect rounded-xl overflow-hidden card-glow h-full'>
+                                 <GlowingEffect
+                                    spread={40}
+                                    glow={true}
+                                    disabled={false}
+                                    proximity={64}
+                                    inactiveZone={0.01}
+                                 />
+                                 <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className='w-full h-48 object-cover'
+                                 />
+                                 <div className='p-6'>
+                                    <h3 className='text-xl font-bold mb-2 text-purple-400'>
+                                       {project.title}
+                                    </h3>
+                                    <p className='text-gray-300 mb-4'>
+                                       {project.description}
+                                    </p>
+                                    <div className='flex flex-wrap gap-2 mt-auto'>
+                                       {project.tech.map((tech, i) => (
+                                          <span
+                                             key={i}
+                                             className='px-3 py-1 bg-purple-900/50 text-purple-200 text-sm rounded-full'
+                                          >
+                                             {tech}
+                                          </span>
+                                       ))}
+                                    </div>
+                                 </div>
+                              </div>
+                           </AnimatedContent>
+                        ))}
+                     </div>
+                  </div>
                </div>
             </FadeContent>
 
-            {/* //? cONTATC Section  */}
+            {/* Contact Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -207,11 +450,190 @@ export default function Home() {
             >
                <div
                   id='contact-me'
-                  className='flex items-center justify-center min-h-[100vh] border border-purple-500'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
-                  <h1>Contact Me</h1>
+                  <div className='max-w-7xl w-full'>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
+                     >
+                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                           Get In Touch
+                        </h2>
+                     </AnimatedContent>
+
+                     <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                        <AnimatedContent
+                           direction='horizontal'
+                           distance={50}
+                           delay={400}
+                        >
+                           <div className='glass-effect rounded-xl p-6 card-glow h-full'>
+                              <GlowingEffect
+                                 spread={40}
+                                 glow={true}
+                                 disabled={false}
+                                 proximity={64}
+                                 inactiveZone={0.01}
+                              />
+                              <h3 className='text-2xl font-bold mb-6 text-purple-400'>
+                                 Contact Me
+                              </h3>
+                              <p className='text-gray-300 mb-6'>
+                                 I'm always open to new opportunities and
+                                 collaborations. Feel free to reach out if you
+                                 have a project in mind or just want to connect!
+                              </p>
+
+                              <div className='space-y-4'>
+                                 <div className='flex items-center'>
+                                    <div className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center mr-4'>
+                                       <svg
+                                          xmlns='http://www.w3.org/2000/svg'
+                                          className='h-5 w-5 text-purple-300'
+                                          viewBox='0 0 20 20'
+                                          fill='currentColor'
+                                       >
+                                          <path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z' />
+                                          <path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z' />
+                                       </svg>
+                                    </div>
+                                    <span className='text-gray-300'>
+                                       email@example.com
+                                    </span>
+                                 </div>
+
+                                 <div className='flex items-center'>
+                                    <div className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center mr-4'>
+                                       <svg
+                                          xmlns='http://www.w3.org/2000/svg'
+                                          className='h-5 w-5 text-purple-300'
+                                          viewBox='0 0 20 20'
+                                          fill='currentColor'
+                                       >
+                                          <path
+                                             fillRule='evenodd'
+                                             d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
+                                             clipRule='evenodd'
+                                          />
+                                       </svg>
+                                    </div>
+                                    <span className='text-gray-300'>
+                                       City, Country
+                                    </span>
+                                 </div>
+
+                                 <div className='flex items-center'>
+                                    <div className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center mr-4'>
+                                       <svg
+                                          xmlns='http://www.w3.org/2000/svg'
+                                          className='h-5 w-5 text-purple-300'
+                                          viewBox='0 0 20 20'
+                                          fill='currentColor'
+                                       >
+                                          <path d='M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z' />
+                                       </svg>
+                                    </div>
+                                    <span className='text-gray-300'>
+                                       +1 234 567 890
+                                    </span>
+                                 </div>
+                              </div>
+
+                              <div className='flex space-x-4 mt-8'>
+                                 {[
+                                    'github',
+                                    'linkedin',
+                                    'twitter',
+                                    'instagram',
+                                 ].map((social, index) => (
+                                    <a
+                                       key={index}
+                                       href='#'
+                                       className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center hover:bg-purple-700/50 transition-colors duration-300'
+                                    >
+                                       <img
+                                          src={`https://cdn.simpleicons.org/${social}/white`}
+                                          alt={social}
+                                          className='w-5 h-5'
+                                       />
+                                    </a>
+                                 ))}
+                              </div>
+                           </div>
+                        </AnimatedContent>
+
+                        <AnimatedContent
+                           direction='horizontal'
+                           distance={50}
+                           delay={500}
+                           reverse={true}
+                        >
+                           <div className='glass-effect rounded-xl p-6 card-glow'>
+                              <GlowingEffect
+                                 spread={40}
+                                 glow={true}
+                                 disabled={false}
+                                 proximity={64}
+                                 inactiveZone={0.01}
+                              />
+                              <h3 className='text-2xl font-bold mb-6 text-purple-400'>
+                                 Send Message
+                              </h3>
+
+                              <form className='space-y-4'>
+                                 <div>
+                                    <label className='block text-gray-300 mb-2'>
+                                       Name
+                                    </label>
+                                    <input
+                                       type='text'
+                                       className='w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500'
+                                    />
+                                 </div>
+
+                                 <div>
+                                    <label className='block text-gray-300 mb-2'>
+                                       Email
+                                    </label>
+                                    <input
+                                       type='email'
+                                       className='w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500'
+                                    />
+                                 </div>
+
+                                 <div>
+                                    <label className='block text-gray-300 mb-2'>
+                                       Message
+                                    </label>
+                                    <textarea
+                                       rows='4'
+                                       className='w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500'
+                                    ></textarea>
+                                 </div>
+
+                                 <button
+                                    type='submit'
+                                    className='px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-medium rounded-lg hover:from-purple-700 hover:to-pink-600 transition-all duration-300 transform hover:scale-105'
+                                 >
+                                    Send Message
+                                 </button>
+                              </form>
+                           </div>
+                        </AnimatedContent>
+                     </div>
+                  </div>
                </div>
             </FadeContent>
+
+            {/* Footer */}
+            <div className='glass-effect py-6 text-center'>
+               <p className='text-gray-400'>
+                  © {new Date().getFullYear()} Nakul Srivastava. All rights
+                  reserved.
+               </p>
+            </div>
          </div>
       </>
    )

@@ -6,6 +6,7 @@ import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ParticleBackground from '@/components/ui/ParticleBackground'
 import { useEffect, useState } from 'react'
+import { RiTelegram2Fill, RiGithubFill, RiLinkedinFill } from 'react-icons/ri'
 
 const TABS = [
    { id: 'about-me', name: 'About' },
@@ -26,6 +27,24 @@ const slugs = [
    'vercel',
    'git',
    'github',
+]
+
+const socials = [
+   {
+      social: 'github',
+      url: 'https://github.com/imnakul',
+      icon: <RiGithubFill className='size-5' />,
+   },
+   {
+      social: 'linked-In',
+      url: 'https://www.linkedin.com/in/nakul-srivastava-a8426033b',
+      icon: <RiLinkedinFill className='size-5' />,
+   },
+   {
+      social: 'telegram',
+      url: 'https://t.me/devtoolsspotlight',
+      icon: <RiTelegram2Fill className='size-5' />,
+   },
 ]
 
 export default function Home() {
@@ -63,12 +82,37 @@ export default function Home() {
       (slug) => `https://cdn.simpleicons.org/${slug}/white`
    )
 
+   const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      message: '',
+   })
+
+   const handleInputChange = (e) => {
+      const { name, value } = e.target
+      setFormData({ ...formData, [name]: value })
+   }
+
+   const handleSubmit = (e) => {
+      e.preventDefault()
+
+      //Submission logic
+      // Construct the mailto link
+      const mailtoLink = `mailto:imnakul44@gmail.com?subject=Portfolio%20Contact&body=${encodeURIComponent(
+         `Name: ${formData.name}\nEmail: ${formData.email}\nMessage:${formData.message}`
+      )}`
+
+      // Open the mail client
+      window.location.href = mailtoLink
+      setFormData({ name: '', email: '', message: '' })
+   }
+
    return (
       <>
          <div className='min-h-screen min-w-full bg-gray-900 hide-cursor'>
             <CustomCursor />
-            <ShootingStars maxStars={8} />
-            <ParticleBackground particleCount={80} />
+            {/* <ShootingStars maxStars={8} /> */}
+            {/* <ParticleBackground particleCount={80} /> */}
 
             {/* Navigation Bar */}
             <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] glass-effect w-full'>
@@ -500,7 +544,7 @@ export default function Home() {
                                        </svg>
                                     </div>
                                     <span className='text-gray-300'>
-                                       email@example.com
+                                       imnakul44@gmail.com
                                     </span>
                                  </div>
 
@@ -520,11 +564,11 @@ export default function Home() {
                                        </svg>
                                     </div>
                                     <span className='text-gray-300'>
-                                       City, Country
+                                       Meerut, INDIA
                                     </span>
                                  </div>
 
-                                 <div className='flex items-center'>
+                                 {/* <div className='flex items-center'>
                                     <div className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center mr-4'>
                                        <svg
                                           xmlns='http://www.w3.org/2000/svg'
@@ -536,28 +580,20 @@ export default function Home() {
                                        </svg>
                                     </div>
                                     <span className='text-gray-300'>
-                                       +1 234 567 890
+                                       +91 
                                     </span>
-                                 </div>
+                                 </div> */}
                               </div>
 
                               <div className='flex space-x-4 mt-8'>
-                                 {[
-                                    'github',
-                                    'linkedin',
-                                    'twitter',
-                                    'instagram',
-                                 ].map((social, index) => (
+                                 {socials.map((social, index) => (
                                     <a
                                        key={index}
-                                       href='#'
+                                       href={social.url}
+                                       target='_blank'
                                        className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center hover:bg-purple-700/50 transition-colors duration-300'
                                     >
-                                       <img
-                                          src={`https://cdn.simpleicons.org/${social}/white`}
-                                          alt={social}
-                                          className='w-5 h-5'
-                                       />
+                                       {social.icon}
                                     </a>
                                  ))}
                               </div>
@@ -589,6 +625,10 @@ export default function Home() {
                                     </label>
                                     <input
                                        type='text'
+                                       name='name'
+                                       id='name'
+                                       value={formData.name}
+                                       onChange={handleInputChange}
                                        className='w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500'
                                     />
                                  </div>
@@ -599,6 +639,10 @@ export default function Home() {
                                     </label>
                                     <input
                                        type='email'
+                                       name='email'
+                                       id='email'
+                                       value={formData.email}
+                                       onChange={handleInputChange}
                                        className='w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500'
                                     />
                                  </div>
@@ -609,12 +653,17 @@ export default function Home() {
                                     </label>
                                     <textarea
                                        rows='4'
+                                       name='message'
+                                       id='message'
+                                       value={formData.message}
+                                       onChange={handleInputChange}
                                        className='w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500'
                                     ></textarea>
                                  </div>
 
                                  <button
                                     type='submit'
+                                    onClick={handleSubmit}
                                     className='px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-medium rounded-lg hover:from-purple-700 hover:to-pink-600 transition-all duration-300 transform hover:scale-105'
                                  >
                                     Send Message

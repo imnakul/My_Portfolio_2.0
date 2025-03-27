@@ -1,68 +1,111 @@
-"use client";
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef } from 'react'
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [hidden, setHidden] = useState(true);
-  const [clicked, setClicked] = useState(false);
-  const [linkHovered, setLinkHovered] = useState(false);
+   const cursorRef = useRef(null)
 
-  useEffect(() => {
-    const updatePosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setHidden(false);
-    };
+   useEffect(() => {
+      const customCursor = cursorRef.current
 
-    const handleMouseDown = () => setClicked(true);
-    const handleMouseUp = () => setClicked(false);
+      let mouseX = 0,
+         mouseY = 0
+      let cursorX = 0,
+         cursorY = 0
+      let lastX = 0,
+         lastY = 0
+      let dotOffsetX = 0,
+         dotOffsetY = 0
 
-    const handleLinkHoverEvents = () => {
-      document.querySelectorAll("a, button").forEach((el) => {
-        el.addEventListener("mouseenter", () => setLinkHovered(true));
-        el.addEventListener("mouseleave", () => setLinkHovered(false));
-      });
-    };
+      const followCursor = () => {
+         cursorX += (mouseX - cursorX) * 0.2
+         cursorY += (mouseY - cursorY) * 0.2
 
-    const handleMouseLeave = () => setHidden(true);
-    const handleMouseEnter = () => setHidden(false);
+         const velocityX = mouseX - lastX
+         const velocityY = mouseY - lastY
+         const velocity = Math.sqrt(velocityX ** 2 + velocityY ** 2)
 
-    document.addEventListener("mousemove", updatePosition);
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+         const maxOffset = Math.min(20, velocity * 0.9)
+         const angle = Math.atan2(velocityY, velocityX)
 
-    // Run once after first render
-    setTimeout(handleLinkHoverEvents, 1000);
+         dotOffsetX = -maxOffset * Math.cos(angle)
+         dotOffsetY = -maxOffset * Math.sin(angle)
 
-    return () => {
-      document.removeEventListener("mousemove", updatePosition);
-      document.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-    };
-  }, []);
+         dotOffsetX *= Math.max(0.8, 1 - velocity * 0.02)
+         dotOffsetY *= Math.max(0.8, 1 - velocity * 0.02)
 
-  return (
-    <>
-      <div
-        className={`cursor-dot ${hidden ? "opacity-0" : "opacity-100"} ${
-          clicked ? "scale-50" : "scale-100"
-        }`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
-        data-oid="cnl192h"
-      />
+         customCursor.style.transform = `translate(${cursorX - 11}px, ${
+            cursorY - 11
+         }px)`
+         customCursor.style.setProperty('--dot-offset-x', `${dotOffsetX}px`)
+         customCursor.style.setProperty('--dot-offset-y', `${dotOffsetY}px`)
 
-      <div
-        className={`cursor-outline ${hidden ? "opacity-0" : "opacity-100"} ${
-          clicked ? "scale-75" : "scale-100"
-        } ${linkHovered ? "scale-150" : "scale-100"}`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
-        data-oid="xwgkjpj"
-      />
-    </>
-  );
-};
+         lastX = mouseX
+         lastY = mouseY
 
-export default CustomCursor;
+         requestAnimationFrame(followCursor)
+      }
+
+      const handleMouseMove = (e) => {
+         mouseX = e.clientX
+         mouseY = e.clientY
+      }
+
+      document.addEventListener('mousemove', handleMouseMove)
+      followCursor()
+
+      return () => {
+         document.removeEventListener('mousemove', handleMouseMove)
+      }
+   }, [])
+
+   const neonPurple = '#D600FF'
+
+   const cursorStyle = {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: '20px',
+      height: '20px',
+      border: `2px solid ${neonPurple}`,
+      borderRadius: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: 1000,
+      transition: 'transform 0.12s ease',
+      boxShadow: `0 0 12px ${neonPurple}, 0 0 24px ${neonPurple}`, // Stronger glow
+      pointerEvents: 'none',
+      '--dot-offset-x': '0px',
+      '--dot-offset-y': '0px',
+   }
+
+   const dotStyle = {
+      content: "''",
+      position: 'fixed',
+      top: 'calc(50% + var(--dot-offset-y, 0px))',
+      left: 'calc(50% + var(--dot-offset-x, 0px))',
+      width: '6px',
+      height: '6px',
+      backgroundColor: neonPurple,
+      borderRadius: '50%',
+      transform: 'translate(-50%, -50%)',
+      transition: 'transform 0.1s ease-in',
+      boxShadow: `0 0 10px ${neonPurple}, 0 0 20px ${neonPurple}`, // Extra glow
+   }
+
+   useEffect(() => {
+      document.body.style.cursor = 'default'
+      return () => {
+         document.body.style.cursor = 'auto'
+      }
+   }, [])
+
+   return (
+      <>
+         <div ref={cursorRef} style={cursorStyle}>
+            <div style={dotStyle}></div>
+         </div>
+      </>
+   )
+}
+
+export default CustomCursor

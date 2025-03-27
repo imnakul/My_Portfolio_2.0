@@ -183,22 +183,136 @@ export default function Home() {
                                  distance={50}
                                  delay={400}
                               >
-                                 <h3 className='text-2xl font-bold mb-4 text-purple-400'>
-                                    Hello, I'm Nakul
+                                 <h3 className='text-3xl font-bold mb-4 text-purple-400'>
+                                    Hello, I'm Nakul Srivastava
                                  </h3>
                                  <p className='text-gray-300 mb-4 leading-relaxed'>
-                                    I'm a passionate web developer with
-                                    expertise in modern frontend technologies. I
-                                    love creating beautiful, responsive, and
-                                    user-friendly websites that deliver
-                                    exceptional user experiences.
+                                    I'm a passionate web developer who loves
+                                    building beautiful, functional, and
+                                    efficient web applications. I focus on
+                                    crafting seamless user experiences using
+                                    modern frontend technologies.
                                  </p>
-                                 <p className='text-gray-300 leading-relaxed'>
-                                    With a strong foundation in JavaScript,
-                                    React, and Next.js, I build scalable
-                                    applications that combine elegant design
-                                    with efficient functionality.
+                                 <p className='text-gray-300 mb-6 leading-relaxed'>
+                                    With a solid foundation in{' '}
+                                    <span className='text-purple-400 font-medium'>
+                                       JavaScript
+                                    </span>
+                                    <span> and </span>
+                                    <span className='text-purple-400 font-medium'>
+                                       {' '}
+                                       React
+                                    </span>
+                                    {/* , and */}
+                                    {/* <span className='text-purple-400 font-medium'>
+                                       {' '}
+                                       Next.js
+                                    </span> */}
+                                    , I develop scalable and elegant solutions
+                                    that bring ideas to life.
                                  </p>
+
+                                 <h4 className='text-lg font-semibold text-purple-400 mb-2'>
+                                    🧩 My Approach to Problem Solving
+                                 </h4>
+                                 <ul className='list-disc list-inside text-gray-300 mb-6 leading-relaxed'>
+                                    <li>
+                                       Understand the project goal & user
+                                       requirements.
+                                    </li>
+                                    <li>
+                                       Research & explore the best tech stack &
+                                       tools.
+                                    </li>
+                                    <li>
+                                       Create basic mock designs & plan project
+                                       structure.
+                                    </li>
+                                    <li>
+                                       Test new technologies with small demos
+                                       for feasibility.
+                                    </li>
+                                    <li>
+                                       Build core features while learning &
+                                       improving parallelly.
+                                    </li>
+                                    <li>
+                                       Take help from developer communities & AI
+                                       for faster development, optimization &
+                                       solving Issues.
+                                    </li>
+                                 </ul>
+
+                                 {/* //? Onoging Project Section  */}
+                                 {/* <h4 className='text-lg font-semibold text-purple-400 mb-2'>
+                                    🚀 Ongoing Project - Productive Pulse
+                                 </h4>
+                                 <p className='text-gray-300 mb-2 leading-relaxed'>
+                                    <span className='font-medium text-purple-300'>
+                                       Productive Pulse
+                                    </span>{' '}
+                                    is a Daily Productivity Dashboard designed
+                                    to help users manage their time, tasks, and
+                                    thoughts effectively.
+                                 </p>
+                                 <p className='text-gray-300 mb-2 leading-relaxed'>
+                                    <span className='font-semibold text-purple-400'>
+                                       Progress So Far:
+                                    </span>
+                                 </p>
+                                 <ul className='list-disc list-inside text-gray-300 mb-4 leading-relaxed'>
+                                    <li>Landing Page & Dashboard UI</li>
+                                    <li>Pomodoro Timer with Stats & Streaks</li>
+                                    <li>Theme & Background Customization</li>
+                                    <li>Short Notes & Reminder Thoughts</li>
+                                    <li>Authentication & Protected Routes</li>
+                                 </ul>
+                                 <p className='text-gray-300 mb-6 leading-relaxed'>
+                                    <span className='font-semibold text-purple-400'>
+                                       What’s Next:
+                                    </span>
+                                    Implementing persistent state management,
+                                    improving UX, integrating more productivity
+                                    widgets, and preparing for deployment.
+                                 </p> */}
+
+                                 {/* //? Project ON Hold  */}
+                                 {/* <h4 className='text-lg font-semibold text-purple-400 mb-2'>
+                                    ⏸️ Projects On Hold
+                                 </h4>
+                                 <p className='text-gray-300 mb-2 leading-relaxed'>
+                                    <span className='font-medium text-purple-300'>
+                                       Interview Sphere
+                                    </span>{' '}
+                                    – A real-time coding interview platform
+                                    featuring live collaboration, whiteboard,
+                                    session restore, role-based panels, and
+                                    video calling.
+                                 </p>
+                                 <p className='text-gray-300 mb-4 leading-relaxed'>
+                                    Currently paused to focus on productivity
+                                    dashboard & advanced learning. Will resume
+                                    with better planning and technical
+                                    improvements.
+                                 </p> */}
+
+                                 <h4 className='text-lg font-semibold text-purple-400 mb-2'>
+                                    🎯 Currently Learning
+                                 </h4>
+                                 <ul className='list-disc list-inside text-gray-300 mb-2 leading-relaxed'>
+                                    <li>
+                                       TypeScript – For scalable & type-safe
+                                       development
+                                    </li>
+                                    <li>
+                                       Next.js – Used in my current project
+                                       (Productive Pulse)
+                                    </li>
+                                    <li>
+                                       Advanced Tailwind CSS & Animation
+                                       Techniques
+                                    </li>
+                                 </ul>
                               </AnimatedContent>
                            </div>
                         </div>
@@ -297,18 +411,12 @@ export default function Home() {
                                  'Next.js',
                                  'HTML/CSS',
                                  'Tailwind CSS',
-                                 'JavaScript/TypeScript',
+                                 'JavaScript',
                               ],
                            },
                            {
                               name: 'Backend',
-                              skills: [
-                                 'Node.js',
-                                 'Express',
-                                 'Firebase',
-                                 'RESTful APIs',
-                                 'MongoDB',
-                              ],
+                              skills: ['Node.js', 'AppWrite'],
                            },
                            {
                               name: 'Tools',
@@ -316,8 +424,8 @@ export default function Home() {
                                  'Git',
                                  'GitHub',
                                  'VS Code',
-                                 'Figma',
                                  'Vercel',
+                                 'Canva',
                               ],
                            },
                            {
@@ -326,7 +434,6 @@ export default function Home() {
                                  'Responsive Design',
                                  'UI/UX Principles',
                                  'Animations',
-                                 'Accessibility',
                               ],
                            },
                            {
@@ -336,16 +443,15 @@ export default function Home() {
                                  'Communication',
                                  'Team Collaboration',
                                  'Time Management',
+                                 'Code Debugging',
                               ],
                            },
                            {
                               name: 'Learning',
                               skills: [
-                                 'GraphQL',
-                                 'React Native',
-                                 'AWS',
-                                 'Docker',
-                                 'Three.js',
+                                 'Next.js',
+                                 'TypeScript',
+                                 'AI Models/Agents',
                               ],
                            },
                         ].map((category, index) => (
@@ -387,7 +493,7 @@ export default function Home() {
                </div>
             </FadeContent>
 
-            {/* Projects Section */}
+            {/* //? Projects Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -414,9 +520,9 @@ export default function Home() {
                            {
                               title: 'Portfolio Website',
                               description:
-                                 'A modern portfolio website built with Next.js and Tailwind CSS featuring smooth animations and interactive elements.',
-                              tech: ['Next.js', 'Tailwind CSS', 'React'],
-                              image: 'https://via.placeholder.com/600x400/111/333?text=Portfolio',
+                                 'A modern portfolio website built with React and Tailwind CSS featuring smooth animations and interactive elements.',
+                              tech: ['React', 'Tailwind CSS'],
+                              image: '/Portfolio.png',
                            },
                            {
                               title: 'E-commerce Platform',

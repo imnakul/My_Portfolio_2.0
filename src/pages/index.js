@@ -1,113 +1,218 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+// import Image from 'next/image'
+// import { Geist, Geist_Mono } from 'next/font/google'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import ShootingStars from '@/components/ui/ShootingStars'
+import AnimatedBackground from '@/components/ui/AnimatedBackground'
+import GlowingEffect from '@/components/ui/GlowingEffect'
+import FadeContent from '@/components/ui/FadeContent/FadeContent'
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//    variable: '--font-geist-sans',
+//    subsets: ['latin'],
+// })
+
+// const geistMono = Geist_Mono({
+//    variable: '--font-geist-mono',
+//    subsets: ['latin'],
+// })
+const TABS = [
+   { id: 'about-me', name: 'About' },
+   { id: 'tech-stack', name: 'Tech' },
+   { id: 'projects', name: 'Project' },
+   { id: 'contact-me', name: 'Contact' },
+]
+
+const slugs = [
+   'javascript',
+   'tailwindcss',
+   'react',
+   'html5',
+   'css3',
+   'nodedotjs',
+   'nextdotjs',
+   'firebase',
+   'vercel',
+   'git',
+   'github',
+]
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+   const handleTabClick = (id) => {
+      const element = document.getElementById(id)
+      if (element) {
+         element.scrollIntoView({ behavior: 'smooth' })
+      }
+   }
+
+   const images = slugs.map(
+      (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+   )
+
+   return (
+      <>
+         <div className='min-h-screen min-w-full bg-gray-900'>
+            <ShootingStars />
+            <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm w-full'>
+               <div className='relative flex flex-row items-center justify-center gap-4 w-full'>
+                  <span className='absolute left-3 bg-purple-800 text-purple-300 rounded-md p-2 filter-glow'>
+                     NAKUL SRIVASTAVA
+                  </span>
+
+                  <AnimatedBackground
+                     defaultValue={TABS[0]} // Remove this if you don't want any tab to be highlighted by default.
+                     className='rounded-md bg-zinc-100 dark:bg-purple-600'
+                     transition={{
+                        type: 'spring',
+                        bounce: 0.2,
+                        duration: 0.3,
+                     }}
+                     enableHover
+                  >
+                     {TABS.map((tab, index) => (
+                        <button
+                           key={index}
+                           //  data-id={tab}
+                           data-id={tab.id}
+                           type='button'
+                           onClick={() => handleTabClick(tab.id)}
+                           className='px-2 py-0.5 inline-flex items-center justify-center text-center text-zinc-800 transition-transform active:scale-[0.98] dark:text-zinc-50 text-base'
+                        >
+                           {/* {tab} */}
+                           {tab.name}
+                        </button>
+                     ))}
+                  </AnimatedBackground>
+               </div>
+            </div>
+
+            {/* //? About Me Section  */}
+            <FadeContent
+               blur={true}
+               duration={1000}
+               easing='ease-out'
+               initialOpacity={0}
+            >
+               <div
+                  id='about-me'
+                  className='flex items-center justify-center min-h-[90vh] border border-green-500 mb-1 mt-[10vh] pt-[10vh] pl-[20vw] w-full'
+               >
+                  {/* <h1>About Me</h1> */}
+                  <ul className='grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-5 md:grid-rows-3 lg:gap-4 xl:h-[90vh] xl:grid-rows-4 '>
+                     {/* //? mere lie 4 row, 12 col //? 1st col - 1  */}
+                     <li
+                        className={`mt-2 list-none md:[grid-area:1/1/2/7] xl:[grid-area:1/1/3/4] min-w-2xl `}
+                     >
+                        <div
+                           className={`relative h-full rounded-xl border p-3 md:rounded-xl md:p-1 `}
+                        >
+                           <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                           />
+                           About Me
+                        </div>
+                     </li>
+                     <li className='mt-2 list-none md:[grid-area:1/7/2/13] xl:[grid-area:1/4/3/5]'>
+                        <div
+                           className={`relative h-full rounded-xl border p-3 md:rounded-xl md:p-1 `}
+                        >
+                           <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                           />
+                           <img
+                              src='/profile.jpg'
+                              alt=''
+                              className='size-full rounded-lg shadow-md hover:shadow-lg'
+                           ></img>
+                        </div>
+                     </li>
+
+                     {/* //? 1st col - 2 */}
+                     <li
+                        className={` list-none md:[grid-area:1/7/2/13] xl:[grid-area:3/1/4/5]`}
+                     >
+                        <div
+                           className={`relative h-full rounded-xl border p-2  md:rounded-xl md:p-3`}
+                        >
+                           <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                           />
+                           <span className='text-sm font-bold space-x-1'>
+                              Tech Stacks I use :
+                           </span>
+                           <div className='mt-4 flex items-end justify-center bg-gradient-to-b from-gray-800 to-sky-800 rounded-lg p-2 '>
+                              {images.map((image, i) => (
+                                 <img
+                                    src={image}
+                                    alt=''
+                                    key={i}
+                                    className='w-12 h-12 mr-4 rounded-lg shadow-md hover:shadow-lg'
+                                 ></img>
+                              ))}
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </FadeContent>
+
+            {/* //? Tech Stack Section  */}
+            {}
+            <FadeContent
+               blur={true}
+               duration={1000}
+               easing='ease-out'
+               initialOpacity={0}
+            >
+               <div
+                  id='tech-stack'
+                  className='flex items-center justify-center min-h-[100vh] border border-pink-500 mb-1'
+               >
+                  <h1>TechStack</h1>
+               </div>
+            </FadeContent>
+
+            {/* //? Projects Section  */}
+            <FadeContent
+               blur={true}
+               duration={1000}
+               easing='ease-out'
+               initialOpacity={0}
+            >
+               <div
+                  id='projects'
+                  className='flex items-center justify-center min-h-[100vh] border border-yellow-500 mb-1'
+               >
+                  <h1>Projects</h1>
+               </div>
+            </FadeContent>
+
+            {/* //? cONTATC Section  */}
+            <FadeContent
+               blur={true}
+               duration={1000}
+               easing='ease-out'
+               initialOpacity={0}
+            >
+               <div
+                  id='contact-me'
+                  className='flex items-center justify-center min-h-[100vh] border border-purple-500'
+               >
+                  <h1>Contact Me</h1>
+               </div>
+            </FadeContent>
+         </div>
+      </>
+   )
 }

@@ -116,8 +116,8 @@ export default function Home() {
 
             {/* Navigation Bar */}
             <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] glass-effect w-full'>
-               <div className='relative flex flex-row items-center justify-between px-6 w-full max-w-7xl'>
-                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 px-4 filter-glow font-bold tracking-wider'>
+               <div className='relative flex flex-row items-center justify-between md:px-6 px-2 w-full max-w-7xl'>
+                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2'>
                      NAKUL SRIVASTAVA
                   </span>
 
@@ -137,7 +137,7 @@ export default function Home() {
                            data-id={tab.id}
                            type='button'
                            onClick={() => handleTabClick(tab.id)}
-                           className='px-4 py-2 inline-flex items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium'
+                           className='md:px-4 px-2 py-2 inline-flex items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium'
                         >
                            {tab.name}
                         </button>
@@ -430,11 +430,7 @@ export default function Home() {
                            },
                            {
                               name: 'Design',
-                              skills: [
-                                 'Responsive Design',
-                                 'UI/UX Principles',
-                                 'Animations',
-                              ],
+                              skills: ['Responsive Design', 'UI/UX Principles'],
                            },
                            {
                               name: 'Soft Skills',

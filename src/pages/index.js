@@ -7,6 +7,7 @@ import CustomCursor from '@/components/ui/CustomCursor'
 import ParticleBackground from '@/components/ui/ParticleBackground'
 import { useEffect, useState } from 'react'
 import { RiTelegram2Fill, RiGithubFill, RiLinkedinFill } from 'react-icons/ri'
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 
 const TABS = [
    { id: 'about-me', name: 'About' },
@@ -109,8 +110,9 @@ export default function Home() {
 
    return (
       <>
-         <div className='min-h-screen min-w-full bg-gray-900 hide-cursor'>
-            <CustomCursor />
+         {/* <div className='min-h-screen min-w-full bg-gray-900 hide-cursor'> */}
+         <div className='min-h-screen min-w-full bg-gray-900'>
+            {/* <CustomCursor /> */}
             {/* <ShootingStars maxStars={8} /> */}
             {/* <ParticleBackground particleCount={80} /> */}
 
@@ -301,6 +303,10 @@ export default function Home() {
                                  </h4>
                                  <ul className='list-disc list-inside text-gray-300 mb-2 leading-relaxed'>
                                     <li>
+                                       GenAI – For Integrating AI to my web
+                                       development
+                                    </li>
+                                    <li>
                                        TypeScript – For scalable & type-safe
                                        development
                                     </li>
@@ -318,7 +324,7 @@ export default function Home() {
                         </div>
 
                         <div>
-                           <div className='glass-effect rounded-xl p-4 h-full card-glow'>
+                           <div className='flex items-center justify-center glass-effect rounded-xl p-4 h-full card-glow'>
                               <GlowingEffect
                                  spread={40}
                                  glow={true}
@@ -335,7 +341,7 @@ export default function Home() {
                                  <img
                                     src='/profile.jpg'
                                     alt='Nakul Srivastava'
-                                    className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300'
+                                    className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300 loading-lazy'
                                  />
                               </AnimatedContent>
                            </div>
@@ -457,7 +463,7 @@ export default function Home() {
                               distance={50}
                               delay={400 + index * 100}
                            >
-                              <div className='glass-effect rounded-xl p-6 h-full card-glow'>
+                              <div className='glass-effect rounded-xl p-6 h-full card-glow '>
                                  <GlowingEffect
                                     spread={40}
                                     glow={true}
@@ -514,28 +520,35 @@ export default function Home() {
                      <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                         {[
                            {
-                              title: 'Portfolio Website',
+                              title: 'Portfolio v1.0',
                               description:
                                  'A modern portfolio website built with React and Tailwind CSS featuring smooth animations and interactive elements.',
                               tech: ['React', 'Tailwind CSS'],
                               image: '/Portfolio.png',
                            },
                            {
-                              title: 'E-commerce Platform',
+                              title: 'FlexiTASKS',
                               description:
                                  'A full-featured e-commerce platform with product listings, cart functionality, and secure checkout process.',
                               tech: ['React', 'Node.js', 'MongoDB'],
                               image: 'https://via.placeholder.com/600x400/111/333?text=E-commerce',
                            },
                            {
-                              title: 'Task Management App',
+                              title: 'HouseMarketPlace',
                               description:
                                  'A productivity app that helps users organize tasks, set priorities, and track progress with intuitive UI.',
                               tech: ['React', 'Firebase', 'Tailwind CSS'],
                               image: 'https://via.placeholder.com/600x400/111/333?text=Task+App',
                            },
                            {
-                              title: 'Weather Dashboard',
+                              title: 'Productive Pulse',
+                              description:
+                                 'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
+                              tech: ['JavaScript', 'Weather API', 'CSS'],
+                              image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
+                           },
+                           {
+                              title: 'Interview Sphere',
                               description:
                                  'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
                               tech: ['JavaScript', 'Weather API', 'CSS'],
@@ -548,18 +561,80 @@ export default function Home() {
                               distance={50}
                               delay={400 + index * 100}
                            >
-                              <div className='glass-effect rounded-xl overflow-hidden card-glow h-full'>
-                                 <GlowingEffect
+                              <CardContainer className='inter-var w-full'>
+                                 <CardBody className=' relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-purple-950/20 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[35rem] h-auto rounded-xl p-6 border card-glow'>
+                                    {/* sm:w-full */}
+                                    {/* sm:w-[30rem] */}
+                                    <CardItem
+                                       translateZ='50'
+                                       className='text-xl font-bold mb-2 text-purple-400  '
+                                    >
+                                       {project.title}
+                                    </CardItem>
+                                    <CardItem
+                                       as='p'
+                                       translateZ='60'
+                                       className='text-neutral-500 text-sm max-w-lg mt-2 dark:text-neutral-300'
+                                    >
+                                       {project.description}
+                                    </CardItem>
+                                    <CardItem
+                                       translateZ='100'
+                                       className='w-full mt-4'
+                                    >
+                                       <img
+                                          src={project.image}
+                                          alt={project.title}
+                                          height='1000'
+                                          width='1000'
+                                          className='h-72 w-full object-cover rounded-xl group-hover/card:shadow-xl'
+                                       />
+                                    </CardItem>
+                                    <div className='flex flex-col gap-5 mt-5'>
+                                       <div className='flex flex-wrap gap-2 mt-4'>
+                                          {project.tech.map((tech, i) => (
+                                             <CardItem
+                                                translateZ={60}
+                                                key={i}
+                                                className='px-3 py-1 bg-purple-900/50 text-purple-200 text-sm rounded-full'
+                                             >
+                                                {tech}
+                                             </CardItem>
+                                          ))}
+                                       </div>
+                                       <div className='flex justify-between items-center'>
+                                          <CardItem
+                                             translateZ={20}
+                                             // as={Link}
+                                             href='https://twitter.com/mannupaaji'
+                                             target='__blank'
+                                             className='px-4 py-2 rounded-xl text-xs font-normal dark:text-white'
+                                          >
+                                             More Info →
+                                          </CardItem>
+                                          <CardItem
+                                             translateZ={20}
+                                             as='button'
+                                             className='px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold'
+                                          >
+                                             Visit
+                                          </CardItem>
+                                       </div>
+                                    </div>
+                                 </CardBody>
+                              </CardContainer>
+                              {/* <div className='glass-effect rounded-xl overflow-hidden card-glow h-full'> */}
+                              {/* <GlowingEffect
                                     spread={40}
                                     glow={true}
                                     disabled={false}
                                     proximity={64}
                                     inactiveZone={0.01}
-                                 />
-                                 <img
+                                 /> */}
+                              {/* <img
                                     src={project.image}
                                     alt={project.title}
-                                    className='w-full h-48 object-cover'
+                                    className='w-full h-64 object-cover'
                                  />
                                  <div className='p-6'>
                                     <h3 className='text-xl font-bold mb-2 text-purple-400'>
@@ -578,8 +653,8 @@ export default function Home() {
                                           </span>
                                        ))}
                                     </div>
-                                 </div>
-                              </div>
+                                 </div> */}
+                              {/* </div> */}
                            </AnimatedContent>
                         ))}
                      </div>

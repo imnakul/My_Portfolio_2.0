@@ -530,29 +530,30 @@ export default function Home() {
                               title: 'FlexiTASKS',
                               description:
                                  'A full-featured e-commerce platform with product listings, cart functionality, and secure checkout process.',
-                              tech: ['React', 'Node.js', 'MongoDB'],
-                              image: 'https://via.placeholder.com/600x400/111/333?text=E-commerce',
+                              tech: ['React', 'Redux Toolkit', 'Tailwind CSS'],
+                              image: '/FlexiTasks.jpeg',
                            },
                            {
                               title: 'HouseMarketPlace',
                               description:
                                  'A productivity app that helps users organize tasks, set priorities, and track progress with intuitive UI.',
                               tech: ['React', 'Firebase', 'Tailwind CSS'],
-                              image: 'https://via.placeholder.com/600x400/111/333?text=Task+App',
+                              image: '/HouseMarketplace.jpg',
                            },
                            {
                               title: 'Productive Pulse',
                               description:
                                  'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
                               tech: ['JavaScript', 'Weather API', 'CSS'],
-                              image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
+                              image: '/ProductivePulse3.png',
                            },
+                           // image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
                            {
                               title: 'Interview Sphere',
                               description:
                                  'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
                               tech: ['JavaScript', 'Weather API', 'CSS'],
-                              image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
+                              image: '/InterviewSphere.jpeg',
                            },
                         ].map((project, index) => (
                            <AnimatedContent

@@ -1,13 +1,16 @@
 import OpenAI from 'openai'
-import dotenv from 'dotenv'
-dotenv.config({ path: '../.env' })
 
 const openai = new OpenAI({
    apiKey: process.env.GEMINI_API_KEY,
    baseURL: 'https://generativelanguage.googleapis.com/v1beta/openai/',
 })
 
-const system_prompt = `
+export default async function handler(req, res) {
+   if (req.method !== 'POST') return res.status(405).end('Only POST allowed')
+
+   const { userPrompt } = req.body
+
+   const system_prompt = `
 Your Intro: You are Nakul's Cognitive Twin — a reflection of his mind. 
 A friendly, smart, and helpful AI persona that knows everything Nakul shares with you.
 You have access to all the information Nakul has shared with you. 
@@ -208,20 +211,24 @@ Input: "If Nakul knows this new Technology GenAI, then tell me about how much he
 
 `
 
-const response = await openai.chat.completions.create({
-   model: 'gemini-2.0-flash',
-   //    max_completion_tokens: 200,
-   max_tokens: 300,
-   temperature: 0.8,
-   top_p: 0.9,
-   messages: [
-      { role: 'system', content: system_prompt },
-      {
-         role: 'user',
-         content: 'How about if we ask him tricky IQ Quesrion? ',
-      },
-   ],
-})
+   try {
+      const response = await openai.chat.completions.create({
+         model: 'gemini-2.0-flash',
+         max_tokens: 200,
+         // temperature: 0.8,
+         // top_p: 0.9,
+         messages: [
+            { role: 'system', content: system_prompt },
+            { role: 'user', content: userPrompt },
+         ],
+      })
 
-const result = response.choices[0].message.content
-console.log('Result: ', result)
+      const result = response.choices[0].message.content
+      res.status(200).json({ result })
+   } catch (error) {
+      console.error('Gemini Error:', error)
+      res.status(500).json({ error: 'Something went wrong with Gemini.' })
+   }
+}
+
+

@@ -121,19 +121,6 @@ export default function Home() {
       }
    }
 
-   const calendarRef = useRef(null)
-
-   useEffect(() => {
-      const container = calendarRef.current
-      if (container) {
-         // Wait a tiny bit to ensure SVG is rendered
-         setTimeout(() => {
-            container.scrollLeft =
-               (container.scrollWidth - container.clientWidth) / 2
-         }, 10) // Adjust delay if needed
-      }
-   }, [])
-
    useEffect(() => {
       const handleScroll = () => {
          const sections = TABS.map((tab) => tab.id)
@@ -791,7 +778,6 @@ export default function Home() {
                            </div>
                         </AnimatedContent>
 
-                        {/* Right Side: 2fr split into 2 rows */}
                         <AnimatedContent
                            direction='horizontal'
                            distance={50}
@@ -834,10 +820,7 @@ export default function Home() {
                                  <h3 className='text-2xl font-bold mb-4 text-purple-400'>
                                     Github Timeline
                                  </h3>
-                                 <div
-                                    className='w-full max-w-[500px] mx-auto'
-                                    ref={calendarRef}
-                                 >
+                                 <div className='w-full max-w-[500px] mx-auto'>
                                     <GitHubCalendar username='imnakul' />
                                  </div>
                               </div>
@@ -865,31 +848,31 @@ export default function Home() {
                         distance={50}
                         delay={300}
                      >
-                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                        <h2 className='text-4xl font-bold mb-6 gradient-text'>
                            Echo of Nakul
                         </h2>
                      </AnimatedContent>
 
                      <div className='grid grid-cols-1'>
-                        <AnimatedContent
+                        {/* <AnimatedContent
                            direction='horizontal'
                            distance={50}
                            delay={400}
-                        >
-                           <div className='glass-effect rounded-xl p-6 card-glow h-full'>
-                              <GlowingEffect
-                                 spread={40}
-                                 glow={true}
-                                 disabled={false}
-                                 proximity={64}
-                                 inactiveZone={0.01}
-                              />
-                              <h3 className='text-2xl font-bold mb-6 text-purple-400'>
-                                 🧠 Nakul's Cognitive Twin
-                              </h3>
-                              <CognitiveTwin />
-                           </div>
-                        </AnimatedContent>
+                        > */}
+                        <div className='glass-effect rounded-xl card-glow p-6 h-full '>
+                           <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                           />
+                           <h3 className='text-2xl font-bold mb-4 text-purple-400 '>
+                              🧠 Nakul's Cognitive Twin
+                           </h3>
+                           <CognitiveTwin />
+                        </div>
+                        {/* </AnimatedContent> */}
                      </div>
                   </div>
                </div>

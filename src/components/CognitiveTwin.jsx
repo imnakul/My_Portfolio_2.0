@@ -34,9 +34,9 @@ export default function CognitiveTwin() {
    }
 
    return (
-      <div className='max-w-xl mx-auto p-4 bg-purple-950/50 rounded-xl shadow-lg'>
-         <h2 className='text-xl font-bold mb-4'>🧠 Nakul's Cognitive Twin</h2>
-         <div className='h-64 overflow-y-auto mb-4 border p-2 bg-gray-700 rounded-md'>
+      <div className='max-w-3xl mx-auto p-4 bg-purple-950/50 rounded-xl shadow-lg'>
+         {/* <h2 className='text-xl font-bold mb-4'>🧠 Nakul's Cognitive Twin</h2> */}
+         <div className='h-80 overflow-y-auto mb-4 border p-2 bg-gray-700 rounded-md'>
             {messages.map((msg, i) => (
                <div
                   key={i}

@@ -5,14 +5,18 @@ import FadeContent from '@/components/ui/FadeContent/FadeContent'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ParticleBackground from '@/components/ui/ParticleBackground'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { RiTelegram2Fill, RiGithubFill, RiLinkedinFill } from 'react-icons/ri'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
+import CognitiveTwin from '@/components/CognitiveTwin'
+import GitHubCalendar from 'react-github-calendar'
 
 const TABS = [
    { id: 'about-me', name: 'About' },
    { id: 'tech-stack', name: 'Tech' },
    { id: 'projects', name: 'Projects' },
+   { id: 'stats', name: 'Stats' },
+   { id: 'ai', name: 'Cognitive Twin' },
    { id: 'contact-me', name: 'Contact' },
 ]
 
@@ -28,6 +32,64 @@ const slugs = [
    'vercel',
    'git',
    'github',
+]
+
+const badges = [
+   {
+      name: 'Total time Coded',
+      link: (
+         <a href='https://wakatime.com/@95d7d7a3-0d63-469c-8e4c-b813f5ad1741'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741.svg?style=for-the-badge'
+               alt='Total time coded since Mar 5 2025'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'Portfolio v2.0',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4abe9575-4c88-492a-ac69-e9e7b1c97f9e'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4abe9575-4c88-492a-ac69-e9e7b1c97f9e.svg/?style=for-the-badge'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'Productive Pulse',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/45eb53fd-b612-4ba4-8902-da47b6e67f25'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/45eb53fd-b612-4ba4-8902-da47b6e67f25.svg?style=for-the-badge'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'FlexiTasks',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/0caf67c7-d80f-4574-8f5f-e41afe446ac8'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/0caf67c7-d80f-4574-8f5f-e41afe446ac8.svg?style=for-the-badge'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'Cognitive Twin',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1.svg?style=for-the-badge'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
 ]
 
 const socials = [
@@ -58,6 +120,19 @@ export default function Home() {
          setActiveSection(id)
       }
    }
+
+   const calendarRef = useRef(null)
+
+   useEffect(() => {
+      const container = calendarRef.current
+      if (container) {
+         // Wait a tiny bit to ensure SVG is rendered
+         setTimeout(() => {
+            container.scrollLeft =
+               (container.scrollWidth - container.clientWidth) / 2
+         }, 10) // Adjust delay if needed
+      }
+   }, [])
 
    useEffect(() => {
       const handleScroll = () => {
@@ -148,7 +223,7 @@ export default function Home() {
                </div>
             </div>
 
-            {/* About Me Section */}
+            {/*//? About Me Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -386,7 +461,7 @@ export default function Home() {
                </div>
             </FadeContent>
 
-            {/* Tech Stack Section */}
+            {/*//? Tech Stack Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -563,7 +638,7 @@ export default function Home() {
                               delay={400 + index * 100}
                            >
                               <CardContainer className='inter-var w-full'>
-                                 <CardBody className=' relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-purple-950/20 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[35rem] h-auto rounded-xl p-6 border card-glow'>
+                                 <CardBody className=' relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-purple-950/20 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[35rem] h-auto rounded-xl p-6 border card-glow '>
                                     {/* sm:w-full */}
                                     {/* sm:w-[30rem] */}
                                     <CardItem
@@ -663,7 +738,164 @@ export default function Home() {
                </div>
             </FadeContent>
 
-            {/* Contact Section */}
+            {/* //? Stats Section */}
+            <FadeContent
+               blur={true}
+               duration={1000}
+               easing='ease-out'
+               initialOpacity={0}
+            >
+               <div
+                  id='stats'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+               >
+                  <div className='max-w-7xl w-full'>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
+                     >
+                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                           Stats
+                        </h2>
+                     </AnimatedContent>
+
+                     <div className='grid [grid-template-columns:3fr_2fr] gap-8'>
+                        {/* Left Side: WakaBoard (1fr) */}
+                        <AnimatedContent
+                           direction='horizontal'
+                           distance={50}
+                           delay={400}
+                        >
+                           <div className='glass-effect rounded-xl p-6 card-glow h-full'>
+                              <GlowingEffect
+                                 spread={40}
+                                 glow={true}
+                                 disabled={false}
+                                 proximity={64}
+                                 inactiveZone={0.01}
+                              />
+                              <h3 className='text-2xl font-bold mb-2 text-purple-400'>
+                                 WakaBoard Stats
+                              </h3>
+                              <div className='h-full flex flex-col justify-center '>
+                                 <figure>
+                                    <embed src='https://wakatime.com/share/@devNakul/0175c8d3-c277-4deb-a2b9-ad139ded0f22.svg' />
+                                 </figure>
+
+                                 {/* <img
+                                    src='https://github-readme-stats.vercel.app/api/top-langs/?username=imnakul&layout=compact&theme=radical'
+                                    className=''
+                                 /> */}
+                              </div>
+                           </div>
+                        </AnimatedContent>
+
+                        {/* Right Side: 2fr split into 2 rows */}
+                        <AnimatedContent
+                           direction='horizontal'
+                           distance={50}
+                           delay={500}
+                           reverse={true}
+                        >
+                           <div className='grid grid-rows-2 gap-4 h-full'>
+                              {/* Badges */}
+                              <div className='glass-effect rounded-xl p-4 card-glow h-full'>
+                                 <GlowingEffect
+                                    spread={40}
+                                    glow={true}
+                                    disabled={false}
+                                    proximity={64}
+                                    inactiveZone={0.01}
+                                 />
+                                 <h3 className='text-2xl font-bold mb-4 text-purple-400'>
+                                    Badges Since Mar 5 2025
+                                 </h3>
+                                 {badges.map((badge, i) => (
+                                    <div
+                                       key={i}
+                                       className='flex items-center justify-between gap-4 mb-4'
+                                    >
+                                       {badge.name}
+                                       <div>{badge.link}</div>
+                                    </div>
+                                 ))}
+                              </div>
+
+                              {/* GitHub Timeline */}
+                              <div className='glass-effect rounded-xl p-4 card-glow h-full'>
+                                 <GlowingEffect
+                                    spread={40}
+                                    glow={true}
+                                    disabled={false}
+                                    proximity={64}
+                                    inactiveZone={0.01}
+                                 />
+                                 <h3 className='text-2xl font-bold mb-4 text-purple-400'>
+                                    Github Timeline
+                                 </h3>
+                                 <div
+                                    className='w-full max-w-[500px] mx-auto'
+                                    ref={calendarRef}
+                                 >
+                                    <GitHubCalendar username='imnakul' />
+                                 </div>
+                              </div>
+                           </div>
+                        </AnimatedContent>
+                     </div>
+                  </div>
+               </div>
+            </FadeContent>
+
+            {/* //? Cognitive Twin Section */}
+            <FadeContent
+               blur={true}
+               duration={1000}
+               easing='ease-out'
+               initialOpacity={0}
+            >
+               <div
+                  id='ai'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+               >
+                  <div className='max-w-7xl w-full'>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
+                     >
+                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                           Echo of Nakul
+                        </h2>
+                     </AnimatedContent>
+
+                     <div className='grid grid-cols-1'>
+                        <AnimatedContent
+                           direction='horizontal'
+                           distance={50}
+                           delay={400}
+                        >
+                           <div className='glass-effect rounded-xl p-6 card-glow h-full'>
+                              <GlowingEffect
+                                 spread={40}
+                                 glow={true}
+                                 disabled={false}
+                                 proximity={64}
+                                 inactiveZone={0.01}
+                              />
+                              <h3 className='text-2xl font-bold mb-6 text-purple-400'>
+                                 🧠 Nakul's Cognitive Twin
+                              </h3>
+                              <CognitiveTwin />
+                           </div>
+                        </AnimatedContent>
+                     </div>
+                  </div>
+               </div>
+            </FadeContent>
+
+            {/* //? Contact Section */}
             <FadeContent
                blur={true}
                duration={1000}
@@ -854,7 +1086,7 @@ export default function Home() {
                </div>
             </FadeContent>
 
-            {/* Footer */}
+            {/* //? Footer */}
             <div className='glass-effect py-6 text-center'>
                <p className='text-gray-400'>
                   © {new Date().getFullYear()} Nakul Srivastava. All rights

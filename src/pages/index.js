@@ -181,7 +181,7 @@ export default function Home() {
             {/* Navigation Bar */}
             <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] glass-effect w-full'>
                <div className='relative flex flex-row items-center justify-between md:px-6 px-2 w-full max-w-7xl'>
-                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2'>
+                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2 font-serif'>
                      NAKUL SRIVASTAVA
                   </span>
 
@@ -566,7 +566,7 @@ export default function Home() {
             >
                <div
                   id='projects'
-                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full '
                >
                   <div className='max-w-7xl w-full'>
                      <AnimatedContent
@@ -579,7 +579,7 @@ export default function Home() {
                         </h2>
                      </AnimatedContent>
 
-                     <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                     <div className='grid grid-cols-1 md:grid-cols-2 sm:gap-4 gap-8'>
                         {[
                            {
                               title: 'Portfolio v1.0',
@@ -627,7 +627,7 @@ export default function Home() {
                               <CardContainer className='inter-var w-full'>
                                  <CardBody className=' relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-purple-950/20 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[35rem] h-auto rounded-xl p-6 border card-glow '>
                                     {/* sm:w-full */}
-                                    {/* sm:w-[30rem] */}
+                                    {/* sm:w-[35rem] */}
                                     <CardItem
                                        translateZ='50'
                                        className='text-xl font-bold mb-2 text-purple-400  '

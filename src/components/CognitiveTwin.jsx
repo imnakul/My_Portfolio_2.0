@@ -85,15 +85,15 @@ export default function CognitiveTwin() {
                      key={i}
                      className={`mb-2 ${
                         msg.role === 'user'
-                           ? 'text-right text-purple-300'
-                           : 'text-left text-emerald-300 font-monospace'
+                           ? 'text-right text-purple-300 '
+                           : 'text-left text-indigo-300 '
                      }`}
                   >
                      <span
-                        className={`inline-block px-3 py-1 max-w-prose rounded-lg ${
+                        className={`inline-block px-3 py-1 max-w-prose rounded-lg  ${
                            msg.role === 'user'
-                              ? 'bg-[#2c133a]'
-                              : '  bg-[#0c2518]'
+                              ? 'bg-[#2c133a]  border border-purple-600'
+                              : '  bg-[#160f34] border border-indigo-600 '
                         } p-4 shadow-md`}
                      >
                         <ReactMarkdown

@@ -502,16 +502,15 @@ export default function Home() {
                                  </h4>
                                  <ul className='list-disc list-inside text-gray-300 mb-2 leading-relaxed'>
                                     <li>
-                                       GenAI – For Integrating AI to my web
-                                       development
+                                       GenAI – Integrating AI in Web Projects
                                     </li>
                                     <li>
                                        TypeScript – For scalable & type-safe
                                        development
                                     </li>
                                     <li>
-                                       Next.js – Used in my current project
-                                       (Productive Pulse)
+                                       Next.js – Using in my current project
+                                       (Portfolio)
                                     </li>
                                     <li>
                                        Advanced Tailwind CSS & Animation
@@ -720,18 +719,24 @@ export default function Home() {
                                  'A modern portfolio website built with React and Tailwind CSS featuring smooth animations and interactive elements.',
                               tech: ['React', 'Tailwind CSS'],
                               image: '/Portfolio.png',
+                              link: 'https://nakul-srivastava-portfolio.vercel.app/',
+                              info: '',
+                              status: 'Live',
                            },
                            {
                               title: 'FlexiTASKS',
                               description:
-                                 'A full-featured e-commerce platform with product listings, cart functionality, and secure checkout process.',
+                                 'Customizable Tasks Responsive WebApp - Feature Rich yet Minimal with Beautiful Consistent UI/UX',
                               tech: [
                                  'React',
-                                 'Redux Toolkit',
+                                 'Redux',
                                  'Tailwind CSS',
                                  'FramerMotion',
                               ],
                               image: '/FlexiTasks.jpeg',
+                              link: 'https://flexitasks.vercel.app/',
+                              info: '',
+                              status: 'Live',
                            },
                            {
                               title: 'HouseMarketPlace',
@@ -739,11 +744,14 @@ export default function Home() {
                                  'A productivity app that helps users organize tasks, set priorities, and track progress with intuitive UI.',
                               tech: ['React', 'Firebase', 'Tailwind CSS'],
                               image: '/HouseMarketplace.jpg',
+                              link: 'https://house-marketplace-webapp.vercel.app/',
+                              info: '',
+                              status: 'Live',
                            },
                            {
                               title: 'Productive Pulse',
                               description:
-                                 'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
+                                 'Your one stop solution to increase your productivity flow - Single dashboard with Notes, todos, Reminders, Pomodoro Timer, AI Features.',
                               tech: [
                                  'React',
                                  'Redux',
@@ -751,12 +759,15 @@ export default function Home() {
                                  'Tailwind CSS',
                               ],
                               image: '/ProductivePulse3.png',
+                              link: '',
+                              info: '',
+                              status: 'Coming Soon - 80% Done',
                            },
                            // image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
                            {
                               title: 'Interview Sphere',
                               description:
-                                 'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
+                                 'Collaborative Interview Platform with collaborative code editor and canvas with Video,chat support. ',
                               tech: [
                                  'React',
                                  'Redux',
@@ -764,6 +775,9 @@ export default function Home() {
                                  'Tailwind CSS',
                               ],
                               image: '/InterviewSphere.jpeg',
+                              link: '',
+                              info: '',
+                              status: 'On Hold - 60% Done',
                            },
                         ].map((project, index) => (
                            <AnimatedContent
@@ -823,13 +837,35 @@ export default function Home() {
                                           >
                                              More Info →
                                           </CardItem>
-                                          <CardItem
-                                             translateZ={20}
-                                             as='button'
-                                             className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold'
-                                          >
-                                             Visit
-                                          </CardItem>
+                                          {project.status === 'Live' ? (
+                                             <CardItem
+                                                translateZ={20}
+                                                as='button'
+                                                className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold '
+                                                onClick={() =>
+                                                   window.open(
+                                                      project.link,
+                                                      '_blank'
+                                                   )
+                                                }
+                                             >
+                                                Visit Live
+                                             </CardItem>
+                                          ) : (
+                                             <CardItem
+                                                translateZ={20}
+                                                as='button'
+                                                className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold opacity-60'
+                                                onClick={() =>
+                                                   window.open(
+                                                      project.link,
+                                                      '_blank'
+                                                   )
+                                                }
+                                             >
+                                                {project.status}
+                                             </CardItem>
+                                          )}
                                        </div>
                                     </div>
                                  </CardBody>

@@ -97,6 +97,64 @@ const badges = [
    },
 ]
 
+const phoneBadges = [
+   {
+      name: 'Total time Coded',
+      link: (
+         <a href='https://wakatime.com/@95d7d7a3-0d63-469c-8e4c-b813f5ad1741'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741.svg'
+               alt='Total time coded since Mar 5 2025'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'Portfolio v2.0',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4abe9575-4c88-492a-ac69-e9e7b1c97f9e'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4abe9575-4c88-492a-ac69-e9e7b1c97f9e.svg/'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'Productive Pulse',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/45eb53fd-b612-4ba4-8902-da47b6e67f25'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/45eb53fd-b612-4ba4-8902-da47b6e67f25.svg'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'FlexiTasks',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/0caf67c7-d80f-4574-8f5f-e41afe446ac8'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/0caf67c7-d80f-4574-8f5f-e41afe446ac8.svg'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+   {
+      name: 'Cognitive Twin',
+      link: (
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
+            <img
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1.svg'
+               alt='wakatime'
+            />
+         </a>
+      ),
+   },
+]
+
 const socials = [
    {
       social: 'github',
@@ -809,7 +867,7 @@ export default function Home() {
             >
                <div
                   id='stats'
-                  className='hidden sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+                  className='sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
                   <div className='max-w-7xl w-full'>
                      <AnimatedContent
@@ -822,7 +880,7 @@ export default function Home() {
                         </h2>
                      </AnimatedContent>
 
-                     <div className='grid [grid-template-columns:3fr_2fr] gap-8'>
+                     <div className='grid sm:[grid-template-columns:3fr_2fr] grid-cols-1 gap-8'>
                         {/* Left Side: WakaBoard (1fr) */}
                         <AnimatedContent
                            direction='horizontal'
@@ -859,9 +917,9 @@ export default function Home() {
                            delay={500}
                            reverse={true}
                         >
-                           <div className='grid grid-rows-2 gap-4 h-full'>
-                              {/* Badges */}
-                              <div className='glass-effect rounded-xl p-4 card-glow h-full'>
+                           <div className='grid sm:grid-rows-2 gap-4 h-full'>
+                              {/* Badges for >md screen */}
+                              <div className='hidden sm:block glass-effect rounded-xl p-4 card-glow h-full'>
                                  <GlowingEffect
                                     spread={40}
                                     glow={true}
@@ -873,6 +931,29 @@ export default function Home() {
                                     Badges Since Mar 5 2025
                                  </h3>
                                  {badges.map((badge, i) => (
+                                    <div
+                                       key={i}
+                                       className='flex items-center justify-between gap-4 mb-4'
+                                    >
+                                       {badge.name}
+                                       <div>{badge.link}</div>
+                                    </div>
+                                 ))}
+                              </div>
+
+                              {/* //Badges for phone  */}
+                              <div className='sm:hidden block glass-effect rounded-xl p-4 card-glow h-full'>
+                                 <GlowingEffect
+                                    spread={40}
+                                    glow={true}
+                                    disabled={false}
+                                    proximity={64}
+                                    inactiveZone={0.01}
+                                 />
+                                 <h3 className='text-2xl font-bold mb-4 text-purple-400'>
+                                    Badges Since Mar 5 2025
+                                 </h3>
+                                 {phoneBadges.map((badge, i) => (
                                     <div
                                        key={i}
                                        className='flex items-center justify-between gap-4 mb-4'
@@ -895,7 +976,7 @@ export default function Home() {
                                  <h3 className='text-2xl font-bold mb-4 text-purple-400'>
                                     Github Timeline
                                  </h3>
-                                 <div className='w-full max-w-[500px] mx-auto'>
+                                 <div className='w-full max-w-[300px] sm:max-w-[500px] mx-auto'>
                                     <GitHubCalendar username='imnakul' />
                                  </div>
                               </div>

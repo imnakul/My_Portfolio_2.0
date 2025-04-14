@@ -712,7 +712,7 @@ export default function Home() {
                         </h2>
                      </AnimatedContent>
 
-                     <div className='grid grid-cols-1 md:grid-cols-2 sm:gap-4 gap-8'>
+                     <div className='grid grid-cols-1 md:grid-cols-2 sm:gap-4 '>
                         {[
                            {
                               title: 'Portfolio v1.0',

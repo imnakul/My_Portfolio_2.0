@@ -6,7 +6,12 @@ import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ParticleBackground from '@/components/ui/ParticleBackground'
 import { useEffect, useState, useRef } from 'react'
-import { RiTelegram2Fill, RiGithubFill, RiLinkedinFill } from 'react-icons/ri'
+import {
+   RiTelegram2Fill,
+   RiGithubFill,
+   RiLinkedinFill,
+   RiMenuFill,
+} from 'react-icons/ri'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 import CognitiveTwin from '@/components/CognitiveTwin'
 import GitHubCalendar from 'react-github-calendar'
@@ -112,6 +117,7 @@ const socials = [
 
 export default function Home() {
    const [activeSection, setActiveSection] = useState('about-me')
+   const [isOpen, setIsOpen] = useState(false)
 
    const handleTabClick = (id) => {
       const element = document.getElementById(id)
@@ -178,8 +184,8 @@ export default function Home() {
             {/* <ShootingStars maxStars={8} /> */}
             {/* <ParticleBackground particleCount={80} /> */}
 
-            {/* Navigation Bar */}
-            <div className='fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[10vh] glass-effect w-full'>
+            {/* //? Navigation Bar Sceen > md*/}
+            <div className='hidden fixed top-0 left-0 right-0 z-50 sm:flex items-center justify-center min-h-[10vh] glass-effect w-full'>
                <div className='relative flex flex-row items-center justify-between md:px-6 px-2 w-full max-w-7xl'>
                   <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2 font-serif'>
                      NAKUL SRIVASTAVA
@@ -210,6 +216,79 @@ export default function Home() {
                </div>
             </div>
 
+            {/* //? Navigation Bar Sceen < md */}
+            <div className='sm:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[8vh] glass-effect w-full'>
+               <div className='relative flex flex-row items-center justify-between md:px-6 px-2 w-full max-w-7xl'>
+                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2  px-2 filter-glow font-bold tracking-wider text-xs md:text-base  mx-2 font-serif'>
+                     NAKUL SRIVASTAVA
+                  </span>
+
+                  <div className='sm:hidden relative inline-block text-left'>
+                     <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className='bg-gradient-to-r from-purple-600 to-pink-500 rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2 font-serif text-white text-center inline-flex items-center'
+                     >
+                        <RiMenuFill size={16} />
+                     </button>
+
+                     {isOpen && (
+                        <div
+                           className='absolute z-10 mt-2  divide-y divide-gray-100 rounded-lg shadow-sm 
+                        w-32 bg-gradient-to-b from-purple-950 to-pink-950  right-2'
+                        >
+                           <ul className='py-2 text-sm text-gray-700 dark:text-gray-200 '>
+                              <AnimatedBackground
+                                 defaultValue={activeSection}
+                                 className='rounded-md bg-purple-600/50'
+                                 transition={{
+                                    type: 'spring',
+                                    bounce: 0.2,
+                                    duration: 0.3,
+                                 }}
+                                 enableHover
+                              >
+                                 {TABS.map((tab, index) => (
+                                    <button
+                                       key={index}
+                                       data-id={tab.id}
+                                       type='button'
+                                       onClick={() => handleTabClick(tab.id)}
+                                       className='md:px-4 px-2 py-2 flex flex-col items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium w-full'
+                                    >
+                                       {tab.name}
+                                    </button>
+                                 ))}
+                              </AnimatedBackground>
+                           </ul>
+                        </div>
+                     )}
+                  </div>
+
+                  {/* <AnimatedBackground
+                     defaultValue={activeSection}
+                     className='rounded-md bg-purple-600/50'
+                     transition={{
+                        type: 'spring',
+                        bounce: 0.2,
+                        duration: 0.3,
+                     }}
+                     enableHover
+                  >
+                     {TABS.map((tab, index) => (
+                        <button
+                           key={index}
+                           data-id={tab.id}
+                           type='button'
+                           onClick={() => handleTabClick(tab.id)}
+                           className='md:px-4 px-2 py-2 inline-flex items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium'
+                        >
+                           {tab.name}
+                        </button>
+                     ))}
+                  </AnimatedBackground> */}
+               </div>
+            </div>
+
             {/*//? About Me Section */}
             <FadeContent
                blur={true}
@@ -219,7 +298,7 @@ export default function Home() {
             >
                <div
                   id='about-me'
-                  className='flex items-center justify-center min-h-[100vh] pt-[15vh] px-6 w-full'
+                  className='flex items-center justify-center min-h-[100vh] sm:pt-[15vh] pt-[10vh] px-6 w-full'
                >
                   <div className='max-w-7xl w-full'>
                      <AnimatedContent
@@ -227,7 +306,7 @@ export default function Home() {
                         distance={50}
                         delay={300}
                      >
-                        <h2 className='text-4xl font-bold mb-8 gradient-text'>
+                        <h2 className='text-4xl font-bold sm:mb-10 mb-8 gradient-text'>
                            About Me
                         </h2>
                      </AnimatedContent>
@@ -465,7 +544,7 @@ export default function Home() {
                         distance={50}
                         delay={300}
                      >
-                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                        <h2 className='text-4xl font-bold mb-10 gradient-text'>
                            My Skills
                         </h2>
                      </AnimatedContent>
@@ -512,11 +591,7 @@ export default function Home() {
                            },
                            {
                               name: 'Learning',
-                              skills: [
-                                 'Next.js',
-                                 'TypeScript',
-                                 'AI Models/Agents',
-                              ],
+                              skills: ['Next.js', 'TypeScript', 'GenAI'],
                            },
                         ].map((category, index) => (
                            <AnimatedContent
@@ -574,7 +649,7 @@ export default function Home() {
                         distance={50}
                         delay={300}
                      >
-                        <h2 className='text-4xl font-bold mb-12 gradient-text'>
+                        <h2 className='text-4xl font-bold mb-4 gradient-text'>
                            My Projects
                         </h2>
                      </AnimatedContent>
@@ -734,7 +809,7 @@ export default function Home() {
             >
                <div
                   id='stats'
-                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+                  className='hidden sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
                   <div className='max-w-7xl w-full'>
                      <AnimatedContent
@@ -840,7 +915,7 @@ export default function Home() {
             >
                <div
                   id='ai'
-                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+                  className='hidden sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
                   <div className='max-w-7xl w-full'>
                      <AnimatedContent
@@ -848,7 +923,7 @@ export default function Home() {
                         distance={50}
                         delay={300}
                      >
-                        <h2 className='text-4xl font-bold mb-6 gradient-text'>
+                        <h2 className='text-4xl font-bold mb-8 gradient-text'>
                            Echo of Nakul
                         </h2>
                      </AnimatedContent>

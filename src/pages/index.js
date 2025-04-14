@@ -85,7 +85,7 @@ const badges = [
       ),
    },
    {
-      name: 'Cognitive Twin',
+      name: 'Cognitive Twin ( AI Persona )',
       link: (
          <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
             <img
@@ -143,7 +143,7 @@ const phoneBadges = [
       ),
    },
    {
-      name: 'Cognitive Twin',
+      name: 'Cognitive Twin (AI)',
       link: (
          <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
             <img
@@ -276,7 +276,7 @@ export default function Home() {
 
             {/* //? Navigation Bar Sceen < md */}
             <div className='sm:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[8vh] glass-effect w-full'>
-               <div className='relative flex flex-row items-center justify-between md:px-6 px-2 w-full max-w-7xl'>
+               <div className='relative flex flex-row items-center justify-between md:px-6 px-4 w-full max-w-7xl'>
                   <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2  px-2 filter-glow font-bold tracking-wider text-xs md:text-base  mx-2 font-serif'>
                      NAKUL SRIVASTAVA
                   </span>
@@ -725,7 +725,12 @@ export default function Home() {
                               title: 'FlexiTASKS',
                               description:
                                  'A full-featured e-commerce platform with product listings, cart functionality, and secure checkout process.',
-                              tech: ['React', 'Redux Toolkit', 'Tailwind CSS'],
+                              tech: [
+                                 'React',
+                                 'Redux Toolkit',
+                                 'Tailwind CSS',
+                                 'FramerMotion',
+                              ],
                               image: '/FlexiTasks.jpeg',
                            },
                            {
@@ -739,7 +744,12 @@ export default function Home() {
                               title: 'Productive Pulse',
                               description:
                                  'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
-                              tech: ['JavaScript', 'Weather API', 'CSS'],
+                              tech: [
+                                 'React',
+                                 'Redux',
+                                 'Appwrite',
+                                 'Tailwind CSS',
+                              ],
                               image: '/ProductivePulse3.png',
                            },
                            // image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
@@ -747,7 +757,12 @@ export default function Home() {
                               title: 'Interview Sphere',
                               description:
                                  'A weather application that provides real-time forecasts, interactive maps, and location-based weather data.',
-                              tech: ['JavaScript', 'Weather API', 'CSS'],
+                              tech: [
+                                 'React',
+                                 'Redux',
+                                 'Appwrite',
+                                 'Tailwind CSS',
+                              ],
                               image: '/InterviewSphere.jpeg',
                            },
                         ].map((project, index) => (
@@ -804,14 +819,14 @@ export default function Home() {
                                              // as={Link}
                                              href='https://twitter.com/mannupaaji'
                                              target='__blank'
-                                             className='px-4 py-2 rounded-xl text-xs font-normal dark:text-white'
+                                             className='px-4 py-2 rounded-xl text-sm font-normal text-white'
                                           >
                                              More Info →
                                           </CardItem>
                                           <CardItem
                                              translateZ={20}
                                              as='button'
-                                             className='px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold'
+                                             className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold'
                                           >
                                              Visit
                                           </CardItem>
@@ -867,7 +882,7 @@ export default function Home() {
             >
                <div
                   id='stats'
-                  className='sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+                  className='flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
                   <div className='max-w-7xl w-full'>
                      <AnimatedContent
@@ -899,8 +914,11 @@ export default function Home() {
                                  WakaBoard Stats
                               </h3>
                               <div className='h-full flex flex-col justify-center '>
-                                 <figure>
+                                 {/* <figure>
                                     <embed src='https://wakatime.com/share/@devNakul/0175c8d3-c277-4deb-a2b9-ad139ded0f22.svg' />
+                                 </figure> */}
+                                 <figure>
+                                    <embed src='https://wakatime.com/share/@devNakul/676d9287-8aa6-4881-a296-ce169c7fd8b1.svg'></embed>
                                  </figure>
 
                                  {/* <img
@@ -996,9 +1014,10 @@ export default function Home() {
             >
                <div
                   id='ai'
-                  className='hidden sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
+                  className='sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
                >
-                  <div className='max-w-7xl w-full'>
+                  {/* // Desktop View */}
+                  <div className='sm:max-w-7xl w-full sm:block hidden'>
                      <AnimatedContent
                         direction='vertical'
                         distance={50}
@@ -1009,7 +1028,7 @@ export default function Home() {
                         </h2>
                      </AnimatedContent>
 
-                     <div className='grid grid-cols-1'>
+                     <div className='grid grid-cols-1 '>
                         {/* <AnimatedContent
                            direction='horizontal'
                            distance={50}
@@ -1024,6 +1043,41 @@ export default function Home() {
                               inactiveZone={0.01}
                            />
                            <h3 className='text-2xl font-bold mb-4 text-purple-400 '>
+                              🧠 Nakul's Cognitive Twin
+                           </h3>
+                           <CognitiveTwin />
+                        </div>
+                        {/* </AnimatedContent> */}
+                     </div>
+                  </div>
+
+                  {/* //MobileView  */}
+                  <div className='sm:hidden block max-w-xs '>
+                     <AnimatedContent
+                        direction='vertical'
+                        distance={50}
+                        delay={300}
+                     >
+                        <h2 className='text-4xl font-bold mb-8 gradient-text'>
+                           Echo of Nakul
+                        </h2>
+                     </AnimatedContent>
+
+                     <div className='grid grid-cols-1 '>
+                        {/* <AnimatedContent
+                           direction='horizontal'
+                           distance={50}
+                           delay={400}
+                        > */}
+                        <div className='glass-effect rounded-xl card-glow sm:px-6 xm:py-6 px-2 py-4 h-full w-sm '>
+                           <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                           />
+                           <h3 className='text-xl font-bold mb-2 text-purple-400 ml-6 '>
                               🧠 Nakul's Cognitive Twin
                            </h3>
                            <CognitiveTwin />

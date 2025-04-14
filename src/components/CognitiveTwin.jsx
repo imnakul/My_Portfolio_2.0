@@ -75,11 +75,11 @@ export default function CognitiveTwin() {
    }
 
    return (
-      <div className='max-w-7xl mx-auto p-2  rounded-xl shadow-lg flex items-center justify-between gap-4'>
+      <div className='sm:max-w-7xl mx-auto p-2  rounded-xl shadow-lg flex items-center justify-center sm:justify-between gap-4 '>
          {/* //? Chat Box  */}
-         <div className='min-w-4xl mx-auto rounded-xl shadow-lg'>
-            <CognitiveTwinTooltip />
-            <div className='h-96 overflow-y-auto mb-4 border border-purple-400 p-4 rounded-md'>
+         <div className='sm:min-w-4xl min-w-xs sm:mx-auto mx-0 rounded-xl shadow-lg '>
+            {/* <CognitiveTwinTooltip /> */}
+            <div className='sm:h-96 h-[65vh] overflow-y-auto mb-4 border border-purple-400 p-4 rounded-md sm:w-full w-[350px]'>
                {messages.map((msg, i) => (
                   <div
                      key={i}
@@ -147,14 +147,14 @@ export default function CognitiveTwin() {
 
             <div className='flex gap-2'>
                <input
-                  className='flex-1 p-2 border border-purple-400 rounded-md outline-none hover:ring-2 hover:ring-purple-400 focus:outline-none focus:ring-purple-400 transition duration-300 ease-in-out'
+                  className='flex-1 p-2 border border-purple-400 rounded-md outline-none hover:ring-2 hover:ring-purple-400 focus:outline-none focus:ring-purple-400 transition duration-300 ease-in-out sm:max-w-7xl max-w-xs '
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder='Ask anything about Nakul...'
                />
                <button
                   onClick={handleSend}
-                  className='bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-800 '
+                  className='bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-md hover:bg-purple-800 '
                   onKeyDown={(e) => {
                      if (e.key === 'Enter') {
                         e.preventDefault()

@@ -11,7 +11,9 @@ import {
    RiGithubFill,
    RiLinkedinFill,
    RiMenuFill,
+   RiTwitterXFill,
 } from 'react-icons/ri'
+import { SiHashnode } from 'react-icons/si'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 import CognitiveTwin from '@/components/CognitiveTwin'
 import GitHubCalendar from 'react-github-calendar'
@@ -166,6 +168,17 @@ const socials = [
       url: 'https://www.linkedin.com/in/nakul-srivastava-a8426033b',
       icon: <RiLinkedinFill className='size-5' />,
    },
+   {
+      social: 'twitter',
+      url: 'https://x.com/imnakul_1?t=kE6SVznWCPS3rCFFUEXPAg&s=09',
+      icon: <RiTwitterXFill className='size-5' />,
+   },
+   {
+      social: 'hashnode',
+      url: 'https://hashnode.com/@imnakul',
+      icon: <SiHashnode className='size-5' />,
+   },
+
    {
       social: 'telegram',
       url: 'https://t.me/devtoolsspotlight',

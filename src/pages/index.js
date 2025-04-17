@@ -17,6 +17,7 @@ import { SiHashnode } from 'react-icons/si'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 import CognitiveTwin from '@/components/CognitiveTwin'
 import GitHubCalendar from 'react-github-calendar'
+import { PiMagicWandFill } from 'react-icons/pi'
 
 const TABS = [
    { id: 'about-me', name: 'About' },
@@ -189,6 +190,7 @@ const socials = [
 export default function Home() {
    const [activeSection, setActiveSection] = useState('about-me')
    const [isOpen, setIsOpen] = useState(false)
+   const [toggleImage, setToggleImage] = useState(true)
 
    const handleTabClick = (id) => {
       const element = document.getElementById(id)
@@ -535,7 +537,7 @@ export default function Home() {
                         </div>
 
                         <div>
-                           <div className='flex items-center justify-center glass-effect rounded-xl p-4 h-full card-glow'>
+                           <div className='relative flex items-center justify-center glass-effect rounded-xl p-4 h-full card-glow'>
                               <GlowingEffect
                                  spread={40}
                                  glow={true}
@@ -549,11 +551,25 @@ export default function Home() {
                                  delay={500}
                                  reverse={true}
                               >
-                                 <img
-                                    src='/profile.jpg'
-                                    alt='Nakul Srivastava'
-                                    className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300 loading-lazy'
-                                 />
+                                 <button
+                                    className='absolute top-2 right-2'
+                                    onClick={() => setToggleImage(!toggleImage)}
+                                 >
+                                    <PiMagicWandFill className='size-4' />
+                                 </button>
+                                 {toggleImage ? (
+                                    <img
+                                       src='/profile.png'
+                                       alt='Nakul Srivastava'
+                                       className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300 loading-lazy'
+                                    />
+                                 ) : (
+                                    <img
+                                       src='/profile.jpg'
+                                       alt='Nakul Srivastava'
+                                       className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300 loading-lazy'
+                                    />
+                                 )}
                               </AnimatedContent>
                            </div>
                         </div>

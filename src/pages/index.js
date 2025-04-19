@@ -255,7 +255,7 @@ export default function Home() {
          <div className='min-h-screen min-w-full bg-gray-900'>
             {/* <CustomCursor /> */}
             {/* <ShootingStars maxStars={8} /> */}
-            {/* <ParticleBackground particleCount={80} /> */}
+            <ParticleBackground particleCount={80} />
 
             {/* //? Navigation Bar Sceen > md*/}
             <div className='hidden fixed top-0 left-0 right-0 z-50 sm:flex items-center justify-center min-h-[10vh] glass-effect w-full'>

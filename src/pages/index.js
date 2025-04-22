@@ -18,6 +18,32 @@ import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 import CognitiveTwin from '@/components/CognitiveTwin'
 import GitHubCalendar from 'react-github-calendar'
 import { PiMagicWandFill } from 'react-icons/pi'
+import {
+   Navbar,
+   NavBody,
+   NavItems,
+   MobileNav,
+   NavbarLogo,
+   NavbarButton,
+   MobileNavHeader,
+   MobileNavToggle,
+   MobileNavMenu,
+} from '@/components/ui/ResizableNavbar'
+
+const navItems = [
+   {
+      name: 'Features',
+      link: '#features',
+   },
+   {
+      name: 'Pricing',
+      link: '#pricing',
+   },
+   {
+      name: 'Contact',
+      link: '#contact',
+   },
+]
 
 const TABS = [
    { id: 'about-me', name: 'About' },
@@ -258,7 +284,7 @@ export default function Home() {
             <ParticleBackground particleCount={50} />
 
             {/* //? Navigation Bar Sceen > md*/}
-            <div className='hidden fixed top-0 left-0 right-0 z-50 sm:flex items-center justify-center min-h-[10vh] glass-effect w-full'>
+            {/* <div className='hidden fixed top-0 left-0 right-0 z-50 sm:flex items-center justify-center min-h-[10vh] glass-effect w-full'>
                <div className='relative flex flex-row items-center justify-between md:px-6 px-2 w-full max-w-7xl'>
                   <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2 font-serif'>
                      NAKUL SRIVASTAVA
@@ -287,7 +313,48 @@ export default function Home() {
                      ))}
                   </AnimatedBackground>
                </div>
-            </div>
+            </div> */}
+            {/* <div className='relative w-full'> */}
+            <Navbar>
+               {/* Desktop Navigation */}
+               <NavBody className='fixed top-0 left-0 right-0 z-50 glass-effect w-full'>
+                  {/* <NavbarLogo /> */}
+                  {/* <NavItems items={navItems} />
+                     <div className='flex items-center gap-4'>
+                        <NavbarButton variant='secondary'>Login</NavbarButton>
+                        <NavbarButton variant='primary'>
+                           Book a call
+                        </NavbarButton>
+                     </div> */}
+                  <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2 md:px-4 px-2 filter-glow font-bold tracking-wider text-xs md:text-base md:mr-0 mr-2 font-serif'>
+                     NAKUL SRIVASTAVA
+                  </span>
+
+                  <AnimatedBackground
+                     defaultValue={activeSection}
+                     className='rounded-md bg-purple-600/50'
+                     transition={{
+                        type: 'spring',
+                        bounce: 0.2,
+                        duration: 0.3,
+                     }}
+                     enableHover
+                  >
+                     {TABS.map((tab, index) => (
+                        <button
+                           key={index}
+                           data-id={tab.id}
+                           type='button'
+                           onClick={() => handleTabClick(tab.id)}
+                           className='md:px-4 px-2 py-2 inline-flex items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium'
+                        >
+                           {tab.name}
+                        </button>
+                     ))}
+                  </AnimatedBackground>
+               </NavBody>
+            </Navbar>
+            {/* </div> */}
 
             {/* //? Navigation Bar Sceen < md */}
             <div className='sm:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[8vh] glass-effect w-full'>

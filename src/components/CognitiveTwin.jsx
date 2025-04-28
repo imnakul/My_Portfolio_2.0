@@ -78,7 +78,7 @@ export default function CognitiveTwin() {
       <div className='sm:max-w-7xl mx-auto p-2  rounded-xl shadow-lg flex items-center justify-center sm:justify-between gap-4 '>
          {/* //? Chat Box  */}
          <div className='sm:min-w-4xl min-w-xs sm:mx-auto mx-0 rounded-xl shadow-lg '>
-            {/* <CognitiveTwinTooltip /> */}
+            <CognitiveTwinTooltip />
             <div className='sm:h-96 h-[65vh] overflow-y-auto mb-4 border border-purple-400 p-4 rounded-md sm:w-full w-[350px]'>
                {messages.map((msg, i) => (
                   <div

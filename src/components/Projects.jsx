@@ -104,6 +104,7 @@ function Projects() {
                            'Your one stop solution to increase your productivity flow - Single dashboard with Notes, todos, Reminders, Pomodoro Timer, AI Features.',
                         tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
                         image: [
+                           '/pp0.png',
                            '/pp1.png',
                            '/pp2.png',
                            '/pp3.png',

@@ -184,7 +184,11 @@ function Contact() {
                            <span className='font-bold text-sm py-1'>
                               Articles You May Like:{' '}
                            </span>
-                           <Marquee pauseOnHover className='[--duration:20s]'>
+                           <Marquee
+                              pauseOnHover
+                              id='marquee'
+                              className='[--duration:20s]'
+                           >
                               {/* //~ 1 Article */}
                               <div className='h-full w-64 flex flex-col items-center bg-[url("/bg2.jpg")] bg-cover bg-center bg-no-repeat bg-purple-800/30 border-purple-400  border-2 p-3 rounded-lg text-purple-200 font-bold text-2xl filter-glow-hover bg-blend-screen hover:opacity-80'>
                                  <a

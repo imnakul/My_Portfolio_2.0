@@ -33,6 +33,12 @@ button,
   cursor: url('/handpointer.svg'), pointer;
 }
 
+#marquee {
+  .cursor-pointer {
+    cursor: url('/thumbsup.svg'), pointer;
+  }
+}
+
 .filter-glow {
   filter: drop-shadow(0 0 6px var(--primary));
 }

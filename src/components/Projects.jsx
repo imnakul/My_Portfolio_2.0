@@ -76,9 +76,8 @@ function Projects() {
                            'React',
                            'Firebase',
                            'Tailwind CSS',
-                           'Google Authentication',
+                           'OAuth',
                            'Firebase',
-
                            'Leaflet.js',
                         ],
                         image: [
@@ -104,7 +103,15 @@ function Projects() {
                         description:
                            'Your one stop solution to increase your productivity flow - Single dashboard with Notes, todos, Reminders, Pomodoro Timer, AI Features.',
                         tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
-                        image: ['/ProductivePulse3.png'],
+                        image: [
+                           '/pp1.png',
+                           '/pp2.png',
+                           '/pp3.png',
+                           '/pp4.png',
+                           '/pp5.png',
+                           '/pp6.png',
+                           '/pp7.png',
+                        ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: '',
                         info: '',

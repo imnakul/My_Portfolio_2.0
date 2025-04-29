@@ -117,7 +117,7 @@ function AboutMe() {
                               🎯 Currently Learning
                            </h4>
                            <ul className='list-disc list-inside text-gray-300 mb-2 leading-relaxed'>
-                              <li>GenAI – Integrating AI Agents, RAG , etc.</li>
+                              <li>GenAI – Building AI Agents, RAG , etc.</li>
                               <li>
                                  TypeScript – For scalable & type-safe
                                  development

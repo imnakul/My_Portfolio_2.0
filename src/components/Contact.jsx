@@ -1,6 +1,6 @@
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
-import { useEffect, useState, useRef } from 'react'
+import { useState } from 'react'
 import {
    RiTelegram2Fill,
    RiGithubFill,
@@ -8,33 +8,40 @@ import {
    RiTwitterXFill,
 } from 'react-icons/ri'
 import { SiHashnode } from 'react-icons/si'
+import { Marquee } from './ui/Marquee'
+import { FiExternalLink } from 'react-icons/fi'
 
 const socials = [
    {
       social: 'github',
       url: 'https://github.com/imnakul',
-      icon: <RiGithubFill className='size-5' />,
+      icon: <RiGithubFill className='size-5 sm:size-7' />,
+      title: 'GitHub',
    },
    {
       social: 'linked-In',
       url: 'https://www.linkedin.com/in/nakul-srivastava-a8426033b',
-      icon: <RiLinkedinFill className='size-5' />,
+      icon: <RiLinkedinFill className='size-5 sm:size-7' />,
+      title: 'LinkedIn',
    },
    {
       social: 'twitter',
       url: 'https://x.com/imnakul_1?t=kE6SVznWCPS3rCFFUEXPAg&s=09',
-      icon: <RiTwitterXFill className='size-5' />,
+      icon: <RiTwitterXFill className='size-5 sm:size-7' />,
+      title: 'Twitter',
    },
    {
       social: 'hashnode',
       url: 'https://hashnode.com/@imnakul',
-      icon: <SiHashnode className='size-5' />,
+      icon: <SiHashnode className='size-5 sm:size-7' />,
+      title: 'Hashnode',
    },
 
    {
       social: 'telegram',
       url: 'https://t.me/devtoolsspotlight',
-      icon: <RiTelegram2Fill className='size-5' />,
+      icon: <RiTelegram2Fill className='size-5 sm:size-7' />,
+      title: 'Telegram',
    },
 ]
 
@@ -105,7 +112,6 @@ function Contact() {
                            collaborations. Feel free to reach out if you have a
                            project in mind or just want to connect!
                         </p>
-
                         <div className='space-y-4'>
                            <div className='flex items-center'>
                               <div className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center mr-4'>
@@ -160,18 +166,93 @@ function Contact() {
                                     </span>
                                  </div> */}
                         </div>
-
-                        <div className='flex space-x-4 mt-8'>
+                        <div className='flex space-x-4 mt-8 justify-center'>
                            {socials.map((social, index) => (
                               <a
                                  key={index}
                                  href={social.url}
                                  target='_blank'
-                                 className='w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center hover:bg-purple-700/50 transition-colors duration-300'
+                                 className='size-10 sm:size-14 rounded-full bg-purple-900/50 flex items-center justify-center hover:bg-purple-700/50 transition-colors duration-300 filter-glow-hover'
+                                 title={social.title}
                               >
                                  {social.icon}
                               </a>
                            ))}
+                        </div>
+                        {/* //?? Marquee Section */}
+                        <div className='flex  mt-8 relative  w-full flex-col overflow-hidden'>
+                           <span className='font-bold text-sm py-1'>
+                              Articles You May Like:{' '}
+                           </span>
+                           <Marquee pauseOnHover className='[--duration:20s]'>
+                              {/* //~ 1 Article */}
+                              <div className='h-full w-64 flex flex-col items-center bg-[url("/bg2.jpg")] bg-cover bg-center bg-no-repeat bg-purple-800/30 border-purple-400  border-2 p-3 rounded-lg text-purple-200 font-bold text-2xl filter-glow-hover bg-blend-screen hover:opacity-80'>
+                                 <a
+                                    href='https://ragsimplified.hashnode.dev/series/advanced-rag-query-optimization-techniques'
+                                    target='_blank'
+                                    className='flex w-full cursor-pointer'
+                                 >
+                                    <span className='text-sm'>
+                                       {' '}
+                                       Advanced RAG: Query Optimization
+                                       Techniques Explained
+                                    </span>
+                                 </a>
+                              </div>
+                              {/* //~ 2 Article */}
+                              <div className='h-full w-64 flex flex-col items-center bg-[url("/bg2.jpg")] bg-cover bg-center bg-no-repeat bg-purple-800/30 border-purple-400  border-2 p-3 rounded-lg text-purple-200 font-bold text-2xl filter-glow-hover bg-blend-screen hover:opacity-80'>
+                                 <a
+                                    href='https://ragsimplified.hashnode.dev/query-routing'
+                                    target='_blank'
+                                    className='flex  w-full cursor-pointer'
+                                 >
+                                    <span className='text-sm'>
+                                       Query Routing in RAG & Graph Databases
+                                    </span>
+                                 </a>
+                              </div>
+                              {/* //~ 3 Article */}
+                              <div className='h-full w-64 flex flex-col items-center bg-[url("/bg2.jpg")] bg-cover bg-center bg-no-repeat bg-purple-800/30 border-purple-400  border-2 p-3 rounded-lg text-purple-200 font-bold text-2xl filter-glow-hover bg-blend-screen hover:opacity-80'>
+                                 <a
+                                    href='https://ragsimplified.hashnode.dev/unlocking-the-power-of-rag-enhancing-ai-with-retrieval-augmented-generation'
+                                    target='_blank'
+                                    className='flex w-full cursor-pointer'
+                                 >
+                                    <span className='text-sm'>
+                                       {' '}
+                                       Unlocking the Power of RAG: Enhancing AI
+                                       with Retrieval-Augmented Generation
+                                    </span>
+                                 </a>
+                              </div>
+
+                              {/* //~ 4 Article */}
+                              <div className='h-full w-64 flex flex-col items-center bg-[url("/bg2.jpg")] bg-cover bg-center bg-no-repeat bg-purple-800/30 border-purple-400 filter-glow-hover border-2 p-3 rounded-lg text-purple-200 font-bold text-2xl bg-blend-screen hover:opacity-80'>
+                                 <a
+                                    href='https://llmsinaction.hashnode.dev/agents-llms-and-apis-a-developers-guide-to-local-ai-and-cloud-deployment'
+                                    target='_blank'
+                                    className='flex w-full cursor-pointer '
+                                 >
+                                    <span className='text-sm'>
+                                       Exploring the World of LLMs Beyond the
+                                       Cloud
+                                    </span>
+                                 </a>
+                              </div>
+
+                              {/* //~ 5 Article */}
+                              <div className='h-full w-64 flex flex-col items-center bg-[url("/bg2.jpg")] bg-cover bg-center bg-no-repeat bg-purple-800/30 border-purple-400 filter-glow-hover border-2 p-3 rounded-lg text-purple-200 font-bold text-2xl bg-blend-screen hover:opacity-80'>
+                                 <a
+                                    href='https://aisimplified.hashnode.dev/decoding-ai-jargons-with-chai-chaicode'
+                                    target='_blank'
+                                    className='flex w-full cursor-pointer '
+                                 >
+                                    <span className='text-sm'>
+                                       𝐃𝐞𝐜𝐨𝐝𝐢𝐧𝐠 𝐀𝐈 𝐉𝐚𝐫𝐠𝐨𝐧𝐬
+                                    </span>
+                                 </a>
+                              </div>
+                           </Marquee>
                         </div>
                      </div>
                   </AnimatedContent>

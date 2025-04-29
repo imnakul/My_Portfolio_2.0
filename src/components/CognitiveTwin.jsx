@@ -76,9 +76,9 @@ export default function CognitiveTwin() {
 
    return (
       <div className='sm:max-w-7xl mx-auto p-2  rounded-xl shadow-lg flex items-center justify-center sm:justify-between gap-4 '>
+         {/* <CognitiveTwinTooltip /> */}
          {/* //? Chat Box  */}
          <div className='sm:min-w-4xl min-w-xs sm:mx-auto mx-0 rounded-xl shadow-lg '>
-            <CognitiveTwinTooltip />
             <div className='sm:h-96 h-[65vh] overflow-y-auto mb-4 border border-purple-400 p-4 rounded-md sm:w-full w-[350px]'>
                {messages.map((msg, i) => (
                   <div
@@ -154,7 +154,7 @@ export default function CognitiveTwin() {
                />
                <button
                   onClick={handleSend}
-                  className='bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-md hover:bg-purple-800 '
+                  className='bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-md hover:bg-purple-800 transition-all duration-300 transform hover:scale-105'
                   onKeyDown={(e) => {
                      if (e.key === 'Enter') {
                         e.preventDefault()
@@ -162,7 +162,7 @@ export default function CognitiveTwin() {
                      }
                   }}
                >
-                  Send
+                  Ask
                </button>
             </div>
          </div>

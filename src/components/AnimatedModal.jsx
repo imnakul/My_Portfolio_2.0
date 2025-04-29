@@ -10,7 +10,7 @@ export const AnimatedModal = ({ project, onClose }) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3 }}
-            className='relative w-[90%] md:w-[70%] max-h-[90vh] bg-purple-950/70 rounded-lg overflow-hidden shadow-lg flex flex-col p-8 overflow-y-auto '
+            className='relative w-[90%] md:w-[70%] max-h-[90vh] bg-purple-950/70 rounded-lg overflow-hidden shadow-lg flex flex-col sm:p-8 p-6 overflow-y-auto '
          >
             {/* Close Button */}
             <button
@@ -98,7 +98,7 @@ export const AnimatedModal = ({ project, onClose }) => {
                      <h2 className='text-2xl font-bold mb-4 text-purple-400'>
                         {project.title}
                      </h2>
-                     <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
+                     <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] sm:p-6 p-4 text-sm sm:text-base'>
                         <img
                            src={project.image}
                            alt={project.title}
@@ -132,13 +132,13 @@ export const AnimatedModal = ({ project, onClose }) => {
                            <div
                               translateZ={20}
                               as='button'
-                              className='flex items-center justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold w-32 '
+                              className='flex items-center justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white font-bold w-20 text-sm font-bold'
                               onClick={() =>
                                  window.open(project.link, '_blank')
                               }
                            >
-                              Visit Live
-                              <FiExternalLink className='ml-3 size-4' />
+                              Visit
+                              <FiExternalLink className='ml-2 size-3' />
                            </div>
                         </div>
                      </div>

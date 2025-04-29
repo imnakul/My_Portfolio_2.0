@@ -95,10 +95,10 @@ function Navigationbar() {
 
                   {isOpen && (
                      <div
-                        className='absolute z-10 mt-2  divide-y divide-gray-100 rounded-lg shadow-sm 
-                            w-32 bg-gradient-to-b from-purple-950 to-pink-950  right-2'
+                        className='absolute z-10 mt-2  divide-y divide-gray-100 shadow-sm 
+                            w-32 bg-gradient-to-r from-purple-950/70 via-purple-800  to-purple-950/70 backdrop-blur-md rounded-xl right-2 '
                      >
-                        <ul className='py-2 text-sm text-gray-700 dark:text-gray-200 '>
+                        <ul className=' py-1 text-sm text-gray-700 dark:text-gray-200 '>
                            <AnimatedBackground
                               defaultValue={activeSection}
                               className='rounded-md bg-purple-600/50'
@@ -110,15 +110,20 @@ function Navigationbar() {
                               enableHover
                            >
                               {TABS.map((tab, index) => (
-                                 <button
-                                    key={index}
-                                    data-id={tab.id}
-                                    type='button'
-                                    onClick={() => handleTabClick(tab.id)}
-                                    className='md:px-4 px-2 py-2 flex flex-col items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-base font-medium w-full'
-                                 >
-                                    {tab.name}
-                                 </button>
+                                 <>
+                                    <button
+                                       key={index}
+                                       data-id={tab.id}
+                                       type='button'
+                                       onClick={() => handleTabClick(tab.id)}
+                                       className='md:px-4 px-2 py-2.5 flex flex-col items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-sm font-medium w-full shadow-2xl'
+                                    >
+                                       {tab.name}
+                                    </button>
+                                    <div className='px-4'>
+                                       <hr className='border-purple-400' />
+                                    </div>
+                                 </>
                               ))}
                            </AnimatedBackground>
                         </ul>

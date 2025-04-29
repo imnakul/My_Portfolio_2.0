@@ -12,6 +12,7 @@ import Skills from '@/components/Skills'
 import Projects from '@/components/Projects'
 import Badges from '@/components/Badges'
 import Contact from '@/components/Contact'
+import CognitiveTwinTooltip from '@/components/CognitiveTwinTooltip'
 
 export default function Home() {
    return (
@@ -39,7 +40,7 @@ export default function Home() {
                id='ai'
                className='sm:flex items-center justify-center min-h-[100vh] px-6 py-20 w-full'
             >
-               {/* // Desktop View */}
+               {/* //~ Desktop View */}
                <div className='sm:max-w-7xl w-full sm:block hidden'>
                   <AnimatedContent
                      direction='vertical'
@@ -68,6 +69,7 @@ export default function Home() {
                            <h3 className='text-2xl font-bold mb-4 text-purple-400 '>
                               🧠 Nakul's Cognitive Twin
                            </h3>
+                           <CognitiveTwinTooltip />
                            <AnimatedContent
                               direction='horizontal'
                               distance={50}
@@ -80,7 +82,7 @@ export default function Home() {
                   </div>
                </div>
 
-               {/* //MobileView  */}
+               {/* //~ MobileView  */}
                <div className='sm:hidden block max-w-xs '>
                   <AnimatedContent
                      direction='vertical'
@@ -92,7 +94,7 @@ export default function Home() {
                      </h2>
                   </AnimatedContent>
 
-                  <div className='grid grid-cols-1 '>
+                  <div className='grid grid-cols-1'>
                      {/* <AnimatedContent
                            direction='horizontal'
                            distance={50}
@@ -106,9 +108,10 @@ export default function Home() {
                            proximity={64}
                            inactiveZone={0.01}
                         />
-                        <h3 className='text-xl font-bold mb-2 text-purple-400 ml-6 '>
+                        <h3 className='text-xl font-bold mb-2 text-purple-400 ml-2'>
                            🧠 Nakul's Cognitive Twin
                         </h3>
+                        <CognitiveTwinTooltip />
                         <CognitiveTwin />
                      </div>
                      {/* </AnimatedContent> */}

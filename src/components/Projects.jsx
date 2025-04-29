@@ -1,6 +1,6 @@
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
-import { AnimatedModal } from '@/components/ui/AnimatedModal'
+import { AnimatedModal } from '@/components/AnimatedModal'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
@@ -109,7 +109,7 @@ function Projects() {
                         description:
                            'Collaborative Interview Platform with collaborative code editor and canvas with Video,chat support. ',
                         tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
-                        image: '/InterviewSphere.jpeg',
+                        image: '/is.png',
                         link: '',
                         info: '',
                         status: 'On Hold - 60% Done',
@@ -168,7 +168,7 @@ function Projects() {
                                           translateZ={20}
                                           // as={Link}
 
-                                          className='px-4 py-2 rounded-xl text-sm font-normal text-white'
+                                          className='px-4 py-2 rounded-xl text-sm font-normal text-white filter-glow-hover'
                                           as='button'
                                           onClick={() =>
                                              setOpenProject(project)
@@ -180,7 +180,7 @@ function Projects() {
                                           <CardItem
                                              translateZ={20}
                                              as='button'
-                                             className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold '
+                                             className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white text-sm font-bold filter-glow-hover '
                                              onClick={() =>
                                                 window.open(
                                                    project.link,

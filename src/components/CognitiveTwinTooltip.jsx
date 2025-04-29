@@ -6,7 +6,7 @@ const CognitiveTwinTooltip = () => {
    const [showInfo, setShowInfo] = useState(false)
 
    return (
-      <div className='absolute sm:top-5 right-5 z-50'>
+      <div className='absolute top-4 right-4 sm:top-5 sm:right-5 z-50'>
          <div
             onMouseEnter={() => setShowInfo(true)}
             onMouseLeave={() => setShowInfo(false)}
@@ -23,7 +23,7 @@ const CognitiveTwinTooltip = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
-                  className='mt-2 p-4 sm:w-80 text-xs sm:text-sm rounded-lg shadow-xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 sm:absolute sm:right-0 sm:top-8  w-64'
+                  className='mt-2 p-4 sm:w-80 text-xs sm:text-sm rounded-lg shadow-xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 absolute right-7 top-2 sm:absolute sm:right-0 sm:top-8  w-64'
                >
                   <p className='mb-4 font-semibold text-purple-700 dark:text-purple-300 text-center'>
                      Who am I ? What I Know ?

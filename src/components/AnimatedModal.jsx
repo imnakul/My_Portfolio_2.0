@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FiExternalLink } from 'react-icons/fi'
 import { IoClose } from 'react-icons/io5'
+import Corousals from './ui/Corousals'
 
 export const AnimatedModal = ({ project, onClose }) => {
    return (
@@ -25,16 +26,30 @@ export const AnimatedModal = ({ project, onClose }) => {
             {/* <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'> */}
             {project.title === 'Interview Sphere' && (
                <>
-                  <h2 className='text-2xl font-bold mb-4 text-purple-400'>
+                  <h2 className='text-2xl font-bold text-purple-400'>
                      {project.title}
                   </h2>
                   <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
-                     <img
+                     {/* <img
                         src={project.image}
                         alt={project.title}
                         className='h-[60vh] w-[60vw] object-contain rounded-md mb-6'
-                     />
-                     {/* h-[60vh] w-[60vw] */}
+                     /> */}
+                     <div
+                        className='mb-6'
+                        style={{ height: '700px', position: 'relative' }}
+                     >
+                        <Corousals
+                           baseWidth={900}
+                           autoplay={true}
+                           autoplayDelay={3000}
+                           pauseOnHover={true}
+                           loop={true}
+                           round={false}
+                           image={project.image}
+                        />
+                     </div>
+
                      <p className='text-gray-300 mb-2 leading-relaxed'>
                         <span className='font-medium text-purple-300'>
                            Interview Sphere
@@ -53,15 +68,29 @@ export const AnimatedModal = ({ project, onClose }) => {
             )}
             {project.title === 'Productive Pulse' && (
                <>
-                  <h4 className='text-lg font-semibold text-purple-400 mb-4'>
+                  <h4 className='text-lg font-semibold text-purple-400 '>
                      🚀 Ongoing Project - Productive Pulse
                   </h4>
                   <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
-                     <img
+                     {/* <img
                         src={project.image}
                         alt={project.title}
                         className='h-[60vh] w-[60vw] object-contain rounded-md mb-6'
-                     />
+                     /> */}
+                     <div
+                        className='mb-6'
+                        style={{ height: '700px', position: 'relative' }}
+                     >
+                        <Corousals
+                           baseWidth={900}
+                           autoplay={true}
+                           autoplayDelay={3000}
+                           pauseOnHover={true}
+                           loop={true}
+                           round={false}
+                           image={project.image}
+                        />
+                     </div>
                      <p className='text-gray-300 mb-2 leading-relaxed'>
                         <span className='font-medium text-purple-300'>
                            Productive Pulse
@@ -95,15 +124,29 @@ export const AnimatedModal = ({ project, onClose }) => {
             {project.title !== 'Productive Pulse' &&
                project.title !== 'Interview Sphere' && (
                   <>
-                     <h2 className='text-2xl font-bold mb-4 text-purple-400'>
+                     <h2 className='text-2xl font-bold text-purple-400'>
                         {project.title}
                      </h2>
                      <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] sm:p-6 p-4 text-sm sm:text-base'>
-                        <img
+                        {/* <img
                            src={project.image}
                            alt={project.title}
-                           className='h-[80vh] w-[80vw] object-contain] rounded-md mb-6'
-                        />
+                           className='h-[80vh] w-[80vw] object-contain rounded-md mb-6'
+                        /> */}
+                        <div
+                           className='mb-6'
+                           style={{ height: '700px', position: 'relative' }}
+                        >
+                           <Corousals
+                              baseWidth={900}
+                              autoplay={true}
+                              autoplayDelay={3000}
+                              pauseOnHover={true}
+                              loop={true}
+                              round={false}
+                              image={project.image}
+                           />
+                        </div>
                         <p className='text-neutral-700 dark:text-neutral-300 mb-6'>
                            {project.description}
                         </p>
@@ -132,7 +175,7 @@ export const AnimatedModal = ({ project, onClose }) => {
                            <div
                               translateZ={20}
                               as='button'
-                              className='flex items-center justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white font-bold w-20 text-sm font-bold'
+                              className='flex items-center justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500  text-white w-20 text-sm font-bold'
                               onClick={() =>
                                  window.open(project.link, '_blank')
                               }

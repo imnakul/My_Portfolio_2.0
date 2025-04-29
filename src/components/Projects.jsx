@@ -46,7 +46,7 @@ function Projects() {
                         description:
                            'A modern portfolio website built with React and Tailwind CSS featuring smooth animations and interactive elements.',
                         tech: ['React', 'Tailwind CSS'],
-                        image: '/Portfolio.png',
+                        image: ['/Portfolio.png'],
                         link: 'https://nakul-srivastava-portfolio.vercel.app/',
                         info: '',
                         status: 'Live',
@@ -61,7 +61,8 @@ function Projects() {
                            'Tailwind CSS',
                            'FramerMotion',
                         ],
-                        image: '/FlexiTasks.jpeg',
+                        image: ['/fts.png', '/ft.png'],
+                        href: 'https://deviceframes.com/templates/iphone-13',
                         link: 'https://flexitasks.vercel.app/',
                         info: '',
                         status: 'Live',
@@ -79,7 +80,11 @@ function Projects() {
 
                            'Leaflet.js',
                         ],
-                        image: '/HouseMarketplace.jpg',
+                        image: [
+                           '/HouseMarketplace.jpg',
+                           '/hmp2.jpg',
+                           '/hmp3.jpg',
+                        ],
                         link: 'https://house-marketplace-webapp.vercel.app/',
                         info: '',
                         status: 'Live',
@@ -98,7 +103,7 @@ function Projects() {
                         description:
                            'Your one stop solution to increase your productivity flow - Single dashboard with Notes, todos, Reminders, Pomodoro Timer, AI Features.',
                         tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
-                        image: '/ProductivePulse3.png',
+                        image: ['/ProductivePulse3.png'],
                         link: '',
                         info: '',
                         status: 'Coming Soon - 80% Done',
@@ -109,7 +114,8 @@ function Projects() {
                         description:
                            'Collaborative Interview Platform with collaborative code editor and canvas with Video,chat support. ',
                         tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
-                        image: '/is.png',
+                        image: ['/is.png', '/is3.png'],
+                        href: 'https://deviceframes.com/templates/iphone-13',
                         link: '',
                         info: '',
                         status: 'On Hold - 60% Done',
@@ -144,7 +150,7 @@ function Projects() {
                                     className='w-full mt-4'
                                  >
                                     <img
-                                       src={project.image}
+                                       src={project.image[0]}
                                        alt={project.title}
                                        height='1000'
                                        width='1000'

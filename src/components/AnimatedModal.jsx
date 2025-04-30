@@ -40,7 +40,7 @@ export const AnimatedModal = ({ project, onClose }) => {
                         style={{ height: '700px', position: 'relative' }}
                      >
                         <Corousals
-                           baseWidth={900}
+                           // baseWidth={900}
                            autoplay={true}
                            autoplayDelay={3000}
                            pauseOnHover={true}

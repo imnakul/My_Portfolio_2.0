@@ -49,7 +49,7 @@ const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 }
 
 export default function Carousel({
    items = DEFAULT_ITEMS,
-   baseWidth = 300,
+   // baseWidth = 300,
    autoplay = false,
    autoplayDelay = 3000,
    pauseOnHover = false,
@@ -57,6 +57,34 @@ export default function Carousel({
    round = false,
    image = '/ft.png',
 }) {
+   //??CUstom code for ResponsiveNess
+   const [baseWidth, setBaseWidth] = useState(900)
+   const [heightParam, setHeightParam] = useState(480)
+
+   useEffect(() => {
+      const updateWidth = () => {
+         const width = window.innerWidth
+
+         if (width < 640) {
+            setBaseWidth(315)
+            setHeightParam(165)
+         } else if (width < 768) {
+            setBaseWidth(500)
+            setHeightParam(350)
+         } else if (width < 1024) {
+            setBaseWidth(700)
+            setHeightParam(400)
+         } else {
+            setBaseWidth(900)
+            setHeightParam(480)
+         }
+      }
+
+      updateWidth() // Set initial width
+      window.addEventListener('resize', updateWidth)
+      return () => window.removeEventListener('resize', updateWidth)
+   }, [])
+
    items = image
    const containerPadding = 16
    const itemWidth = baseWidth - containerPadding * 2
@@ -200,7 +228,7 @@ export default function Carousel({
                      } overflow-hidden cursor-grab active:cursor-grabbing`}
                      style={{
                         width: itemWidth,
-                        height: round ? itemWidth : '480px',
+                        height: round ? itemWidth : `${heightParam}px`,
                         rotateY: rotateY,
                         ...(round && { borderRadius: '50%' }),
                      }}

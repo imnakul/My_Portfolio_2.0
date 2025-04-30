@@ -51,11 +51,17 @@ function Projects() {
                         link: 'https://nakul-srivastava-portfolio.vercel.app/',
                         info: '',
                         status: 'Live',
+                        features: [
+                           'Responsive Design: The portfolio is built with React, ensuring responsiveness across various devices.',
+                           'Project Showcase: A dedicated section to display various projects, highlighting skills and experiences.',
+                           'Contact Information: Provides easy access to contact details, facilitating communication',
+                           'Professional Summary: Includes a brief overview of professional background and expertise.',
+                        ],
                      },
                      {
                         title: 'FlexiTASKS',
                         description:
-                           'Customizable Tasks Responsive WebApp - Feature Rich yet Minimal with Beautiful Consistent UI/UX',
+                           'FlexiTasks – A Minimal, Flexible & Beautifully Animated Task Manager Built for Productivity & Personalization.',
                         tech: [
                            'React',
                            'Redux',
@@ -67,6 +73,19 @@ function Projects() {
                         link: 'https://flexitasks.vercel.app/',
                         info: '',
                         status: 'Live',
+                        features: [
+                           'Modern, responsive design with dynamic animated themes',
+                           'Switch seamlessly between Dark, Light, and Colorful Modes',
+                           'Multiple views: Compact, Detailed, and Custom Layouts',
+                           'Create, manage, and organize tasks with categories and priorities',
+                           'ViewModes- List, Kanban , Priority Matrix, Timeline and Calendar',
+                           'Import & Export tasks locally for backups or sharing',
+                           'Minimal UI with smooth transitions and delightful micro-interactions',
+                           'Feature Rich Mode - SubTasks, Notes, Sorting',
+                           'Built with React, Tailwind CSS, Redux Toolkit, and Framer Motion',
+                           'Persistent state with Redux & Local Storage for uninterrupted productivity',
+                           'Cloud Storage - Cross Device Sync without Login (Coming Soon)',
+                        ],
                      },
                      {
                         title: 'HouseMarketPlace',
@@ -101,8 +120,14 @@ function Projects() {
                      {
                         title: 'Productive Pulse',
                         description:
-                           'Your one stop solution to increase your productivity flow - Single dashboard with Notes, todos, Reminders, Pomodoro Timer, AI Features.',
-                        tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
+                           'Your one stop solution to increase your productivity flow - Your Smart Productivity Dashboard',
+                        tech: [
+                           'React',
+                           'Redux',
+                           'Appwrite',
+                           'Tailwind CSS',
+                           'AI Model',
+                        ],
                         image: [
                            '/pp0.png',
                            '/pp1.png',
@@ -123,12 +148,39 @@ function Projects() {
                         title: 'Interview Sphere',
                         description:
                            'Collaborative Interview Platform with collaborative code editor and canvas with Video,chat support. ',
-                        tech: ['React', 'Redux', 'Appwrite', 'Tailwind CSS'],
-                        image: ['/is.png', '/is3.png'],
+                        tech: [
+                           'React',
+                           'Redux',
+                           'Appwrite',
+                           'Tailwind CSS',
+                           'Liveblocks',
+                        ],
+                        image: [
+                           '/is.png',
+                           '/is2.png',
+                           '/is3.png',
+                           '/is5.png',
+                           '/is6.png',
+                           '/is7.png',
+                           '/is7.5.png',
+                           '/is8.png',
+                           '/is9.png',
+                        ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: '',
                         info: '',
                         status: 'On Hold - 60% Done',
+                        features: [
+                           'Collaborative Interview Platform',
+                           'Collaborative code editor with syntax highlighting',
+                           'Collaborative Canvas',
+                           'Live Video / Chat Support',
+                           'Notes Saving for Interviewers',
+                           'Selected/ Not selected Interviewees details ',
+                           'Scheudling Interviews for Interviewers',
+                           'Colored Dark/Light Modes',
+                           'Protected Routes for Interviewee/ Interviewer',
+                        ],
                      },
                   ].map((project, index) => (
                      <>

@@ -15,7 +15,7 @@ export const AnimatedModal = ({ project, onClose }) => {
          >
             {/* Close Button */}
             <button
-               className='absolute top-5 right-5 text-gray-500 hover:text-gray-800 dark:hover:text-white text-2xl font-bold'
+               className='absolute top-3 right-5 text-gray-500 hover:text-gray-800 dark:hover:text-white text-2xl font-bold'
                onClick={onClose}
             >
                {/* &times; */}
@@ -26,17 +26,17 @@ export const AnimatedModal = ({ project, onClose }) => {
             {/* <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'> */}
             {project.title === 'Interview Sphere' && (
                <>
-                  <h2 className='text-2xl font-bold text-purple-400'>
-                     {project.title}
-                  </h2>
+                  <div className='relative flex items-center justify-center w-full'>
+                     <h4 className='sm:text-4xl text-2xl font-bold text-purple-400 pb-2'>
+                        Interview Sphere
+                     </h4>
+                     <h4 className='absolute right-68 sm:right-16 sm:text-sm text-xs font-bold text-purple-400 mb-2 sm:p-2 p-1 border border-purple-400 sm:rounded-xl rounded-md'>
+                        ⏸️ OnHold
+                     </h4>
+                  </div>
                   <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
-                     {/* <img
-                        src={project.image}
-                        alt={project.title}
-                        className='h-[60vh] w-[60vw] object-contain rounded-md mb-6'
-                     /> */}
                      <div
-                        className='mb-6'
+                        className='mb-0'
                         style={{ height: '700px', position: 'relative' }}
                      >
                         <Corousals
@@ -50,7 +50,7 @@ export const AnimatedModal = ({ project, onClose }) => {
                         />
                      </div>
 
-                     <p className='text-gray-300 mb-2 leading-relaxed'>
+                     <p className='text-gray-300 mb-4 leading-relaxed'>
                         <span className='font-medium text-purple-300'>
                            Interview Sphere
                         </span>{' '}
@@ -58,25 +58,68 @@ export const AnimatedModal = ({ project, onClose }) => {
                         collaboration, whiteboard, session restore, role-based
                         panels, and video calling.
                      </p>
+                     <p className='text-gray-300 mb-2 leading-relaxed'>
+                        <span className='font-semibold text-purple-400'>
+                           Planned Features:
+                        </span>
+                     </p>
+                     <p className='text-neutral-700 dark:text-neutral-300 mb-4 ml-4'>
+                        {project.features &&
+                           project.features.map((feature, i) => (
+                              <li
+                                 key={i}
+                                 className='text-neutral-700 dark:text-neutral-300 mb-2'
+                              >
+                                 {feature}
+                              </li>
+                           ))}
+                     </p>
+                     <p className='text-gray-300 mb-2 leading-relaxed'>
+                        <span className='font-semibold text-purple-400'>
+                           Progress So Far:
+                        </span>
+                     </p>
+                     <ul className='list-disc list-inside text-gray-300 mb-4 leading-relaxed'>
+                        <li>Collaborative Canvas & Code Editor</li>
+                        <li>Register & Login </li>
+                        <li>UI layout & Components</li>
+                        <li>Feedback System</li>
+                        <li>Complete Flow & UX</li>
+                     </ul>
                      <p className='text-gray-300 mb-4 leading-relaxed'>
-                        Currently paused to focus on productivity dashboard &
-                        advanced learning. Will resume with better planning and
-                        technical improvements.
+                        <span className='font-semibold text-purple-400'>
+                           What’s Next :
+                        </span>
+                        <ul className='list-disc list-inside text-gray-300 mb-4 leading-relaxed'>
+                           <li>
+                              Integrating Collaborative Features with Appwrite -
+                              Sessions
+                           </li>
+                           <li>Live Video Call & Chat</li>
+                        </ul>
+                     </p>
+                     <p className='text-gray-300 mb-6 leading-relaxed'>
+                        <span className='font-semibold text-purple-400'>
+                           Why on hold :
+                        </span>
+                        Currently paused to focus on productivity pulse &
+                        advanced learning on Collborative Features. Will resume
+                        with better planning and technical improvements.
                      </p>
                   </div>
                </>
             )}
             {project.title === 'Productive Pulse' && (
                <>
-                  <h4 className='text-lg font-semibold text-purple-400 '>
-                     🚀 Ongoing Project - Productive Pulse
-                  </h4>
+                  <div className='relative flex items-center justify-center w-full gap-4'>
+                     <h4 className='sm:text-4xl text-2xl font-bold text-purple-400 pb-2'>
+                        Productive Pulse
+                     </h4>
+                     <h4 className=' absolute right-68 sm:right-16 sm:text-sm text-xs font-bold text-purple-400 mb-2 sm:p-2 p-1 border border-purple-400 sm:rounded-xl rounded-md'>
+                        🚀 Ongoing
+                     </h4>
+                  </div>
                   <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
-                     {/* <img
-                        src={project.image}
-                        alt={project.title}
-                        className='h-[60vh] w-[60vw] object-contain rounded-md mb-6'
-                     /> */}
                      <div
                         className='mb-6'
                         style={{ height: '700px', position: 'relative' }}
@@ -100,6 +143,43 @@ export const AnimatedModal = ({ project, onClose }) => {
                      </p>
                      <p className='text-gray-300 mb-2 leading-relaxed'>
                         <span className='font-semibold text-purple-400'>
+                           Planned Features:
+                        </span>
+                     </p>
+                     <ul className='list-disc list-inside text-gray-300 mb-4 leading-relaxed'>
+                        <li>
+                           Responsive dashboard for daily planning, focus, and
+                           reflection{' '}
+                        </li>
+                        <li>
+                           Customizable layout with background themes and
+                           Pomodoro timer{' '}
+                        </li>
+                        <li>
+                           Repeating tasks, reminders, and short notes all in
+                           one place{' '}
+                        </li>
+                        <li>
+                           Live streak tracker and Pomodoro session stats
+                           (daily, weekly, all-time){' '}
+                        </li>
+                        <li>
+                           Session restore and persistent timers even after
+                           refresh{' '}
+                        </li>
+                        <li>
+                           Built with React, Redux Toolkit, Web Workers &
+                           Tailwind CSS{' '}
+                        </li>
+                        <li>
+                           Appwrite authentication & Appwrite for secure user
+                           data handling
+                        </li>
+                        <li>Save and export notes locally and sync online.</li>
+                        <li>Integrated AI Personal Partner</li>
+                     </ul>
+                     <p className='text-gray-300 mb-2 leading-relaxed'>
+                        <span className='font-semibold text-purple-400'>
                            Progress So Far:
                         </span>
                      </p>
@@ -112,11 +192,10 @@ export const AnimatedModal = ({ project, onClose }) => {
                      </ul>
                      <p className='text-gray-300 mb-6 leading-relaxed'>
                         <span className='font-semibold text-purple-400'>
-                           What’s Next:
+                           What’s Next :
                         </span>
-                        Implementing persistent state management, improving UX,
-                        integrating more productivity widgets, and preparing for
-                        deployment.
+                        Implementing AI model , Stats , Responsiveness and
+                        Theme.
                      </p>
                   </div>
                </>
@@ -124,9 +203,11 @@ export const AnimatedModal = ({ project, onClose }) => {
             {project.title !== 'Productive Pulse' &&
                project.title !== 'Interview Sphere' && (
                   <>
-                     <h2 className='text-2xl font-bold text-purple-400'>
-                        {project.title}
-                     </h2>
+                     <div className='flex items-center justify-center w-full '>
+                        <h2 className='text-4xl font-bold text-purple-400 pb-2'>
+                           {project.title}
+                        </h2>
+                     </div>
                      <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] sm:p-6 p-4 text-sm sm:text-base'>
                         {/* <img
                            src={project.image}
@@ -150,6 +231,14 @@ export const AnimatedModal = ({ project, onClose }) => {
                         <p className='text-neutral-700 dark:text-neutral-300 mb-6'>
                            {project.description}
                         </p>
+                        {project.features && (
+                           <p className='text-gray-300 mb-2 leading-relaxed'>
+                              <span className='font-semibold text-purple-400'>
+                                 Features:
+                              </span>
+                           </p>
+                        )}
+
                         <p className='text-neutral-700 dark:text-neutral-300 mb-6 ml-4'>
                            {project.features &&
                               project.features.map((feature, i) => (

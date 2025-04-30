@@ -66,7 +66,7 @@ export default function Carousel({
          const width = window.innerWidth
 
          if (width < 640) {
-            setBaseWidth(315)
+            setBaseWidth(300)
             setHeightParam(165)
          } else if (width < 768) {
             setBaseWidth(500)

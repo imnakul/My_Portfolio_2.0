@@ -34,9 +34,9 @@ export const AnimatedModal = ({ project, onClose }) => {
                         ⏸️ OnHold
                      </h4>
                   </div>
-                  <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
+                  <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] px-6 py-6 lg:px-6 lg:py-2'>
                      <div
-                        className='mb-0'
+                        className='mb-6'
                         style={{ height: '700px', position: 'relative' }}
                      >
                         <Corousals
@@ -119,7 +119,7 @@ export const AnimatedModal = ({ project, onClose }) => {
                         🚀 Ongoing
                      </h4>
                   </div>
-                  <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] p-6'>
+                  <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] px-6 py-6 lg:px-6 lg:py-2'>
                      <div
                         className='mb-6'
                         style={{ height: '700px', position: 'relative' }}
@@ -208,12 +208,7 @@ export const AnimatedModal = ({ project, onClose }) => {
                            {project.title}
                         </h2>
                      </div>
-                     <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] sm:p-6 p-4 text-sm sm:text-base'>
-                        {/* <img
-                           src={project.image}
-                           alt={project.title}
-                           className='h-[80vh] w-[80vw] object-contain rounded-md mb-6'
-                        /> */}
+                     <div className='flex flex-col overflow-hidden overflow-y-auto max-h-[80vh] sm:px-6 sm:py-2 px-4 py-4 text-sm sm:text-base'>
                         <div
                            className='mb-6'
                            style={{ height: '700px', position: 'relative' }}

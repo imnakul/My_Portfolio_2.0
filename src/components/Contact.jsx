@@ -39,7 +39,7 @@ const socials = [
 
    {
       social: 'telegram',
-      url: 'https://t.me/devtoolsspotlight',
+      url: 'https://t.me/i_m_nakul',
       icon: <RiTelegram2Fill className='size-5 sm:size-7' />,
       title: 'Telegram',
    },
@@ -104,9 +104,23 @@ function Contact() {
                            proximity={64}
                            inactiveZone={0.01}
                         />
-                        <h3 className='text-2xl font-bold mb-6 text-purple-400'>
-                           Contact Me
-                        </h3>
+                        <div className='flex items-center justify-between mb-6'>
+                           <h3 className='text-2xl font-bold  text-purple-400'>
+                              Contact Me
+                           </h3>
+                           <a
+                              href='/resume.pdf'
+                              download='Resume_NakulSrivastava_FrontEndDev.pdf'
+                              title='Download Resume'
+                           >
+                              <img
+                                 src='/resume_download.png'
+                                 className='relative size-10 sm:size-14 filter-glow-hover hover:scale-105 transition-all duration-300'
+                                 alt='download_resume'
+                              />
+                           </a>
+                        </div>
+
                         <p className='text-gray-300 mb-6'>
                            I'm always open to new opportunities and
                            collaborations. Feel free to reach out if you have a
@@ -166,7 +180,7 @@ function Contact() {
                                     </span>
                                  </div> */}
                         </div>
-                        <div className='flex space-x-4 mt-8 justify-center'>
+                        <div className='flex space-x-4 mt-4 justify-center'>
                            {socials.map((social, index) => (
                               <a
                                  key={index}
@@ -180,7 +194,7 @@ function Contact() {
                            ))}
                         </div>
                         {/* //?? Marquee Section */}
-                        <div className='flex  mt-8 relative  w-full flex-col overflow-hidden'>
+                        <div className='flex  mt-6 relative  w-full flex-col overflow-hidden'>
                            <span className='font-bold text-sm py-1'>
                               Articles You May Like:{' '}
                            </span>
@@ -252,7 +266,7 @@ function Contact() {
                                     className='flex w-full cursor-pointer '
                                  >
                                     <span className='text-sm'>
-                                       𝐃𝐞𝐜𝐨𝐝𝐢𝐧𝐠 𝐀𝐈 𝐉𝐚𝐫𝐠𝐨𝐧𝐬
+                                       Decoding AI Jargons
                                     </span>
                                  </a>
                               </div>
@@ -281,7 +295,7 @@ function Contact() {
 
                         <form className='space-y-4'>
                            <div>
-                              <label className='block text-gray-300 mb-2'>
+                              <label className='block text-gray-300 mb-3'>
                                  Name
                               </label>
                               <input
@@ -295,7 +309,7 @@ function Contact() {
                            </div>
 
                            <div>
-                              <label className='block text-gray-300 mb-2'>
+                              <label className='block text-gray-300 mb-3'>
                                  Email
                               </label>
                               <input
@@ -309,7 +323,7 @@ function Contact() {
                            </div>
 
                            <div>
-                              <label className='block text-gray-300 mb-2'>
+                              <label className='block text-gray-300 mb-3.5'>
                                  Message
                               </label>
                               <textarea

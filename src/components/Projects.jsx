@@ -147,7 +147,7 @@ function Projects() {
                      {
                         title: 'Interview Sphere',
                         description:
-                           'Collaborative Interview Platform with collaborative code editor and canvas with Video,chat support. ',
+                           'Interview Platform with collaborative code editor and canvas with Video,chat support. ',
                         tech: [
                            'React',
                            'Redux',

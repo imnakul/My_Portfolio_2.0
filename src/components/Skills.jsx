@@ -27,11 +27,21 @@ function Skills() {
                      {
                         name: 'Frontend',
                         skills: [
+                           'JavaScript',
                            'React',
                            'Next.js',
-                           'HTML/CSS',
                            'Tailwind CSS',
-                           'JavaScript',
+                        ],
+                     },
+                     {
+                        name: 'Gen AI',
+                        skills: [
+                           'AI Agent',
+                           'Persona',
+
+                           'Advanced RAG',
+                           'LangChain',
+                           'Tracing',
                         ],
                      },
                      {
@@ -40,25 +50,28 @@ function Skills() {
                      },
                      {
                         name: 'Tools',
-                        skills: ['Git', 'GitHub', 'VS Code', 'Vercel', 'Canva'],
+                        skills: [
+                           'Git',
+                           'GitHub',
+                           'VS Code',
+                           'Vercel',
+                           'tlDraw',
+                        ],
                      },
-                     {
-                        name: 'Design',
-                        skills: ['Responsive Design', 'UI/UX Principles'],
-                     },
+
                      {
                         name: 'Soft Skills',
                         skills: [
+                           'Code Debugging',
                            'Problem Solving',
+                           'Time Management',
                            'Communication',
                            'Team Collaboration',
-                           'Time Management',
-                           'Code Debugging',
                         ],
                      },
                      {
                         name: 'Learning',
-                        skills: ['Next.js', 'TypeScript', 'GenAI'],
+                        skills: ['Next.js', 'GenAI', 'TypeScript'],
                      },
                   ].map((category, index) => (
                      <AnimatedContent
@@ -67,7 +80,7 @@ function Skills() {
                         distance={50}
                         delay={400 + index * 100}
                      >
-                        <div className='glass-effect rounded-xl p-6 h-full card-glow '>
+                        <div className='glass-effect rounded-xl p-6 h-full card-glow'>
                            <GlowingEffect
                               spread={40}
                               glow={true}

@@ -100,8 +100,8 @@ export const AnimatedModal = ({ project, onClose }) => {
                      </p>
                      <p className='text-gray-300 mb-6 leading-relaxed'>
                         <span className='font-semibold text-purple-400'>
-                           Why on hold :
-                        </span>
+                           Why on hold?:
+                        </span>{' '}
                         Currently paused to focus on productivity pulse &
                         advanced learning on Collborative Features. Will resume
                         with better planning and technical improvements.
@@ -192,8 +192,8 @@ export const AnimatedModal = ({ project, onClose }) => {
                      </ul>
                      <p className='text-gray-300 mb-6 leading-relaxed'>
                         <span className='font-semibold text-purple-400'>
-                           What’s Next :
-                        </span>
+                           What’s Next?:
+                        </span>{' '}
                         Implementing AI model , Stats , Responsiveness and
                         Theme.
                      </p>

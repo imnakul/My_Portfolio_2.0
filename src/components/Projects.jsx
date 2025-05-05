@@ -61,7 +61,7 @@ function Projects() {
                      {
                         title: 'FlexiTASKS',
                         description:
-                           'FlexiTasks – A Minimal, Flexible & Beautifully Animated Task Manager Built for Productivity & Personalization.',
+                           'A minimal yet feature-rich task manager with animated themes, flexible modes, and views for personalized productivity.',
                         tech: [
                            'React',
                            'Redux',
@@ -88,13 +88,12 @@ function Projects() {
                         ],
                      },
                      {
-                        title: 'HouseMarketPlace',
+                        title: 'House MarketPlace',
                         description:
-                           'A web application where users can list properties for sale or rent, featuring Google authentication, Firebase integration, and a map view.',
+                           'A platform where property owners can list, rent, or sell their properties, while renters and buyers can easily explore and find their ideal space.',
                         tech: [
                            'React',
                            'Firebase',
-                           'Tailwind CSS',
                            'OAuth',
                            'Firebase',
                            'Leaflet.js',
@@ -120,7 +119,7 @@ function Projects() {
                      {
                         title: 'Productive Pulse',
                         description:
-                           'Your one stop solution to increase your productivity flow - Your Smart Productivity Dashboard',
+                           'A smart dashboard uniting productivity tools with AI enhancements to help you stay focused and efficient in a world full of distractions.',
                         tech: [
                            'React',
                            'Redux',
@@ -147,7 +146,7 @@ function Projects() {
                      {
                         title: 'Interview Sphere',
                         description:
-                           'Interview Platform with collaborative code editor and canvas with Video,chat support. ',
+                           'Interview Platform with collaborative code editor and canvas with live video, chat Features. ',
                         tech: [
                            'React',
                            'Redux',

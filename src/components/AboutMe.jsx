@@ -59,13 +59,15 @@ function AboutMe() {
                               Hello, I'm Nakul Srivastava
                            </h3>
                            <p className='text-gray-300 mb-4 leading-relaxed'>
-                              I'm a passionate web developer who loves building
-                              beautiful, functional, and efficient web
-                              applications. I focus on crafting seamless user
-                              experiences using modern frontend technologies.
+                              I'm a passionate web developer, focusing on
+                              Generative AI to deliver responsive, innovative,
+                              and visually appealing modern web applications
+                              that make a real-world impact and enhance user
+                              experience using modern frontend technologies and
+                              AI.
                            </p>
                            <p className='text-gray-300 mb-6 leading-relaxed'>
-                              With a solid foundation in{' '}
+                              Skilled in UI development using{' '}
                               <span className='text-purple-400 font-medium'>
                                  JavaScript
                               </span>
@@ -79,8 +81,14 @@ function AboutMe() {
                                        {' '}
                                        Next.js
                                     </span> */}
-                              , I develop scalable and elegant solutions that
-                              bring ideas to life.
+                              , with a focus on integrating AI to enhance
+                              performance and usability
+                           </p>
+                           <p className='text-gray-300 mb-6 leading-relaxed'>
+                              I am also enthusiastic about exploring and
+                              utilizing new, innovative tech products to improve
+                              efficiency and stay ahead in the ever-evolving
+                              tech landscape.
                            </p>
 
                            <h4 className='text-lg font-semibold text-purple-400 mb-2'>

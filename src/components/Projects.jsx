@@ -43,6 +43,7 @@ function Projects() {
                   {[
                      {
                         title: 'Portfolio v1.0',
+                        tag: 'Personal Project',
                         description:
                            'A modern portfolio website built with React and Tailwind CSS featuring smooth animations and interactive elements.',
                         tech: ['React', 'Tailwind CSS'],
@@ -60,6 +61,7 @@ function Projects() {
                      },
                      {
                         title: 'FlexiTASKS',
+                        tag: 'Productivity Tool',
                         description:
                            'A minimal yet feature-rich task manager with animated themes, flexible modes, and views for personalized productivity.',
                         tech: [
@@ -88,7 +90,34 @@ function Projects() {
                         ],
                      },
                      {
+                        title: 'Hashnode - Article Finder',
+                        tag: 'Solution for Orgs & Authors',
+                        description: `A unified platform to track student articles, send personalized feedback, and access all assignments with one click.`,
+                        tech: [
+                           'React',
+                           'Hashnode API',
+                           'Github API',
+                           'Gmail API',
+                           'Firebase',
+                        ],
+                        image: ['/haf.png'],
+                        link: 'https://hashnode-article-fetcher.vercel.app/',
+                        info: `If you are an organization looking to track your students' articles as assignments, it can be a cumbersome task to search through all the articles on Hashnode and then find the corresponding contact details to send them. \n\n
+
+If you are a student wanting to explore all the articles published for that organization as assignments, you can access all the articles in one place, complete with links, author details, and much more.`,
+                        status: 'Live',
+                        features: [
+                           'Article Search on Hashnode using Tags',
+                           'Perosonlized Feedback in Students Mailbox with single Click',
+                           'Explore all articles on a topic at one place, with links, tags,author details, author SocialMedia Handle links',
+                           'Filter Articles based on Views, comments, Date of publishing etc',
+                           'Search Articles in a long list',
+                           'Sort Articles - Views , comments, publishing date based',
+                        ],
+                     },
+                     {
                         title: 'House MarketPlace',
+                        tag: 'For Community',
                         description:
                            'A platform where property owners can list, rent, or sell their properties, while renters and buyers can easily explore and find their ideal space.',
                         tech: [
@@ -118,6 +147,7 @@ function Projects() {
                      },
                      {
                         title: 'Productive Pulse',
+                        tag: 'Productivity Tool',
                         description:
                            'A smart dashboard uniting productivity tools with AI enhancements to help you stay focused and efficient in a world full of distractions.',
                         tech: [
@@ -145,6 +175,7 @@ function Projects() {
                      // image: 'https://via.placeholder.com/600x400/111/333?text=Weather+App',
                      {
                         title: 'Interview Sphere',
+                        tag: 'Real-World Problem',
                         description:
                            'Interview Platform with collaborative code editor and canvas with live video, chat Features. ',
                         tech: [
@@ -193,12 +224,23 @@ function Projects() {
                               <CardBody className=' relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-purple-950/20 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[35rem] h-auto rounded-xl p-6 border card-glow '>
                                  {/* sm:w-full */}
                                  {/* sm:w-[35rem] */}
-                                 <CardItem
-                                    translateZ='50'
-                                    className='text-xl font-bold mb-2 text-purple-400  '
-                                 >
-                                    {project.title}
-                                 </CardItem>
+                                 <div className='flex items-center justify-between '>
+                                    <CardItem
+                                       translateZ='50'
+                                       className='text-xl font-bold mb-2 text-purple-400  '
+                                    >
+                                       {project.title}
+                                    </CardItem>
+
+                                    <CardItem
+                                       translateZ='50'
+                                       className='text-sm font-bold mb-2 text-purple-400  '
+                                    >
+                                       <h4 className=' text-xs font-bold text-purple-300  p-1.5 border border-purple-400 rounded-md bg-purple-900/40'>
+                                          {project.tag}
+                                       </h4>
+                                    </CardItem>
+                                 </div>
                                  <CardItem
                                     as='p'
                                     translateZ='60'

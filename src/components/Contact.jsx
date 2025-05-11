@@ -7,16 +7,16 @@ import {
    RiLinkedinFill,
    RiTwitterXFill,
 } from 'react-icons/ri'
-import { SiHashnode } from 'react-icons/si'
+import { SiHashnode, SiPeerlist, SiWakatime } from 'react-icons/si'
 import { Marquee } from './ui/Marquee'
 import { FiExternalLink } from 'react-icons/fi'
 
 const socials = [
    {
-      social: 'github',
-      url: 'https://github.com/imnakul',
-      icon: <RiGithubFill className='size-5 sm:size-7' />,
-      title: 'GitHub',
+      social: 'telegram',
+      url: 'https://t.me/i_m_nakul',
+      icon: <RiTelegram2Fill className='size-5 sm:size-7' />,
+      title: 'Telegram',
    },
    {
       social: 'linked-In',
@@ -36,12 +36,23 @@ const socials = [
       icon: <SiHashnode className='size-5 sm:size-7' />,
       title: 'Hashnode',
    },
-
    {
-      social: 'telegram',
-      url: 'https://t.me/i_m_nakul',
-      icon: <RiTelegram2Fill className='size-5 sm:size-7' />,
-      title: 'Telegram',
+      social: 'github',
+      url: 'https://github.com/imnakul',
+      icon: <RiGithubFill className='size-5 sm:size-7' />,
+      title: 'GitHub',
+   },
+   {
+      social: 'peerlist',
+      url: 'https://peerlist.io/imnakul',
+      icon: <SiPeerlist className='size-5 sm:size-7' />,
+      title: 'Peerlist',
+   },
+   {
+      social: 'wakatime',
+      url: 'https://wakatime.com/@imnakul',
+      icon: <SiWakatime className='size-5 sm:size-7' />,
+      title: 'Wakatime',
    },
 ]
 
@@ -180,13 +191,13 @@ function Contact() {
                                     </span>
                                  </div> */}
                         </div>
-                        <div className='flex space-x-4 mt-4 justify-center'>
+                        <div className='flex space-x-4 mt-6 sm:mt-4 justify-center'>
                            {socials.map((social, index) => (
                               <a
                                  key={index}
                                  href={social.url}
                                  target='_blank'
-                                 className='size-10 sm:size-14 rounded-full bg-purple-900/50 flex items-center justify-center hover:bg-purple-700/50 transition-colors duration-300 filter-glow-hover'
+                                 className='size-8 sm:size-12 rounded-full bg-purple-900/50 flex items-center justify-center hover:bg-purple-700/50 transition-colors duration-300 filter-glow-hover'
                                  title={social.title}
                               >
                                  {social.icon}

@@ -1,6 +1,7 @@
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 import GitHubCalendar from 'react-github-calendar'
+import { SiWakatime } from 'react-icons/si'
 
 const badges = [
    {
@@ -48,16 +49,38 @@ const badges = [
       ),
    },
    {
-      name: 'Cognitive Twin ( AI Persona )',
+      name: 'Hashnode - Article Finder',
       link: (
-         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/29a8d8a5-fec3-4251-ab95-f0c3a047dcb0'>
             <img
-               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1.svg?style=for-the-badge'
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/29a8d8a5-fec3-4251-ab95-f0c3a047dcb0.svg?style=for-the-badge'
                alt='wakatime'
             />
          </a>
       ),
    },
+   // {
+   //    name: 'AskMark - Bookmarks which Talkback',
+   //    link: (
+   //       <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/66aa5d30-135d-4ac9-a3e5-dc1c231da22b'>
+   //          <img
+   //             src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/66aa5d30-135d-4ac9-a3e5-dc1c231da22b.svg?style=for-the-badge'
+   //             alt='wakatime'
+   //          />
+   //       </a>
+   //    ),
+   // },
+   // {
+   //    name: 'Cognitive Twin ( AI Persona )',
+   //    link: (
+   //       <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
+   //          <img
+   //             src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1.svg?style=for-the-badge'
+   //             alt='wakatime'
+   //          />
+   //       </a>
+   //    ),
+   // },
 ]
 
 const phoneBadges = [
@@ -106,16 +129,27 @@ const phoneBadges = [
       ),
    },
    {
-      name: 'Cognitive Twin (AI)',
+      name: 'Hashnode - Article Finder',
       link: (
-         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
+         <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/29a8d8a5-fec3-4251-ab95-f0c3a047dcb0'>
             <img
-               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1.svg'
+               src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/29a8d8a5-fec3-4251-ab95-f0c3a047dcb0.svg'
                alt='wakatime'
             />
          </a>
       ),
    },
+   // {
+   //    name: 'Cognitive Twin (AI)',
+   //    link: (
+   //       <a href='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1'>
+   //          <img
+   //             src='https://wakatime.com/badge/user/95d7d7a3-0d63-469c-8e4c-b813f5ad1741/project/4bee2e9c-4b7c-4484-b416-4e025282f5c1.svg'
+   //             alt='wakatime'
+   //          />
+   //       </a>
+   //    ),
+   // },
 ]
 
 function Badges() {
@@ -189,9 +223,17 @@ function Badges() {
                               proximity={64}
                               inactiveZone={0.01}
                            />
-                           <h3 className='text-2xl font-bold mb-4 text-purple-400'>
-                              Badges Since Mar 5, 2025
-                           </h3>
+                           <div className='flex items-center justify-between mb-4'>
+                              <h3 className='text-2xl font-bold  text-purple-400'>
+                                 Badges Since Mar 5, 2025
+                              </h3>
+                              <a
+                                 className=' text-sm underline text-purple-400'
+                                 href='https://wakatime.com/@devNakul'
+                              >
+                                 <SiWakatime className='size-5' />
+                              </a>
+                           </div>
                            {badges.map((badge, i) => (
                               <div
                                  key={i}

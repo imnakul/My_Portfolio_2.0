@@ -82,7 +82,7 @@ function AboutMe() {
                                        Next.js
                                     </span> */}
                               , with a focus on integrating AI to enhance
-                              performance and usability
+                              performance and usability in applications.
                            </p>
                            <p className='text-gray-300 mb-6 leading-relaxed'>
                               I am also enthusiastic about exploring and

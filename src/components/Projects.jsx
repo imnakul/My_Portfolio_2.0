@@ -70,7 +70,12 @@ function Projects() {
                            'Tailwind CSS',
                            'FramerMotion',
                         ],
-                        image: ['/fts.png', '/ft2.png', '/FlexiTasks.jpeg'],
+                        image: [
+                           '/flexitasks.png',
+                           '/fts.png',
+                           '/ft2.png',
+                           '/FlexiTasks.jpeg',
+                        ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: 'https://flexitasks.vercel.app/',
                         info: '',

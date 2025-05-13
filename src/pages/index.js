@@ -1,27 +1,42 @@
-// import ShootingStars from '@/components/ui/ShootingStars'
+import dynamic from 'next/dynamic'
 import GlowingEffect from '@/components/ui/GlowingEffect'
-// import FadeContent from '@/components/ui/FadeContent/FadeContent'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
-// import CustomCursor from '@/components/ui/CustomCursor'
-import ParticleBackground from '@/components/ui/ParticleBackground'
-
-import CognitiveTwin from '@/components/CognitiveTwin'
 import Navigationbar from '@/components/NavigationBar'
 import AboutMe from '@/components/AboutMe'
 import Skills from '@/components/Skills'
 import Projects from '@/components/Projects'
 import Badges from '@/components/Badges'
 import Contact from '@/components/Contact'
-import CognitiveTwinTooltip from '@/components/CognitiveTwinTooltip'
+import { useState, useEffect } from 'react'
+
+// Lazy load heavy/effect components for better performance
+const ParticleBackground = dynamic(
+   () => import('@/components/ui/ParticleBackground'),
+   { ssr: false, loading: () => <div /> }
+)
+const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
+   ssr: false,
+})
+const CognitiveTwinTooltip = dynamic(
+   () => import('@/components/CognitiveTwinTooltip'),
+   { ssr: false }
+)
 
 export default function Home() {
+   // Lower particle count for initial load, can increase after mount if needed
+   const [particleCount, setParticleCount] = useState(20)
+   useEffect(() => {
+      const timeout = setTimeout(() => setParticleCount(50), 1000)
+      return () => clearTimeout(timeout)
+   }, [])
+
    return (
       <>
          {/* <div className='min-h-screen min-w-full bg-gray-900 hide-cursor'> */}
          <div className='min-h-screen min-w-full bg-gray-900'>
             {/* <CustomCursor /> */}
             {/* <ShootingStars maxStars={8} /> */}
-            <ParticleBackground particleCount={50} />
+            <ParticleBackground particleCount={particleCount} />
 
             <Navigationbar />
             <AboutMe />

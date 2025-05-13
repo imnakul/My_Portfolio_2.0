@@ -30,7 +30,10 @@ const CognitiveTwinTooltip = () => {
                   </p>
                   <ul className='space-y-2 text-gray-700 dark:text-gray-300 list-disc list-inside'>
                      I'm <strong>Nakul's Cognitive Twin who </strong>
-                     <li> Understands Nakul's thought process</li>
+                     <li className='mt-2'>
+                        {' '}
+                        Understands Nakul's thought process
+                     </li>
                      <li>
                         {' '}
                         Remembers his preferences, experiences, and values

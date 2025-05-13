@@ -23,7 +23,7 @@ export default function CognitiveTwin() {
                'Hello, I am Nakul’s Cognitive Twin 🤖. Ask me anything about Nakul! (Try the suggestions on the side or below.)',
          }
          setMessages([welcomeMessage])
-         setTimeout(() => setMessages([welcomeMessage]), 800)
+         // setTimeout(() => setMessages([welcomeMessage]), 800)
       }
    }, [])
 

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
@@ -8,6 +10,7 @@
   --accent: #ff5e94;
   --muted: #2a2a2a;
   --card: #111111;
+  scroll-behavior: smooth;
 }
 
 @theme inline {

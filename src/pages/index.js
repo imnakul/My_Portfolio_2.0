@@ -5,6 +5,10 @@ import Navigationbar from '@/components/NavigationBar'
 import { useState, useEffect } from 'react'
 
 // Lazy load heavy/effect components for better performance
+const AboutMe = dynamic(() => import('@/components/AboutMe'), {
+   ssr: false,
+   loading: () => <div />,
+})
 const ParticleBackground = dynamic(
    () => import('@/components/ui/ParticleBackground'),
    { ssr: false, loading: () => <div /> }
@@ -18,9 +22,9 @@ const CognitiveTwinTooltip = dynamic(
 )
 
 // Lazy load heavy/secondary sections for better scroll performance
-const AboutMe = dynamic(() => import('@/components/AboutMe'), {
-   loading: () => <div style={{ height: 200 }} />,
-})
+// const AboutMe = dynamic(() => import('@/components/AboutMe'), {
+//    loading: () => <div style={{ height: 200 }} />,
+// })
 const Skills = dynamic(() => import('@/components/Skills'), {
    loading: () => <div style={{ height: 200 }} />,
 })

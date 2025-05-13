@@ -61,6 +61,7 @@ function Navigationbar() {
                      bounce: 0.2,
                      duration: 0.3,
                   }}
+                  enableHover
                   // enableHover - removed it, it was first hovering then on click they come back from last tab, on removing, now on page scroll its automatically moving, and no bad thing looking
                >
                   {TABS.map((tab, index) => (

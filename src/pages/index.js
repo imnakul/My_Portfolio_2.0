@@ -9,9 +9,9 @@ const ParticleBackground = dynamic(
    () => import('@/components/ui/ParticleBackground'),
    { ssr: false, loading: () => <div /> }
 )
-const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
-   ssr: false,
-})
+// const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
+//    ssr: false,
+// })
 const CognitiveTwinTooltip = dynamic(
    () => import('@/components/CognitiveTwinTooltip'),
    { ssr: false }
@@ -28,6 +28,9 @@ const Projects = dynamic(() => import('@/components/Projects'), {
    loading: () => <div style={{ height: 200 }} />,
 })
 const Badges = dynamic(() => import('@/components/Badges'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
+const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
    loading: () => <div style={{ height: 200 }} />,
 })
 const Contact = dynamic(() => import('@/components/Contact'), {

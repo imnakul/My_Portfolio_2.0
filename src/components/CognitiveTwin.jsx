@@ -175,7 +175,7 @@ export default function CognitiveTwin() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder='Ask anything about Nakul...'
-                  autoFocus
+                  // autoFocus
                   autoComplete='off'
                   enterKeyHint='send'
                />

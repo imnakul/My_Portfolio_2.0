@@ -3,8 +3,7 @@ import GlowingEffect from '@/components/ui/GlowingEffect'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import Navigationbar from '@/components/NavigationBar'
 import { useState, useEffect } from 'react'
-import CognitiveTwinTooltip from '@/components/CognitiveTwinTooltip'
-import CognitiveTwin from '@/components/CognitiveTwin'
+
 // import AboutMe from '@/components/AboutMe'
 
 // Lazy load heavy/effect components for better performance
@@ -33,12 +32,12 @@ const Projects = dynamic(() => import('@/components/Projects'), {
 const Badges = dynamic(() => import('@/components/Badges'), {
    loading: () => <div style={{ height: 200 }} />,
 })
-// const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
-//    loading: () => <div style={{ height: 200 }} />,
-// })
-// const CognitiveTwinTooltip = dynamic(() =>
-//    import('@/components/CognitiveTwinTooltip')
-// )
+const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
+const CognitiveTwinTooltip = dynamic(() =>
+   import('@/components/CognitiveTwinTooltip')
+)
 const Contact = dynamic(() => import('@/components/Contact'), {
    loading: () => <div style={{ height: 200 }} />,
 })

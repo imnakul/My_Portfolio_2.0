@@ -1,3 +1,4 @@
+import React from 'react'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 import { useState } from 'react'
@@ -364,4 +365,4 @@ function Contact() {
       </>
    )
 }
-export default Contact
+export default React.memo(Contact)

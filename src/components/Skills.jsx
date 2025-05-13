@@ -1,7 +1,8 @@
+import React from 'react'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 
-function Skills() {
+const Skills = React.memo(function Skills() {
    return (
       <>
          {/*//?? Tech Stack Section */}
@@ -110,5 +111,6 @@ function Skills() {
          {/* </FadeContent> */}
       </>
    )
-}
+})
+
 export default Skills

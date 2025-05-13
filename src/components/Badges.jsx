@@ -1,3 +1,4 @@
+import React from 'react'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 import GitHubCalendar from 'react-github-calendar'
@@ -293,4 +294,4 @@ function Badges() {
       </>
    )
 }
-export default Badges
+export default React.memo(Badges)

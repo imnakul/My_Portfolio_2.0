@@ -1,3 +1,4 @@
+import React from 'react'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 
@@ -15,7 +16,7 @@ const slugs = [
    'github',
 ]
 
-function AboutMe() {
+const AboutMe = React.memo(function AboutMe() {
    const images = slugs.map(
       (slug) => `https://cdn.simpleicons.org/${slug}/white`
    )
@@ -206,5 +207,6 @@ function AboutMe() {
          {/* </FadeContent> */}
       </>
    )
-}
+})
+
 export default AboutMe

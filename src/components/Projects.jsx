@@ -1,3 +1,4 @@
+import React from 'react'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 import { AnimatedModal } from '@/components/AnimatedModal'
@@ -382,4 +383,4 @@ If you are a student wanting to explore all the articles published for that orga
       </>
    )
 }
-export default Projects
+export default React.memo(Projects)

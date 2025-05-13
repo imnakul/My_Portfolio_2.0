@@ -2,11 +2,6 @@ import dynamic from 'next/dynamic'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import Navigationbar from '@/components/NavigationBar'
-import AboutMe from '@/components/AboutMe'
-import Skills from '@/components/Skills'
-import Projects from '@/components/Projects'
-import Badges from '@/components/Badges'
-import Contact from '@/components/Contact'
 import { useState, useEffect } from 'react'
 
 // Lazy load heavy/effect components for better performance
@@ -21,6 +16,23 @@ const CognitiveTwinTooltip = dynamic(
    () => import('@/components/CognitiveTwinTooltip'),
    { ssr: false }
 )
+
+// Lazy load heavy/secondary sections for better scroll performance
+const AboutMe = dynamic(() => import('@/components/AboutMe'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
+const Skills = dynamic(() => import('@/components/Skills'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
+const Projects = dynamic(() => import('@/components/Projects'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
+const Badges = dynamic(() => import('@/components/Badges'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
+const Contact = dynamic(() => import('@/components/Contact'), {
+   loading: () => <div style={{ height: 200 }} />,
+})
 
 export default function Home() {
    // Lower particle count for initial load, can increase after mount if needed

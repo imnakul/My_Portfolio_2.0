@@ -82,9 +82,9 @@ function Navigationbar() {
          {/* //?? Navigation Bar Sceen < md */}
          <div className='sm:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-center min-h-[8vh] glass-effect w-full'>
             <div className='relative flex flex-row items-center justify-between md:px-6 px-4 w-full max-w-7xl'>
-               <span className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2  px-2 filter-glow font-bold tracking-wider text-xs md:text-base  mx-2 font-serif h1'>
+               <h1 className='bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-md py-2  px-2 filter-glow font-bold tracking-wider text-xs md:text-base mx-2'>
                   NAKUL SRIVASTAVA
-               </span>
+               </h1>
 
                <div className='sm:hidden relative inline-block text-left'>
                   <button
@@ -119,7 +119,7 @@ function Navigationbar() {
                                        onClick={() => handleTabClick(tab.id)}
                                        className='md:px-4 px-2 py-2.5 flex flex-col items-center justify-center text-center text-white transition-transform active:scale-[0.98] text-sm font-medium w-full shadow-2xl hover:scale-95 focus:scale-95 hover:bg-purple-500/60 focus:bg-purple-500/60 hover:rounded-lg hover:shadow-2xl h3'
                                     >
-                                       {tab.name}
+                                       <h3>{tab.name}</h3>
                                     </button>
                                     <div className='px-4'>
                                        <hr className='border-purple-400' />

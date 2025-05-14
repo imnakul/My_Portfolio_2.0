@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-
+html{
+  scroll-behavior: smooth;
+}
 
 :root {
   --background: #0a0a0a;
@@ -34,7 +36,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   letter-spacing: 0.5px;
 }
 
-button, input, textarea, select {
+button, input, textarea, select,label,p,span {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 

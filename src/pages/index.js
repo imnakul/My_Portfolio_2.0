@@ -13,7 +13,7 @@ const AboutMe = dynamic(() => import('@/components/AboutMe'), {
 })
 const ParticleBackground = dynamic(
    () => import('@/components/ui/ParticleBackground'),
-   { ssr: false, loading: () => <div /> }
+   { ssr: false, loading: () => <div style={{ height: 550 }} /> }
 )
 // const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
 //    ssr: false,

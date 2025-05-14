@@ -8,12 +8,11 @@ import { useState, useEffect } from 'react'
 
 // Lazy load heavy/effect components for better performance
 const AboutMe = dynamic(() => import('@/components/AboutMe'), {
-   ssr: false,
-   loading: () => <div />,
+   loading: () => <div style={{ height: 550 }} />,
 })
 const ParticleBackground = dynamic(
    () => import('@/components/ui/ParticleBackground'),
-   { ssr: false, loading: () => <div style={{ height: 550 }} /> }
+   { ssr: false, loading: () => <div /> }
 )
 // const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
 //    ssr: false,

@@ -8,7 +8,8 @@ import { useState, useEffect } from 'react'
 
 // Lazy load heavy/effect components for better performance
 const AboutMe = dynamic(() => import('@/components/AboutMe'), {
-   loading: () => <div style={{ height: 550 }} />,
+   ssr: false,
+   loading: () => <div style={{ height: 600 }} />,
 })
 const ParticleBackground = dynamic(
    () => import('@/components/ui/ParticleBackground'),

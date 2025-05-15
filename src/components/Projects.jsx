@@ -4,6 +4,7 @@ import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard'
 import { AnimatedModal } from '@/components/AnimatedModal'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 function Projects() {
    const [openProject, setOpenProject] = useState(null)
@@ -48,7 +49,11 @@ function Projects() {
                         description:
                            'A modern portfolio website built with React and Tailwind CSS featuring smooth animations and interactive elements.',
                         tech: ['React', 'Tailwind CSS'],
-                        image: ['/pf2.png', '/pf1.png', '/pf3.png'],
+                        image: [
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277777/pf2_p9642x.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277781/pf3_qsjvmm.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277776/pf1_d90lzi.png',
+                        ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: 'https://nakul-srivastava-portfolio.vercel.app/',
                         info: '',
@@ -72,10 +77,10 @@ function Projects() {
                            'FramerMotion',
                         ],
                         image: [
-                           '/flexitasks.png',
-                           '/fts.png',
-                           '/ft2.png',
-                           '/FlexiTasks.jpeg',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277773/flexitasks_dixj7j.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277773/ft2_nzjbh9.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277769/FlexiTasks_ntt3yb.jpg',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277771/fts_gnh8ii.png',
                         ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: 'https://flexitasks.vercel.app/',
@@ -106,7 +111,9 @@ function Projects() {
                            'Gmail API',
                            'Firebase',
                         ],
-                        image: ['/haf.png'],
+                        image: [
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277773/haf_ngegnr.png',
+                        ],
                         link: 'https://hashnode-article-fetcher.vercel.app/',
                         info: `If you are an organization looking to track your students' articles as assignments, it can be a cumbersome task to search through all the articles on Hashnode and then find the corresponding contact details to send them. \n\n
 
@@ -134,9 +141,9 @@ If you are a student wanting to explore all the articles published for that orga
                            'Leaflet.js',
                         ],
                         image: [
-                           '/HouseMarketplace.jpg',
-                           '/hmp2.jpg',
-                           '/hmp3.jpg',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277772/HouseMarketplace_d9gvul.jpg',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277772/hmp3_oafhh2.jpg',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277770/hmp2_ybdhsb.jpg',
                         ],
                         link: 'https://house-marketplace-webapp.vercel.app/',
                         info: '',
@@ -164,14 +171,14 @@ If you are a student wanting to explore all the articles published for that orga
                            'AI Model',
                         ],
                         image: [
-                           '/pp0.png',
-                           '/pp1.png',
-                           '/pp2.png',
-                           '/pp3.png',
-                           '/pp4.png',
-                           '/pp5.png',
-                           '/pp6.png',
-                           '/pp7.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277778/pp0_w75icv.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277778/pp1_ti3z3q.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277779/pp2_zvaclv.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277779/pp5_gabzhj.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277780/pp4_e4d8cw.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277780/pp7_e5qukj.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277780/pp6_jdtooz.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277784/pp3_scstl8.png',
                         ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: '',
@@ -192,15 +199,15 @@ If you are a student wanting to explore all the articles published for that orga
                            'Liveblocks',
                         ],
                         image: [
-                           '/is.png',
-                           '/is2.png',
-                           '/is3.png',
-                           '/is5.png',
-                           '/is6.png',
-                           '/is7.png',
-                           '/is7.5.png',
-                           '/is8.png',
-                           '/is9.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277771/is_kcnun6.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277771/is2_uhpdwz.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277777/is3_pqnbui.png',
+                           // 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277773/is4_mk0set.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277775/is5_fzrdte.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277776/is7_uebtul.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277775/is6_dhnj5y.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277777/is8_bwymhb.png',
+                           'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277776/is9_uk2w9g.png',
                         ],
                         href: 'https://deviceframes.com/templates/iphone-13',
                         link: '',
@@ -258,7 +265,7 @@ If you are a student wanting to explore all the articles published for that orga
                                     translateZ='100'
                                     className='w-full mt-4'
                                  >
-                                    <img
+                                    <Image
                                        src={project.image[0]}
                                        alt={project.title}
                                        height='1000'
@@ -332,7 +339,7 @@ If you are a student wanting to explore all the articles published for that orga
                                     proximity={64}
                                     inactiveZone={0.01}
                                  /> */}
-                           {/* <img
+                           {/* <Image
                                     src={project.image}
                                     alt={project.title}
                                     className='w-full h-64 object-cover'

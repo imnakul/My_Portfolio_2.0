@@ -1,6 +1,7 @@
 import React from 'react'
 import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
+import Image from 'next/image'
 
 const slugs = [
    'react',
@@ -158,10 +159,13 @@ const AboutMe = React.memo(function AboutMe() {
                            delay={500}
                            reverse={true}
                         >
-                           <img
-                              src='/profile.png'
+                           <Image
+                              src='https://res.cloudinary.com/dp2bzu9e2/image/upload/v1747277782/profile_ey1p6s.png'
                               alt='Nakul Srivastava'
                               className='w-full h-auto rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300 loading-lazy'
+                              width={800}
+                              height={800}
+                              layout='responsive'
                            />
                         </AnimatedContent>
                      </div>

@@ -8,6 +8,7 @@ import {
    FiLayers,
    FiLayout,
 } from 'react-icons/fi'
+import Image from 'next/image'
 
 const DEFAULT_ITEMS = [
    {
@@ -234,9 +235,12 @@ export default function Carousel({
                      }}
                      transition={effectiveTransition}
                   >
-                     <img
+                     <Image
                         src={item}
                         className='object-contain rounded-md mb-6'
+                        alt={item}
+                        width={baseWidth}
+                        height={baseWidth}
                      />
                   </motion.div>
                )

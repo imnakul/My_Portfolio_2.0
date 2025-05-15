@@ -3,6 +3,7 @@ import AnimatedContent from '@/components/ui/AnimatedContent/AnimatedContent'
 import GlowingEffect from '@/components/ui/GlowingEffect'
 import GitHubCalendar from 'react-github-calendar'
 import { SiWakatime } from 'react-icons/si'
+import Image from 'next/image'
 
 const badges = [
    {

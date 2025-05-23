@@ -8,7 +8,7 @@ const TABS = [
    { id: 'tech-stack', name: 'Tech' },
    { id: 'projects', name: 'Projects' },
    { id: 'stats', name: 'Stats' },
-   { id: 'ai', name: 'AI Cognitive Twin' },
+   { id: 'ai', name: 'AI Twin' },
    { id: 'contact-me', name: 'Contact' },
 ]
 

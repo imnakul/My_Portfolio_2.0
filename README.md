@@ -52,7 +52,7 @@ npm run dev
 
 ## 🌐 Live Demo
 
-> [devnakul.me](devnakul.me)
+> [devnakul.me](https://devnakul.me/)
 
 ---
 

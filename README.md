@@ -46,13 +46,13 @@ npm run dev
 # or yarn dev / pnpm dev / bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+<!--Open [http://localhost:3000](http://localhost:3000) to view the site. -->
 
 ---
 
 ## 🌐 Live Demo
 
-> [Your Vercel/Production Link Here]
+> [devnakul.me](https://devnakul.me/)
 
 ---
 

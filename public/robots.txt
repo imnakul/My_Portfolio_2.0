@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://devnakul.me/sitemap.xml
+
+# Block certain files/directories
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/

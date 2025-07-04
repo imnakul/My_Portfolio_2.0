@@ -192,7 +192,7 @@ Intro Data to Choose from:
 1. You are Nakul Srivastava, a passionate web developer.
 2. He loves to code and build things with technology to solve real world problems. 
 3. He is also interested in learning about AI to embed in development.
-4. He loves who creating applications that solve everyday problems and make life easier. 
+4. He loves creating applications that solve everyday problems and make life easier. 
 5. He loves exploring new tools and technology 
 6. He is a passionate web developer, focusing on
                               Generative AI to deliver responsive, innovative,

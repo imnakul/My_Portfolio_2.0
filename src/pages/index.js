@@ -51,12 +51,15 @@ export default function Home() {
          video.addEventListener('contextmenu', (e) => e.preventDefault())
       }
 
-      // Mouse movement for subtle parallax effect
+      // Mouse movement for subtle parallax effect with GPU acceleration
       const handleMouseMove = (e) => {
          if (!isMobile) {
+            const xPercent = (e.clientX / window.innerWidth - 0.5) * 2 // -1 to 1
+            const yPercent = (e.clientY / window.innerHeight - 0.5) * 2 // -1 to 1
+
             setMousePosition({
-               x: (e.clientX / window.innerWidth - 0.5) * 15,
-               y: (e.clientY / window.innerHeight - 0.5) * 15,
+               x: xPercent * 10, // Reduced movement for subtlety
+               y: yPercent * 10,
             })
          }
       }
@@ -79,7 +82,7 @@ export default function Home() {
          name: 'Products',
          href: '/products',
          icon: '🚀',
-         description: '',
+         description: `Software & services I've developed`,
       },
       {
          name: 'Services',
@@ -151,14 +154,14 @@ export default function Home() {
    return (
       <>
          <Head>
-            <title>Nakul Srivastava - Web Developer & AI Engineer</title>
+            <title>Nakul Srivastava | Web Developer & AI Engineer | Portfolio & Products</title>
             <meta
                name='description'
-               content='Nakul Srivastava - Full-stack developer specializing in Next.js, AI integration, and modern web applications.'
+               content='Nakul Srivastava - Full-stack web developer specializing in Next.js, AI integration, and modern web applications. Explore my portfolio and digital solutions.'
             />
             <meta
                name='keywords'
-               content='Nakul Srivastava, web developer, full stack developer, Next.js developer, AI engineer, freelance developer'
+               content='Nakul Srivastava, web developer, full stack developer, Next.js developer, Gen AI engineer, freelance developer, frontend developer, tools enthusiast, techy, technology lover, devotee'
             />
             <meta
                name='viewport'
@@ -166,29 +169,79 @@ export default function Home() {
             />
             <link
                rel='icon'
-               href='/favicon.ico'
+               href='/logo2.svg'
             />
             <link
                rel='canonical'
                href='https://devnakul.me'
             />
 
-            {/* Open Graph */}
+            {/* Open Graph Tags for Social Media Shareability */}
+            <meta
+               property='og:type'
+               content='website'
+            />
+            <meta
+               property='og:site_name'
+               content='Nakul Srivastava - Portfolio'
+            />
             <meta
                property='og:title'
-               content='Nakul Srivastava - Full Stack Developer'
+               content='Nakul Srivastava | Full Stack Developer & AI Engineer'
             />
             <meta
                property='og:description'
-               content='Web Developer, Next.js Gen AI Engineer'
+               content='Professional web developer specializing in Next.js, AI integration, and modern web applications. View my portfolio, products, and services.'
             />
             <meta
                property='og:image'
-               content='/profile.jpg'
+               content='https://devnakul.me/profile.jpg'
+            />
+            <meta
+               property='og:image:width'
+               content='1200'
+            />
+            <meta
+               property='og:image:height'
+               content='630'
+            />
+            <meta
+               property='og:image:alt'
+               content='Nakul Srivastava - Full Stack Developer & AI Engineer'
             />
             <meta
                property='og:url'
                content='https://devnakul.me'
+            />
+            <meta
+               property='og:locale'
+               content='en_US'
+            />
+
+            {/* Twitter Card Tags */}
+            <meta
+               name='twitter:card'
+               content='summary_large_image'
+            />
+            <meta
+               name='twitter:site'
+               content='@nakuldevmv'
+            />
+            <meta
+               name='twitter:creator'
+               content='@nakuldevmv'
+            />
+            <meta
+               name='twitter:title'
+               content='Nakul Srivastava | Full Stack Developer & AI Engineer'
+            />
+            <meta
+               name='twitter:description'
+               content='Professional web developer specializing in Next.js, AI integration, and modern web applications.'
+            />
+            <meta
+               name='twitter:image'
+               content='https://devnakul.me/profile.jpg'
             />
 
             {/* Preload critical resources */}
@@ -197,9 +250,17 @@ export default function Home() {
                href='/profile.jpg'
                as='image'
             />
+            <link
+               rel='preload'
+               href='/profile (1).png'
+               as='image'
+            />
          </Head>
 
-         <div className='h-screen relative overflow-hidden bg-gray-900'>
+         <div
+            className='h-screen relative overflow-hidden'
+            style={{ background: "url('/ss.png') center center / cover no-repeat, #0e2235" }}
+         >
             {/* Optimized Video Background */}
             <div className='fixed inset-0 z-0'>
                <video
@@ -208,15 +269,16 @@ export default function Home() {
                      isVideoLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
                   style={{
-                     transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) scale(1.1)`,
-                     transition: 'transform 0.3s ease-out',
+                     transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale(1.05)`,
+                     transition: 'transform 0.1s ease-out',
+                     willChange: 'transform',
                   }}
                   autoPlay
                   muted
                   loop
                   playsInline
                   preload='metadata'
-                  poster='/bg2.jpg'
+                  poster='/ss.png'
                   onContextMenu={(e) => e.preventDefault()}
                   controlsList='nodownload'
                   disablePictureInPicture
@@ -232,8 +294,6 @@ export default function Home() {
                   {isMobile ? (
                      <source
                         src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4'
-                        // src='/4.mp4'
-
                         type='video/mp4'
                      />
                   ) : (
@@ -256,60 +316,20 @@ export default function Home() {
                <div className='max-w-md w-full text-center'>
                   {/* Profile Section */}
                   <div className='text-center mb-6'>
-                     <div className='relative top-2 w-28 h-28 mx-auto mb-6'>
+                     <div className='relative w-24 h-24 mx-auto mb-6'>
                         <Image
-                           src='/profile.png'
+                           src='/profile (1).png'
                            alt='Nakul Srivastava'
                            fill
-                           className='rounded-full object-cover ring-4 ring-white/40 shadow-xl'
+                           className='rounded-full object-cover ring-2 ring-white/50 shadow-xl'
                            priority
                         />
                      </div>
                      <h1 className='text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
-                     <p className='text-xl text-gray-200 mb-2'>Web Developer | Next.js Gen AI Engineer</p>
+                     <p className='text-xl text-gray-200 mb-2'>Web Developer | Gen AI Engineer</p>
                      <p className='text-sm text-gray-300'>
-                        Freelance Developer | SEO | AI Integration | UI/UX | Digital Presence
+                        Freelance Developer | SEO Expert | AI Integrations | UI/UX Design | Digital Presence Strategist
                      </p>
-                  </div>
-
-                  {/* Main Links - Only Portfolio, Products, Services */}
-                  <div className='space-y-4 mb-8'>
-                     {mainLinks.map((link) => (
-                        <Link
-                           key={link.name}
-                           href={link.href}
-                           className='block'
-                        >
-                           <div className='bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group'>
-                              <div className='flex items-center justify-between'>
-                                 <div className='flex items-center space-x-3'>
-                                    <span className='text-2xl group-hover:scale-110 transition-transform duration-200'>
-                                       {link.icon}
-                                    </span>
-                                    <div className='text-left'>
-                                       <h3 className='text-white font-bold text-xl tracking-wide'>{link.name}</h3>
-                                       <p className='text-gray-300 text-sm leading-relaxed'>
-                                          {link.description || 'Explore more about this section.'}
-                                       </p>
-                                    </div>
-                                 </div>
-                                 <svg
-                                    className='w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-200'
-                                    fill='none'
-                                    stroke='currentColor'
-                                    viewBox='0 0 24 24'
-                                 >
-                                    <path
-                                       strokeLinecap='round'
-                                       strokeLinejoin='round'
-                                       strokeWidth={2}
-                                       d='M9 5l7 7-7 7'
-                                    />
-                                 </svg>
-                              </div>
-                           </div>
-                        </Link>
-                     ))}
                   </div>
 
                   {/* Social Links - Minimal Icons */}
@@ -323,9 +343,61 @@ export default function Home() {
                            // className='p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/70 hover:text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-lg group'
                            className='p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
                            title={link.name}
+                           style={{ willChange: 'transform' }}
                         >
-                           <div className='group-hover:scale-110 transition-transform duration-200'>{link.icon}</div>
+                           <div
+                              className='group-hover:scale-110 transition-transform duration-200'
+                              style={{ willChange: 'transform' }}
+                           >
+                              {link.icon}
+                           </div>
                         </a>
+                     ))}
+                  </div>
+
+                  {/* Main Links - Only Portfolio, Products, Services */}
+                  <div className='space-y-4 mb-8'>
+                     {mainLinks.map((link) => (
+                        <Link
+                           key={link.name}
+                           href={link.href}
+                           className='block'
+                           style={{ willChange: 'transform' }}
+                        >
+                           <div
+                              className='bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group'
+                              style={{ willChange: 'transform' }}
+                           >
+                              <div className='flex items-center justify-between'>
+                                 <div className='flex items-center space-x-3'>
+                                    <span
+                                       className='text-2xl group-hover:scale-110 transition-transform duration-200'
+                                       style={{ willChange: 'transform' }}
+                                    >
+                                       {link.icon}
+                                    </span>
+                                    <div className='text-left'>
+                                       <h3 className='text-white font-bold text-xl tracking-wide'>{link.name}</h3>
+                                       <p className='text-gray-300 text-sm leading-relaxed'>{link.description || ''}</p>
+                                    </div>
+                                 </div>
+                                 <svg
+                                    className='w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-200'
+                                    fill='none'
+                                    stroke='currentColor'
+                                    viewBox='0 0 24 24'
+                                    style={{ willChange: 'transform' }}
+                                 >
+                                    <path
+                                       strokeLinecap='round'
+                                       strokeLinejoin='round'
+                                       strokeWidth={2}
+                                       d='M9 5l7 7-7 7'
+                                    />
+                                 </svg>
+                              </div>
+                           </div>
+                        </Link>
                      ))}
                   </div>
 

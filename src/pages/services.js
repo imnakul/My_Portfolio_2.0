@@ -118,13 +118,7 @@ export default function Services() {
             <div className="relative bg-gradient-to-b from-blue-900/20 to-transparent">
                <div className="absolute inset-0 bg-black/30" />
                <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
-                  {/* Back to Hub */}
-                  <Link href="/" className="inline-flex items-center gap-2 glass-card-nav mb-8">
-                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                     </svg>
-                     Back to Hub
-                  </Link>
+
 
                   <h1 className="text-5xl font-bold mb-4 gradient-text">
                      Professional Services

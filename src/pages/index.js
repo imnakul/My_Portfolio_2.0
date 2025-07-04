@@ -8,14 +8,38 @@ export default function Home() {
    const [isMobile, setIsMobile] = useState(false)
    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
+   // Debug: Log video loaded state changes
+   useEffect(() => {
+      console.log('isVideoLoaded state changed:', isVideoLoaded)
+   }, [isVideoLoaded])
+
    useEffect(() => {
       // Check if mobile device
       setIsMobile(window.innerWidth < 768)
 
-      // Handle video load
+      // Handle video load with better error handling
       const video = document.querySelector('#background-video')
       if (video) {
-         video.addEventListener('loadeddata', () => setIsVideoLoaded(true))
+         video.addEventListener('loadeddata', () => {
+            console.log('Video loaded successfully (loadeddata)')
+            setIsVideoLoaded(true)
+         })
+         video.addEventListener('canplay', () => {
+            console.log('Video can start playing (canplay)')
+            setIsVideoLoaded(true) // Also set loaded state here
+         })
+         video.addEventListener('canplaythrough', () => {
+            console.log('Video can play through without stopping (canplaythrough)')
+            setIsVideoLoaded(true) // Also set loaded state here
+         })
+         video.addEventListener('error', (e) => {
+            console.error('Video failed to load:', e)
+            console.error('Video error details:', e.target.error)
+            setIsVideoLoaded(false)
+         })
+         video.addEventListener('loadstart', () => {
+            console.log('Video loading started')
+         })
          // Disable context menu on video
          video.addEventListener('contextmenu', (e) => e.preventDefault())
       }
@@ -168,62 +192,41 @@ export default function Home() {
          <div className='h-screen relative overflow-hidden bg-gray-900'>
             {/* Optimized Video Background */}
             <div className='fixed inset-0 z-0'>
-               {!isMobile && (
-                  <video
-                     id='background-video'
-                     className={`w-full h-full object-cover transition-opacity duration-1000 ${
-                        isVideoLoaded ? 'opacity-100' : 'opacity-0'
-                     }`}
-                     style={{
-                        transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) scale(1.1)`,
-                        transition: 'transform 0.3s ease-out',
-                     }}
-                     autoPlay
-                     muted
-                     loop
-                     playsInline
-                     preload='metadata'
-                     poster='/bg2.jpg'
-                     onContextMenu={(e) => e.preventDefault()}
-                     controlsList='nodownload'
-                     disablePictureInPicture
-                  >
-                     <source
-                        src='/2.mp4'
-                        type='video/mp4'
-                     />
-                  </video>
-               )}
+               <video
+                  id='background-video'
+                  className={`w-full h-full object-cover transition-opacity duration-1000 ${
+                     isVideoLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{
+                     transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) scale(1.1)`,
+                     transition: 'transform 0.3s ease-out',
+                  }}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload='metadata'
+                  poster='/bg2.jpg'
+                  onContextMenu={(e) => e.preventDefault()}
+                  controlsList='nodownload'
+                  disablePictureInPicture
+                  onLoadedData={() => {
+                     console.log('Video onLoadedData callback fired')
+                     setIsVideoLoaded(true)
+                  }}
+                  onCanPlay={() => {
+                     console.log('Video onCanPlay callback fired')
+                     setIsVideoLoaded(true)
+                  }}
+               >
+                  <source
+                     src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751628860/4_gvvtc8.mp4'
+                     type='video/mp4'
+                  />
+                  {/* https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4 */}
+               </video>
 
-               {/* Mobile Fallback - Static Image */}
-               {isMobile && (
-                  <video
-                     id='background-video'
-                     className={`w-full h-full object-cover transition-opacity duration-1000 ${
-                        isVideoLoaded ? 'opacity-100' : 'opacity-0'
-                     }`}
-                     style={{
-                        transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) scale(1.1)`,
-                        transition: 'transform 0.3s ease-out',
-                     }}
-                     autoPlay
-                     muted
-                     loop
-                     playsInline
-                     preload='metadata'
-                     poster='/bg2.jpg'
-                     onContextMenu={(e) => e.preventDefault()}
-                     controlsList='nodownload'
-                     disablePictureInPicture
-                  >
-                     <source
-                        src='/2.mp4'
-                        type='video/mp4'
-                     />
-                  </video>
-               )}
-
-               {/* Minimal Overlay */}
+               {/* Dark Overlay for better text readability */}
                <div className='absolute inset-0 bg-black/20' />
             </div>
 
@@ -256,15 +259,17 @@ export default function Home() {
                            href={link.href}
                            className='block'
                         >
-                           <div className='bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group'>
+                           <div className='bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group'>
                               <div className='flex items-center justify-between'>
                                  <div className='flex items-center space-x-3'>
                                     <span className='text-2xl group-hover:scale-110 transition-transform duration-200'>
                                        {link.icon}
                                     </span>
                                     <div className='text-left'>
-                                       <h3 className='text-white font-semibold text-lg'>{link.name}</h3>
-                                       <p className='text-gray-300 text-sm'>{link.description}</p>
+                                       <h3 className='text-white font-bold text-xl tracking-wide'>{link.name}</h3>
+                                       <p className='text-gray-300 text-sm leading-relaxed'>
+                                          {link.description || 'Explore more about this section.'}
+                                       </p>
                                     </div>
                                  </div>
                                  <svg

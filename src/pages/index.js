@@ -45,7 +45,7 @@ export default function Home() {
          name: 'Products',
          href: '/products',
          icon: '🚀',
-         description: 'My digital products',
+         description: '',
       },
       {
          name: 'Services',
@@ -165,7 +165,7 @@ export default function Home() {
             />
          </Head>
 
-         <div className='h-screen relative overflow-hidden bg-gray-900 pt-4'>
+         <div className='h-screen relative overflow-hidden bg-gray-900'>
             {/* Optimized Video Background */}
             <div className='fixed inset-0 z-0'>
                {!isMobile && (
@@ -189,11 +189,7 @@ export default function Home() {
                      disablePictureInPicture
                   >
                      <source
-                        src='/Rdr-Snowy-Cabin.1080pweboptimized.mp4'
-                        type='video/mp4'
-                     />
-                     <source
-                        src='/rdr-snowy-cabin.3840x2160.mp4'
+                        src='/2.mp4'
                         type='video/mp4'
                      />
                   </video>
@@ -201,10 +197,30 @@ export default function Home() {
 
                {/* Mobile Fallback - Static Image */}
                {isMobile && (
-                  <div
-                     className='w-full h-full bg-cover bg-center bg-no-repeat'
-                     style={{ backgroundImage: 'url(/bg2.jpg)' }}
-                  />
+                  <video
+                     id='background-video'
+                     className={`w-full h-full object-cover transition-opacity duration-1000 ${
+                        isVideoLoaded ? 'opacity-100' : 'opacity-0'
+                     }`}
+                     style={{
+                        transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) scale(1.1)`,
+                        transition: 'transform 0.3s ease-out',
+                     }}
+                     autoPlay
+                     muted
+                     loop
+                     playsInline
+                     preload='metadata'
+                     poster='/bg2.jpg'
+                     onContextMenu={(e) => e.preventDefault()}
+                     controlsList='nodownload'
+                     disablePictureInPicture
+                  >
+                     <source
+                        src='/2.mp4'
+                        type='video/mp4'
+                     />
+                  </video>
                )}
 
                {/* Minimal Overlay */}
@@ -215,20 +231,20 @@ export default function Home() {
             <div className='relative z-10 h-screen flex items-center justify-center px-4'>
                <div className='max-w-md w-full text-center'>
                   {/* Profile Section */}
-                  <div className='text-center mb-8'>
-                     <div className='relative w-32 h-32 mx-auto mb-6'>
+                  <div className='text-center mb-6'>
+                     <div className='relative top-2 w-28 h-28 mx-auto mb-6'>
                         <Image
-                           src='/profile.jpg'
+                           src='/profile.png'
                            alt='Nakul Srivastava'
                            fill
-                           className='rounded-full object-cover ring-4 ring-white/20 shadow-xl'
+                           className='rounded-full object-cover ring-4 ring-white/40 shadow-xl'
                            priority
                         />
                      </div>
                      <h1 className='text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
                      <p className='text-xl text-gray-200 mb-2'>Web Developer | Next.js Gen AI Engineer</p>
                      <p className='text-sm text-gray-300'>
-                        Freelance Developer | SEO | AI Integration | UI/UX Design & Digital Presence
+                        Freelance Developer | SEO | AI Integration | UI/UX | Digital Presence
                      </p>
                   </div>
 
@@ -278,7 +294,8 @@ export default function Home() {
                            href={link.href}
                            target={link.external ? '_blank' : '_self'}
                            rel={link.external ? 'noopener noreferrer' : undefined}
-                           className='p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/70 hover:text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-lg group'
+                           // className='p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/70 hover:text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-lg group'
+                           className='p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
                            title={link.name}
                         >
                            <div className='group-hover:scale-110 transition-transform duration-200'>{link.icon}</div>

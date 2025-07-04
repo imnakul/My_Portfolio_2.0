@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import { isMotionValue } from 'framer-motion'
 
 export default function Home() {
    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
@@ -14,8 +15,14 @@ export default function Home() {
    }, [isVideoLoaded])
 
    useEffect(() => {
-      // Check if mobile device
-      setIsMobile(window.innerWidth < 768)
+      // Function to check mobile state
+      const checkMobile = () => {
+         const mobile = window.innerWidth < 768
+         setIsMobile(mobile)
+         console.log('isMobile state changed:', mobile, '| window.innerWidth:', window.innerWidth)
+      }
+      checkMobile()
+      window.addEventListener('resize', checkMobile)
 
       // Handle video load with better error handling
       const video = document.querySelector('#background-video')
@@ -55,7 +62,10 @@ export default function Home() {
       }
 
       window.addEventListener('mousemove', handleMouseMove)
-      return () => window.removeEventListener('mousemove', handleMouseMove)
+      return () => {
+         window.removeEventListener('mousemove', handleMouseMove)
+         window.removeEventListener('resize', checkMobile)
+      }
    }, [isMobile])
 
    const mainLinks = [
@@ -219,10 +229,21 @@ export default function Home() {
                      setIsVideoLoaded(true)
                   }}
                >
-                  <source
-                     src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751628860/4_gvvtc8.mp4'
-                     type='video/mp4'
-                  />
+                  {isMobile ? (
+                     <source
+                        src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4'
+                        // src='/4.mp4'
+
+                        type='video/mp4'
+                     />
+                  ) : (
+                     <source
+                        src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751629924/4_fku2am.mp4'
+                        // src='/c.mp4'
+                        type='video/mp4'
+                     />
+                  )}
+
                   {/* https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4 */}
                </video>
 

@@ -528,7 +528,7 @@ export default function Home() {
                   </div>
 
                   <p className='text-sm text-gray-300 mb-4'>
-                     Freelance Developer | SEO Expert | AI Integrations | UI/UX Design | Digital Presence Strategist
+                     Freelance Developer | SEO Support | AI Integrations | UI/UX Design | Digital Presence Strategist
                   </p>
 
                   {/* Main Links - Only Portfolio, Products, Services */}

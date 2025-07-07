@@ -7,20 +7,57 @@ export default function Products() {
    const products = [
       {
          name: 'SaveSpark',
-         description: 'AI-powered expense tracking and financial insights platform',
+         description: 'AI-powered Idea Management Tool',
          image: '/image.png', // Replace with actual product image
-         status: 'Live',
+         status: 'Coming Soon',
          link: 'https://savespark.com',
-         tech: ['Next.js', 'AI', 'Financial APIs'],
+         tech: ['Next.js', 'AI', 'Firebase'],
          category: 'SaaS',
       },
       {
+         name: 'Powerhouse Gym Website',
+         description: 'Website for Powerhouse Gym at Meerut',
+         image: '/image.png', // Replace with actual product image
+         status: 'Live',
+         link: 'https://www.powerhousegymmrt.site',
+         tech: ['React'],
+         category: 'Website',
+      },
+
+      {
          name: 'BuildifyWeb',
-         description: 'Website builder with AI-powered design suggestions',
+         description: 'Python GUI builder with Drag & Drop - No Code.',
+         image: '/image.png', // Replace with actual product image
+         status: 'Live',
+         link: 'https://buildfy.online',
+         tech: ['React'],
+         category: 'Platform',
+      },
+      {
+         name: 'JB Sweets',
+         description: 'Sweet Shop Website',
+         image: '/image.png', // Replace with actual product image
+         status: 'Live',
+         link: 'https://www.jbsweets.vercel.app',
+         tech: ['Next.js'],
+         category: 'Website',
+      },
+      {
+         name: 'AskMark',
+         description: 'You can talk to your Bookmarks',
          image: '/image.png', // Replace with actual product image
          status: 'Coming Soon',
-         link: '#',
-         tech: ['React', 'AI', 'Website Builder'],
+         link: 'https://www.askmark.vercel.app',
+         tech: ['Next.js , Firebase , Gen AI'],
+         category: 'Platform',
+      },
+      {
+         name: 'Flexitasks',
+         description: 'Task Manager with Flexible layout, themes and Features.',
+         image: '/image.png', // Replace with actual product image
+         status: 'Live',
+         link: 'https://www.flexitasks.devnakul.me',
+         tech: ['React, Tailwind , Framer'],
          category: 'Platform',
       },
       // Add more products as needed

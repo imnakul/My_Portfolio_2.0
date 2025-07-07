@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '../lib/nprogress-client'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/react'
 

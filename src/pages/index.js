@@ -100,59 +100,154 @@ export default function Home() {
 
    const socialLinks = [
       {
-         name: 'LinkedIn',
-         href: 'https://linkedin.com/in/nakul-srivastava',
+         name: 'Telegram',
+         href: 'https://t.me/i_m_nakul',
          icon: (
             <svg
-               className='w-5 h-5'
-               fill='currentColor'
+               xmlns='http://www.w3.org/2000/svg'
+               width='40'
+               height='40'
                viewBox='0 0 24 24'
             >
-               <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
+               <g
+                  fill='currentColor'
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+               >
+                  <path d='M17.045 8.937A1.47 1.47 0 0 0 15.03 7.35l-8.503 3.515c-1.078.446-.92 2.02.226 2.242l1.591.308c.441.085.899.005 1.284-.226l.464-.277a1.18 1.18 0 0 0 .425 1.53l3.65 2.288a1.176 1.176 0 0 0 1.787-.816zm-5.904 4.51l3.03-2.905c.54-.517-.114-1.373-.755-.99l-4.392 2.629a.65.65 0 0 1-.456.08l-1.591-.308l8.502-3.515a.294.294 0 0 1 .403.317l-1.09 6.979z' />
+                  <path d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M3.176 12a8.824 8.824 0 1 1 17.648 0a8.824 8.824 0 0 1-17.648 0' />
+               </g>
             </svg>
          ),
+         title: 'Telegram',
          external: true,
       },
+      // {
+      //    name: 'Whatsapp',
+      //    href: 'https://github.com/nakuldevmv',
+      //    icon: (
+      //       <svg
+      //          xmlns='http://www.w3.org/2000/svg'
+      //          width='40'
+      //          height='40'
+      //          viewBox='0 0 24 24'
+      //       >
+      //          <path
+      //             fill='currentColor'
+      //             d='M16.6 14c-.2-.1-1.5-.7-1.7-.8c-.2-.1-.4-.1-.6.1c-.2.2-.6.8-.8 1c-.1.2-.3.2-.5.1c-.7-.3-1.4-.7-2-1.2c-.5-.5-1-1.1-1.4-1.7c-.1-.2 0-.4.1-.5c.1-.1.2-.3.4-.4c.1-.1.2-.3.2-.4c.1-.1.1-.3 0-.4c-.1-.1-.6-1.3-.8-1.8c-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3c-.6.6-.9 1.3-.9 2.1c.1.9.4 1.8 1 2.6c1.1 1.6 2.5 2.9 4.2 3.7c.5.2.9.4 1.4.5c.5.2 1 .2 1.6.1c.7-.1 1.3-.6 1.7-1.2c.2-.4.2-.8.1-1.2l-.4-.2m2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2c5.5 0 9.9-4.4 9.9-9.9c.1-2.6-1-5.1-2.8-7m-2.7 14c-1.3.8-2.8 1.3-4.4 1.3c-1.5 0-2.9-.4-4.2-1.1l-.3-.2l-3.1.8l.8-3l-.2-.3c-2.4-4-1.2-9 2.7-11.5S16.6 3.7 19 7.5c2.4 3.9 1.3 9-2.6 11.4'
+      //          />
+      //       </svg>
+      //    ),
+      //    title: 'Whatsapp',
+      //    external: true,
+      // },
       {
-         name: 'GitHub',
-         href: 'https://github.com/nakuldevmv',
+         name: 'Peerlist',
+         href: 'https://peerlist.io/imnakul',
          icon: (
             <svg
-               className='w-5 h-5'
-               fill='currentColor'
+               xmlns='http://www.w3.org/2000/svg'
+               width='40'
+               height='40'
                viewBox='0 0 24 24'
             >
-               <path d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z' />
+               <g
+                  fill='none'
+                  stroke='currentColor'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='1.5'
+               >
+                  <path d='M8.87 3h6.26a6 6 0 0 1 5.963 5.337l.21 1.896c.131 1.174.131 2.36 0 3.534l-.21 1.896A6 6 0 0 1 15.13 21H8.87a6 6 0 0 1-5.963-5.337l-.21-1.896a16 16 0 0 1 0-3.534l.21-1.896A6 6 0 0 1 8.87 3' />
+                  <path d='M9 17v-4m0 0V7h4a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3z' />
+               </g>
             </svg>
          ),
-         external: true,
-      },
-      {
-         name: 'Resume',
-         href: '/resume.pdf',
-         icon: (
-            <svg
-               className='w-5 h-5'
-               fill='currentColor'
-               viewBox='0 0 24 24'
-            >
-               <path d='M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z' />
-            </svg>
-         ),
+         title: 'Peerlist',
          external: true,
       },
       {
          name: 'Email',
-         href: 'mailto:nakul@devnakul.me',
+         href: 'mailto:imnakul44@gmail.com',
          icon: (
             <svg
-               className='w-5 h-5'
-               fill='currentColor'
+               xmlns='http://www.w3.org/2000/svg'
+               width='40'
+               height='40'
                viewBox='0 0 24 24'
             >
-               <path d='M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z' />
+               <g
+                  fill='none'
+                  stroke='currentColor'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+               >
+                  <path d='M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z' />
+                  <path d='m3 7l9 6l9-6' />
+               </g>
             </svg>
          ),
+         title: 'Email',
+         external: true,
+      },
+      {
+         name: 'LinkedIn',
+         href: 'https://linkedin.com/in/imnakul',
+         icon: (
+            <svg
+               xmlns='http://www.w3.org/2000/svg'
+               width='40'
+               height='40'
+               viewBox='0 0 24 24'
+            >
+               <path
+                  fill='currentColor'
+                  d='M18.44 3.06H5.56a2.507 2.507 0 0 0-2.5 2.5v12.88a2.507 2.507 0 0 0 2.5 2.5h12.88a2.5 2.5 0 0 0 2.5-2.5V5.56a2.5 2.5 0 0 0-2.5-2.5Zm1.5 15.38a1.511 1.511 0 0 1-1.5 1.5H5.56a1.511 1.511 0 0 1-1.5-1.5V5.56a1.511 1.511 0 0 1 1.5-1.5h12.88a1.511 1.511 0 0 1 1.5 1.5Z'
+               />
+               <path
+                  fill='currentColor'
+                  d='M6.376 10.748a1 1 0 1 1 2 0v6.5a1 1 0 0 1-2 0Z'
+               />
+               <circle
+                  cx='7.376'
+                  cy='6.744'
+                  r='1'
+                  fill='currentColor'
+               />
+               <path
+                  fill='currentColor'
+                  d='M17.62 13.37v3.88a1 1 0 1 1-2 0v-3.88a1.615 1.615 0 1 0-3.23 0v3.88a1 1 0 0 1-2 0v-6.5a1.016 1.016 0 0 1 1-1a.94.94 0 0 1 .84.47a3.609 3.609 0 0 1 5.39 3.15Z'
+               />
+            </svg>
+         ),
+         title: 'LinkedIn',
+         external: true,
+      },
+      {
+         name: 'Twitter',
+         href: 'https://x.com/imnakul_1',
+         icon: (
+            <svg
+               xmlns='http://www.w3.org/2000/svg'
+               width='40'
+               height='40'
+               viewBox='0 0 24 24'
+            >
+               <g
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='1.5'
+                  color='currentColor'
+               >
+                  <path d='M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12.001 2.5c4.478 0 6.717 0 8.108 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.717 0-8.109-1.391c-1.39-1.392-1.39-3.63-1.39-8.109' />
+                  <path d='m7 17l4.194-4.193M17 7l-4.193 4.194m0 0L9.777 7H7l4.194 5.807m1.613-1.614L17 17h-2.778l-3.028-4.193' />
+               </g>
+            </svg>
+         ),
+         title: 'Resume',
          external: true,
       },
    ]
@@ -322,14 +417,14 @@ export default function Home() {
                )}
 
                {/* Dark Overlay for better text readability */}
-               <div className={`absolute inset-0 z-10 ${isMobile ? 'bg-black/30' : 'bg-black/15'} `} />
+               <div className={`absolute inset-0 z-10 ${isMobile ? 'bg-black/40' : 'bg-black/15'} `} />
             </div>
 
             {/* Content */}
             <div className='relative z-20 h-screen flex items-center justify-center px-4'>
                <div className='max-w-md w-full text-center'>
                   {/* Profile Section */}
-                  <div className='text-center mb-6'>
+                  <div className='text-center mb-4'>
                      <div className='relative w-24 h-24 mx-auto mb-6'>
                         <Image
                            src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_256,h_256,c_fill,q_auto,f_auto/v1751677501/profile_1_aoltbw.png'
@@ -341,32 +436,32 @@ export default function Home() {
                      </div>
                      <h1 className='text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
                      <p className='text-xl text-gray-200 mb-2'>Web Developer | Gen AI Engineer</p>
-                     <p className='text-sm text-gray-300'>
-                        Freelance Developer | SEO Expert | AI Integrations | UI/UX Design | Digital Presence Strategist
-                     </p>
-                  </div>
-
-                  {/* Social Links - Minimal Icons */}
-                  <div className='flex justify-center space-x-4 mb-4'>
-                     {socialLinks.map((link) => (
-                        <a
-                           key={link.name}
-                           href={link.href}
-                           target={link.external ? '_blank' : '_self'}
-                           rel={link.external ? 'noopener noreferrer' : undefined}
-                           className='p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
-                           title={link.name}
-                           style={{ willChange: 'transform' }}
-                        >
-                           <div
-                              className='group-hover:scale-110 transition-transform duration-200'
+                     {/* Social Links - Minimal Icons */}
+                     <div className='flex justify-center space-x-4 mb-6'>
+                        {socialLinks.map((link) => (
+                           <a
+                              key={link.name}
+                              href={link.href}
+                              target={link.external ? '_blank' : '_self'}
+                              rel={link.external ? 'noopener noreferrer' : undefined}
+                              className='backdrop-blur-sm  text-white/60 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
+                              title={link.name}
                               style={{ willChange: 'transform' }}
                            >
-                              {link.icon}
-                           </div>
-                        </a>
-                     ))}
+                              <div
+                                 className='group-hover:scale-110 transition-transform duration-200'
+                                 style={{ willChange: 'transform' }}
+                              >
+                                 {link.icon}
+                              </div>
+                           </a>
+                        ))}
+                     </div>
                   </div>
+
+                  <p className='text-sm text-gray-300 mb-4'>
+                     Freelance Developer | SEO Expert | AI Integrations | UI/UX Design | Digital Presence Strategist
+                  </p>
 
                   {/* Main Links - Only Portfolio, Products, Services */}
                   <div className='space-y-4 mb-8'>

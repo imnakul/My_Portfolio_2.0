@@ -63,7 +63,7 @@ export default function Products() {
             {/* Header */}
             <div className='relative bg-gradient-to-b from-purple-900/20 to-transparent'>
                <div className='absolute inset-0 bg-black/30' />
-               <div className='relative z-10 max-w-6xl mx-auto px-4 py-20'>
+               <div className='relative z-10 max-w-6xl mx-auto px-4 py-8'>
                   <h1 className='text-5xl font-bold mb-4 gradient-text'>Digital Products</h1>
                   <p className='text-xl text-gray-300 max-w-2xl'>
                      Innovative SaaS solutions and digital products that solve real-world problems
@@ -72,7 +72,7 @@ export default function Products() {
             </div>
 
             {/* Products Grid */}
-            <div className='max-w-6xl mx-auto px-4 py-16'>
+            <div className='max-w-6xl mx-auto px-4 py-8'>
                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                   {products.map((product, index) => (
                      <div
@@ -155,7 +155,7 @@ export default function Products() {
             </div>
 
             {/* CTA Section */}
-            <div className='bg-gradient-to-r from-purple-900/30 to-blue-900/30 py-16'>
+            <div className='bg-gradient-to-r from-purple-900/30 to-blue-900/30 py-8'>
                <div className='max-w-4xl mx-auto text-center px-4'>
                   <h2 className='text-3xl font-bold mb-4'>Have a Product Idea?</h2>
                   <p className='text-gray-300 mb-8'>Let's collaborate and bring your digital product vision to life</p>
@@ -203,13 +203,6 @@ export default function Products() {
                background: rgba(255, 255, 255, 0.05);
                backdrop-filter: blur(10px);
                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .gradient-text {
-               background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-               -webkit-background-clip: text;
-               -webkit-text-fill-color: transparent;
-               background-clip: text;
             }
          `}</style>
       </>

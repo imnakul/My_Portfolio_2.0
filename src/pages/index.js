@@ -11,6 +11,31 @@ export default function Home() {
    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
    const [hasMounted, setHasMounted] = useState(false)
 
+   // Share button logic
+   const handleShare = async () => {
+      const shareData = {
+         title: 'Nakul Srivastava | Portfolio',
+         text: "Check out Nakul Srivastava's portfolio!",
+         url: typeof window !== 'undefined' ? window.location.href : 'https://devnakul.me',
+      }
+      if (navigator.share) {
+         try {
+            await navigator.share(shareData)
+         } catch (err) {
+            // User cancelled or error
+         }
+      } else if (navigator.clipboard) {
+         try {
+            await navigator.clipboard.writeText(shareData.url)
+            alert('Link copied to clipboard!')
+         } catch (err) {
+            alert('Failed to copy link.')
+         }
+      } else {
+         alert('Share not supported.')
+      }
+   }
+
    // Debug: Log video loaded state changes
    // useEffect(() => {
    //    console.log('isVideoLoaded state changed:', isVideoLoaded)
@@ -103,20 +128,36 @@ export default function Home() {
          name: 'Telegram',
          href: 'https://t.me/i_m_nakul',
          icon: (
+            // <svg
+            //    xmlns='http://www.w3.org/2000/svg'
+            //    width='40'
+            //    height='40'
+            //    viewBox='0 0 24 24'
+            // >
+            //    <g
+            //       fill='currentColor'
+            //       fillRule='evenodd'
+            //       clipRule='evenodd'
+            //    >
+            //       <path d='M17.045 8.937A1.47 1.47 0 0 0 15.03 7.35l-8.503 3.515c-1.078.446-.92 2.02.226 2.242l1.591.308c.441.085.899.005 1.284-.226l.464-.277a1.18 1.18 0 0 0 .425 1.53l3.65 2.288a1.176 1.176 0 0 0 1.787-.816zm-5.904 4.51l3.03-2.905c.54-.517-.114-1.373-.755-.99l-4.392 2.629a.65.65 0 0 1-.456.08l-1.591-.308l8.502-3.515a.294.294 0 0 1 .403.317l-1.09 6.979z' />
+            //       <path d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M3.176 12a8.824 8.824 0 1 1 17.648 0a8.824 8.824 0 0 1-17.648 0' />
+            //    </g>
+            // </svg>
             <svg
                xmlns='http://www.w3.org/2000/svg'
-               width='40'
-               height='40'
+               width='38'
+               height='38'
                viewBox='0 0 24 24'
             >
-               <g
-                  fill='currentColor'
-                  fillRule='evenodd'
-                  clipRule='evenodd'
-               >
-                  <path d='M17.045 8.937A1.47 1.47 0 0 0 15.03 7.35l-8.503 3.515c-1.078.446-.92 2.02.226 2.242l1.591.308c.441.085.899.005 1.284-.226l.464-.277a1.18 1.18 0 0 0 .425 1.53l3.65 2.288a1.176 1.176 0 0 0 1.787-.816zm-5.904 4.51l3.03-2.905c.54-.517-.114-1.373-.755-.99l-4.392 2.629a.65.65 0 0 1-.456.08l-1.591-.308l8.502-3.515a.294.294 0 0 1 .403.317l-1.09 6.979z' />
-                  <path d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M3.176 12a8.824 8.824 0 1 1 17.648 0a8.824 8.824 0 0 1-17.648 0' />
-               </g>
+               <path
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='1.5'
+                  d='m11.985 15.408l3.242 3.686c1.2 1.365 1.801 2.048 2.43 1.881c.628-.166.844-1.064 1.275-2.861l2.39-9.968c.665-2.768.997-4.151.259-4.834s-2.017-.175-4.575.84L5.14 8.865c-2.046.813-3.069 1.219-3.134 1.917a1 1 0 0 0 0 .214c.063.699 1.084 1.108 3.128 1.927c.925.371 1.388.557 1.72.912q.056.06.108.124c.306.38.436.88.697 1.876l.489 1.867c.253.97.38 1.456.713 1.522s.622-.336 1.201-1.141zm0 0l-.317-.33c-.362-.378-.543-.566-.543-.8s.18-.423.543-.8l3.573-3.724'
+                  color='currentColor'
+               />
             </svg>
          ),
          title: 'Telegram',
@@ -201,24 +242,17 @@ export default function Home() {
                height='40'
                viewBox='0 0 24 24'
             >
-               <path
-                  fill='currentColor'
-                  d='M18.44 3.06H5.56a2.507 2.507 0 0 0-2.5 2.5v12.88a2.507 2.507 0 0 0 2.5 2.5h12.88a2.5 2.5 0 0 0 2.5-2.5V5.56a2.5 2.5 0 0 0-2.5-2.5Zm1.5 15.38a1.511 1.511 0 0 1-1.5 1.5H5.56a1.511 1.511 0 0 1-1.5-1.5V5.56a1.511 1.511 0 0 1 1.5-1.5h12.88a1.511 1.511 0 0 1 1.5 1.5Z'
-               />
-               <path
-                  fill='currentColor'
-                  d='M6.376 10.748a1 1 0 1 1 2 0v6.5a1 1 0 0 1-2 0Z'
-               />
-               <circle
-                  cx='7.376'
-                  cy='6.744'
-                  r='1'
-                  fill='currentColor'
-               />
-               <path
-                  fill='currentColor'
-                  d='M17.62 13.37v3.88a1 1 0 1 1-2 0v-3.88a1.615 1.615 0 1 0-3.23 0v3.88a1 1 0 0 1-2 0v-6.5a1.016 1.016 0 0 1 1-1a.94.94 0 0 1 .84.47a3.609 3.609 0 0 1 5.39 3.15Z'
-               />
+               <g
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='1.5'
+                  color='currentColor'
+               >
+                  <path d='M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.008 7h-.009' />
+                  <path d='M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12' />
+               </g>
             </svg>
          ),
          title: 'LinkedIn',
@@ -228,26 +262,41 @@ export default function Home() {
          name: 'Twitter',
          href: 'https://x.com/imnakul_1',
          icon: (
+            // <svg
+            //    xmlns='http://www.w3.org/2000/svg'
+            //    width='40'
+            //    height='40'
+            //    viewBox='0 0 24 24'
+            // >
+            //    <g
+            //       fill='none'
+            //       stroke='currentColor'
+            //       stroke-linecap='round'
+            //       stroke-linejoin='round'
+            //       stroke-width='1.5'
+            //       color='currentColor'
+            //    >
+            //       <path d='M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12.001 2.5c4.478 0 6.717 0 8.108 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.717 0-8.109-1.391c-1.39-1.392-1.39-3.63-1.39-8.109' />
+            //       <path d='m7 17l4.194-4.193M17 7l-4.193 4.194m0 0L9.777 7H7l4.194 5.807m1.613-1.614L17 17h-2.778l-3.028-4.193' />
+            //    </g>
+            // </svg>
             <svg
                xmlns='http://www.w3.org/2000/svg'
-               width='40'
-               height='40'
+               width='38'
+               height='38'
                viewBox='0 0 24 24'
             >
-               <g
+               <path
                   fill='none'
                   stroke='currentColor'
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='1.5'
-                  color='currentColor'
-               >
-                  <path d='M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12.001 2.5c4.478 0 6.717 0 8.108 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.717 0-8.109-1.391c-1.39-1.392-1.39-3.63-1.39-8.109' />
-                  <path d='m7 17l4.194-4.193M17 7l-4.193 4.194m0 0L9.777 7H7l4.194 5.807m1.613-1.614L17 17h-2.778l-3.028-4.193' />
-               </g>
+                  d='m13.081 10.712l-4.786-6.71a.6.6 0 0 0-.489-.252H5.28a.6.6 0 0 0-.488.948l6.127 8.59m2.162-2.576l6.127 8.59a.6.6 0 0 1-.488.948h-2.526a.6.6 0 0 1-.489-.252l-4.786-6.71m2.162-2.576l5.842-6.962m-8.004 9.538L5.077 20.25'
+               />
             </svg>
          ),
-         title: 'Resume',
+         title: 'Twitter',
          external: true,
       },
    ]
@@ -426,6 +475,25 @@ export default function Home() {
                   {/* Profile Section */}
                   <div className='text-center mb-4'>
                      <div className='relative w-24 h-24 mx-auto mb-6'>
+                        <button
+                           onClick={handleShare}
+                           aria-label='Share this page'
+                           className='absolute top-2 -left-36 sm:-left-44 z-30 p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:shadow-lg transition-all duration-300 flex items-center justify-center shadow-md'
+                           style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.12)', willChange: 'transform' }}
+                        >
+                           {/* Share Icon */}
+                           <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              width='20'
+                              height='20'
+                              viewBox='0 0 16 16'
+                           >
+                              <path
+                                 fill='currentColor'
+                                 d='M3 6.81v6.38c0 .493.448.9.992.9h7.016c.543 0 .992-.406.992-.9V6.81c0-.493-.448-.9-.992-.9H3.992c-.543 0-.992.406-.992.9M6 5v.91h3V5h2.008C12.108 5 13 5.818 13 6.81v6.38c0 1-.9 1.81-1.992 1.81H3.992C2.892 15 2 14.182 2 13.19V6.81C2 5.81 2.9 5 3.992 5zm1.997-3.552A.506.506 0 0 1 8 1.5v8a.5.5 0 0 1-1 0v-8a.51.51 0 0 1 0-.017L5.18 3.394a.52.52 0 0 1-.77 0a.617.617 0 0 1 0-.829L6.36.515a1.552 1.552 0 0 1 2.31 0l1.95 2.05a.617.617 0 0 1 0 .83a.52.52 0 0 1-.77 0z'
+                              />
+                           </svg>
+                        </button>
                         <Image
                            src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_256,h_256,c_fill,q_auto,f_auto/v1751677501/profile_1_aoltbw.png'
                            alt='Nakul Srivastava'
@@ -435,7 +503,7 @@ export default function Home() {
                         />
                      </div>
                      <h1 className='text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
-                     <p className='text-xl text-gray-200 mb-2'>Web Developer | Gen AI Engineer</p>
+                     <p className='text-xl text-gray-200 mb-3'>Web Developer | Gen AI Engineer</p>
                      {/* Social Links - Minimal Icons */}
                      <div className='flex justify-center space-x-4 mb-6'>
                         {socialLinks.map((link) => (

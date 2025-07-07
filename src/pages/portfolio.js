@@ -1,12 +1,13 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Link from 'next/link'
+import Script from 'next/script'
 
 // Import your existing components
-const ParticleBackground = dynamic(
-   () => import('@/components/ui/ParticleBackground'),
-   { ssr: false, loading: () => <div /> }
-)
+const ParticleBackground = dynamic(() => import('@/components/ui/ParticleBackground'), {
+   ssr: false,
+   loading: () => <div />,
+})
 const AboutMe = dynamic(() => import('@/components/AboutMe'), {
    ssr: false,
    loading: () => <div style={{ height: 600 }} />,
@@ -23,9 +24,7 @@ const Badges = dynamic(() => import('@/components/Badges'), {
 const CognitiveTwin = dynamic(() => import('@/components/CognitiveTwin'), {
    loading: () => <div style={{ height: 200 }} />,
 })
-const CognitiveTwinTooltip = dynamic(() =>
-   import('@/components/CognitiveTwinTooltip')
-)
+const CognitiveTwinTooltip = dynamic(() => import('@/components/CognitiveTwinTooltip'))
 const Contact = dynamic(() => import('@/components/Contact'), {
    loading: () => <div style={{ height: 200 }} />,
 })
@@ -38,40 +37,62 @@ export default function Portfolio() {
       <>
          <Head>
             <title>Portfolio - Nakul Srivastava | Full Stack Developer</title>
-            <meta name="description" content="Explore Nakul Srivastava's portfolio showcasing web development projects, AI integrations, and full-stack applications." />
-            <meta name="keywords" content="Nakul Srivastava Portfolio, Web Development Projects, MERN Stack, Next.js Projects, AI Integration" />
-            <link rel="canonical" href="https://devnakul.me/portfolio" />
-            
+            <meta
+               name='description'
+               content="Explore Nakul Srivastava's portfolio showcasing web development projects, AI integrations, and full-stack applications."
+            />
+            <meta
+               name='keywords'
+               content='Nakul Srivastava Portfolio, Web Development Projects, MERN Stack, Next.js Projects, AI Integration'
+            />
+            <link
+               rel='canonical'
+               href='https://devnakul.me/portfolio'
+            />
+
             {/* Breadcrumb structured data */}
             <script
-               type="application/ld+json"
+               type='application/ld+json'
                dangerouslySetInnerHTML={{
                   __html: JSON.stringify({
-                     "@context": "https://schema.org",
-                     "@type": "BreadcrumbList",
-                     "itemListElement": [
+                     '@context': 'https://schema.org',
+                     '@type': 'BreadcrumbList',
+                     itemListElement: [
                         {
-                           "@type": "ListItem",
-                           "position": 1,
-                           "name": "Home",
-                           "item": "https://devnakul.me"
+                           '@type': 'ListItem',
+                           position: 1,
+                           name: 'Home',
+                           item: 'https://devnakul.me',
                         },
                         {
-                           "@type": "ListItem",
-                           "position": 2,
-                           "name": "Portfolio",
-                           "item": "https://devnakul.me/portfolio"
-                        }
-                     ]
-                  })
+                           '@type': 'ListItem',
+                           position: 2,
+                           name: 'Portfolio',
+                           item: 'https://devnakul.me/portfolio',
+                        },
+                     ],
+                  }),
                }}
             />
          </Head>
 
+         <Script
+            async
+            src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
+         ></Script>
+         <Script
+            dangerouslySetInnerHTML={{
+               __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P4718BFDQP');
+            `,
+            }}
+         />
+
          <div className='min-h-screen min-w-full bg-gray-900'>
             <ParticleBackground particleCount={30} />
-            
-
 
             <Navigationbar />
             <AboutMe />
@@ -91,9 +112,7 @@ export default function Portfolio() {
                      distance={50}
                      delay={300}
                   >
-                     <h2 className='text-4xl font-bold mb-8 gradient-text'>
-                        Echo of Nakul
-                     </h2>
+                     <h2 className='text-4xl font-bold mb-8 gradient-text'>Echo of Nakul</h2>
                   </AnimatedContent>
 
                   <div className='grid grid-cols-1 '>
@@ -110,9 +129,7 @@ export default function Portfolio() {
                               proximity={64}
                               inactiveZone={0.01}
                            />
-                           <h3 className='text-2xl font-bold mb-4 text-purple-400 '>
-                              🧠 Nakul's Cognitive Twin
-                           </h3>
+                           <h3 className='text-2xl font-bold mb-4 text-purple-400 '>🧠 Nakul's Cognitive Twin</h3>
                            <CognitiveTwinTooltip />
                            <AnimatedContent
                               direction='horizontal'
@@ -133,9 +150,7 @@ export default function Portfolio() {
                      distance={50}
                      delay={300}
                   >
-                     <h2 className='text-4xl font-bold mb-8 gradient-text'>
-                        Echo of Nakul
-                     </h2>
+                     <h2 className='text-4xl font-bold mb-8 gradient-text'>Echo of Nakul</h2>
                   </AnimatedContent>
 
                   <div className='grid grid-cols-1'>
@@ -147,9 +162,7 @@ export default function Portfolio() {
                            proximity={64}
                            inactiveZone={0.01}
                         />
-                        <h3 className='text-xl font-bold mb-2 text-purple-400 ml-2'>
-                           🧠 Nakul's Cognitive Twin
-                        </h3>
+                        <h3 className='text-xl font-bold mb-2 text-purple-400 ml-2'>🧠 Nakul's Cognitive Twin</h3>
                         <CognitiveTwinTooltip />
                         <CognitiveTwin />
                      </div>
@@ -161,9 +174,7 @@ export default function Portfolio() {
 
             {/* Footer */}
             <div className='glass-effect py-6 text-center'>
-               <p className='text-gray-400'>
-                  © {new Date().getFullYear()} Nakul Srivastava. All rights reserved.
-               </p>
+               <p className='text-gray-400'>© {new Date().getFullYear()} Nakul Srivastava. All rights reserved.</p>
             </div>
          </div>
 
@@ -179,7 +190,7 @@ export default function Portfolio() {
                padding: 8px 12px;
                transition: all 0.3s ease;
             }
-            
+
             .glass-card-nav:hover {
                background: rgba(255, 255, 255, 0.15);
                border-color: rgba(255, 255, 255, 0.3);

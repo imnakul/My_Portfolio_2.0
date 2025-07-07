@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { isMotionValue } from 'framer-motion'
+import Script from 'next/script'
 
 export default function Home() {
    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
@@ -242,6 +243,22 @@ export default function Home() {
             <meta
                name='twitter:image'
                content='https://devnakul.me/profile.jpg'
+            />
+
+            {/* Google tag (gtag.js) */}
+            <Script
+               async
+               src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
+            ></Script>
+            <Script
+               dangerouslySetInnerHTML={{
+                  __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P4718BFDQP');
+            `,
+               }}
             />
 
             {/* Preload critical resources */}

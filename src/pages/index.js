@@ -245,16 +245,11 @@ export default function Home() {
             />
 
             {/* Preload critical resources */}
-            {/* <link
-               rel='preload'
-               href='/profile.jpg'
-               as='image'
-            />
             <link
                rel='preload'
-               href='/profile (1).png'
                as='image'
-            /> */}
+               href='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png'
+            />
          </Head>
 
          <div

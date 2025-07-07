@@ -259,56 +259,71 @@ export default function Home() {
 
          <div
             className='h-screen relative overflow-hidden'
-            style={{ background: "url('/ss.png') center center / cover no-repeat, #0e2235" }}
+            style={{
+               background:
+                  "url('https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png') center center / cover no-repeat, #0e2235",
+            }}
          >
             {/* Optimized Video Background */}
             <div className='fixed inset-0 z-0'>
-               <video
-                  id='background-video'
-                  className={`w-full h-full object-cover transition-opacity duration-1000 ${
-                     isVideoLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  style={{
-                     transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale(1.05)`,
-                     transition: 'transform 0.1s ease-out',
-                     willChange: 'transform',
-                  }}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload='metadata'
-                  poster='/ss.png'
-                  onContextMenu={(e) => e.preventDefault()}
-                  controlsList='nodownload'
-                  disablePictureInPicture
-                  onLoadedData={() => {
-                     console.log('Video onLoadedData callback fired')
-                     setIsVideoLoaded(true)
-                  }}
-                  onCanPlay={() => {
-                     console.log('Video onCanPlay callback fired')
-                     setIsVideoLoaded(true)
-                  }}
-               >
-                  {isMobile ? (
+               {!isMobile && (
+                  // ? (
+                  //    <Image
+                  //       src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_800,q_auto,f_auto/v1751717507/jahanzeb-ahsan-R-Em8KTiSis-unsplash_e9btvy.jpg'
+                  //       alt='Background for mobile'
+                  //       width={800}
+                  //       height={1200}
+                  //       className='w-full h-full object-cover'
+                  //       priority
+                  //    />
+                  // ) :
+                  <video
+                     id='background-video'
+                     className={`w-full h-full object-cover transition-opacity duration-1000 ${
+                        isVideoLoaded ? 'opacity-100' : 'opacity-0'
+                     }`}
+                     style={{
+                        transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale(1.05)`,
+                        transition: 'transform 0.1s ease-out',
+                        willChange: 'transform',
+                     }}
+                     autoPlay
+                     muted
+                     loop
+                     playsInline
+                     preload='metadata'
+                     poster='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png'
+                     onContextMenu={(e) => e.preventDefault()}
+                     controlsList='nodownload'
+                     disablePictureInPicture
+                     onLoadedData={() => {
+                        console.log('Video onLoadedData callback fired')
+                        setIsVideoLoaded(true)
+                     }}
+                     onCanPlay={() => {
+                        console.log('Video onCanPlay callback fired')
+                        setIsVideoLoaded(true)
+                     }}
+                  >
+                     {/* {isMobile ? (
                      <source
                         src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4'
                         type='video/mp4'
                      />
-                  ) : (
+                  ) : ( */}
                      <source
-                        src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751629924/4_fku2am.mp4'
+                        src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751718171/The_City_In_The_Rain_fdmraq.mp4'
                         // src='/c.mp4'
                         type='video/mp4'
                      />
-                  )}
+                     {/* )} */}
 
-                  {/* https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4 */}
-               </video>
+                     {/* https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4 */}
+                  </video>
+               )}
 
                {/* Dark Overlay for better text readability */}
-               <div className='absolute inset-0 bg-black/20' />
+               <div className='absolute inset-0 bg-black/15' />
             </div>
 
             {/* Content */}

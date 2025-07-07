@@ -245,7 +245,7 @@ export default function Home() {
             />
 
             {/* Preload critical resources */}
-            <link
+            {/* <link
                rel='preload'
                href='/profile.jpg'
                as='image'
@@ -254,7 +254,7 @@ export default function Home() {
                rel='preload'
                href='/profile (1).png'
                as='image'
-            />
+            /> */}
          </Head>
 
          <div
@@ -333,7 +333,7 @@ export default function Home() {
                   <div className='text-center mb-6'>
                      <div className='relative w-24 h-24 mx-auto mb-6'>
                         <Image
-                           src='/profile (1).png'
+                           src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_256,h_256,c_fill,q_auto,f_auto/v1751677501/profile_1_aoltbw.png'
                            alt='Nakul Srivastava'
                            fill
                            className='rounded-full object-cover ring-2 ring-white/50 shadow-xl'

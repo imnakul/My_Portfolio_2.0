@@ -175,8 +175,14 @@ button,
 /* ~ mobile background for index.js */
 @media (max-width: 767px) {
    .bg-hero {
-      background: url('https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751860868/photo_6034909838565294116_y_ysor8d.jpg')
+      background: url('https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751878317/244ea1dbcef4fc4f5309cec2fd004b4d_nsvvxd.jpg')
             center center / cover no-repeat,
          #0e2235;
    }
 }
+
+/* https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751864670/35bc91437d4034e5f680b562fa0de6b3_enatjy.jpg */
+
+/* https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751864671/de18f5dc6711d339754e3b9971978cdd_eixbf8.jpg */
+
+/* https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751864661/edb05973767791a911f7b6d5186e645f_y8fsxg.jpg */

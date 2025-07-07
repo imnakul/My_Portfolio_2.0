@@ -284,33 +284,23 @@ export default function Home() {
          <div className='h-screen relative overflow-hidden bg-hero'>
             {/* Optimized Video Background */}
             <div className='fixed inset-0 z-0'>
+               {/* Video overlay that fades in smoothly */}
                {hasMounted && !isMobile && (
-                  // ? (
-                  //    <Image
-                  //       src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_800,q_auto,f_auto/v1751717507/jahanzeb-ahsan-R-Em8KTiSis-unsplash_e9btvy.jpg'
-                  //       alt='Background for mobile'
-                  //       width={800}
-                  //       height={1200}
-                  //       className='w-full h-full object-cover'
-                  //       priority
-                  //    />
-                  // ) :
                   <video
                      id='background-video'
-                     className={`w-full h-full object-cover transition-opacity duration-1000 ${
+                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
                         isVideoLoaded ? 'opacity-100' : 'opacity-0'
                      }`}
                      style={{
                         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale(1.05)`,
-                        transition: 'transform 0.1s ease-out',
-                        willChange: 'transform',
+                        transition: 'transform 0.1s ease-out, opacity 1s ease-in-out',
+                        willChange: 'transform, opacity',
                      }}
                      autoPlay
                      muted
                      loop
                      playsInline
                      preload='metadata'
-                     poster='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png'
                      onContextMenu={(e) => e.preventDefault()}
                      controlsList='nodownload'
                      disablePictureInPicture
@@ -323,29 +313,20 @@ export default function Home() {
                         setIsVideoLoaded(true)
                      }}
                   >
-                     {/* {isMobile ? (
-                     <source
-                        src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4'
-                        type='video/mp4'
-                     />
-                  ) : ( */}
                      <source
                         src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751718171/The_City_In_The_Rain_fdmraq.mp4'
                         // src='/c.mp4'
                         type='video/mp4'
                      />
-                     {/* )} */}
-
-                     {/* https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751626408/c_ymlq4r.mp4 */}
                   </video>
                )}
 
                {/* Dark Overlay for better text readability */}
-               <div className={`absolute inset-0 ${isMobile ? 'bg-black/50' : 'bg-black/15'} `} />
+               <div className={`absolute inset-0 z-10 ${isMobile ? 'bg-black/30' : 'bg-black/15'} `} />
             </div>
 
             {/* Content */}
-            <div className='relative z-10 h-screen flex items-center justify-center px-4'>
+            <div className='relative z-20 h-screen flex items-center justify-center px-4'>
                <div className='max-w-md w-full text-center'>
                   {/* Profile Section */}
                   <div className='text-center mb-6'>
@@ -373,7 +354,6 @@ export default function Home() {
                            href={link.href}
                            target={link.external ? '_blank' : '_self'}
                            rel={link.external ? 'noopener noreferrer' : undefined}
-                           // className='p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/70 hover:text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-lg group'
                            className='p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
                            title={link.name}
                            style={{ willChange: 'transform' }}

@@ -2,18 +2,23 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { isMotionValue } from 'framer-motion'
+// import { isMotionValue } from 'framer-motion'
 import Script from 'next/script'
 
 export default function Home() {
    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
    const [isMobile, setIsMobile] = useState(false)
    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+   const [hasMounted, setHasMounted] = useState(false)
 
    // Debug: Log video loaded state changes
+   // useEffect(() => {
+   //    console.log('isVideoLoaded state changed:', isVideoLoaded)
+   // }, [isVideoLoaded])
+
    useEffect(() => {
-      console.log('isVideoLoaded state changed:', isVideoLoaded)
-   }, [isVideoLoaded])
+      setHasMounted(true)
+   }, [])
 
    useEffect(() => {
       // Function to check mobile state
@@ -265,20 +270,21 @@ export default function Home() {
             <link
                rel='preload'
                as='image'
+               href='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_800,q_auto,f_auto/v1751717507/jahanzeb-ahsan-R-Em8KTiSis-unsplash_e9btvy.jpg'
+               media='(max-width: 767px)'
+            />
+            <link
+               rel='preload'
+               as='image'
                href='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png'
+               media='(min-width: 768px)'
             />
          </Head>
 
-         <div
-            className='h-screen relative overflow-hidden'
-            style={{
-               background:
-                  "url('https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png') center center / cover no-repeat, #0e2235",
-            }}
-         >
+         <div className='h-screen relative overflow-hidden bg-hero'>
             {/* Optimized Video Background */}
             <div className='fixed inset-0 z-0'>
-               {!isMobile && (
+               {hasMounted && !isMobile && (
                   // ? (
                   //    <Image
                   //       src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_800,q_auto,f_auto/v1751717507/jahanzeb-ahsan-R-Em8KTiSis-unsplash_e9btvy.jpg'
@@ -335,7 +341,7 @@ export default function Home() {
                )}
 
                {/* Dark Overlay for better text readability */}
-               <div className='absolute inset-0 bg-black/15' />
+               <div className={`absolute inset-0 ${isMobile ? 'bg-black/50' : 'bg-black/15'} `} />
             </div>
 
             {/* Content */}

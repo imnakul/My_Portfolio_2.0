@@ -1,157 +1,182 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-html{
-  scroll-behavior: smooth;
+html {
+   scroll-behavior: smooth;
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --primary: #9e00ff;
-  --secondary: #2eb9df;
-  --accent: #ff5e94;
-  --muted: #2a2a2a;
-  --card: #111111;
-  scroll-behavior: smooth;
+   --background: #0a0a0a;
+   --foreground: #ededed;
+   --primary: #9e00ff;
+   --secondary: #2eb9df;
+   --accent: #ff5e94;
+   --muted: #2a2a2a;
+   --card: #111111;
+   scroll-behavior: smooth;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+   --color-background: var(--background);
+   --color-foreground: var(--foreground);
+   --font-sans: var(--font-geist-sans);
+   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-  /* cursor: none; */
-  cursor: url('/arrowhead.svg'), auto;
+   background: var(--background);
+   color: var(--foreground);
+   font-family: 'Inter', Arial, Helvetica, sans-serif;
+   overflow-x: hidden;
+   /* cursor: none; */
+   cursor: url('/arrowhead.svg'), auto;
 }
 
-h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Orbitron', 'Inter', Arial, Helvetica, sans-serif;
-  letter-spacing: 0.5px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+   font-family: 'Orbitron', 'Inter', Arial, Helvetica, sans-serif;
+   letter-spacing: 0.5px;
 }
 
-button, input, textarea, select,label,p,span {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+button,
+input,
+textarea,
+select,
+label,
+p,
+span {
+   font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 a,
 button,
-[role="button"],
+[role='button'],
 .cursor-pointer {
-  cursor: url('/handpointer.svg'), pointer;
+   cursor: url('/handpointer.svg'), pointer;
 }
 
 #marquee {
-  .cursor-pointer {
-    cursor: url('/thumbsup.svg'), pointer;
-  }
+   .cursor-pointer {
+      cursor: url('/thumbsup.svg'), pointer;
+   }
 }
 
 .filter-glow {
-  filter: drop-shadow(0 0 6px var(--primary));
+   filter: drop-shadow(0 0 6px var(--primary));
 }
 
 .filter-glow-hover:hover {
-  filter: drop-shadow(0 0 6px var(--primary));
- 
+   filter: drop-shadow(0 0 6px var(--primary));
 }
 
 .gradient-text {
-  background: linear-gradient(to right, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+   background: linear-gradient(to right, var(--primary), var(--secondary));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
 }
 
 .glass-effect {
-  background: rgba(20, 20, 20, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   background: rgba(20, 20, 20, 0.5);
+   backdrop-filter: blur(8px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-glow {
-  box-shadow: 0 0 15px rgba(158, 0, 255, 0.3);
-  transition: box-shadow 0.3s ease;
+   box-shadow: 0 0 15px rgba(158, 0, 255, 0.3);
+   transition: box-shadow 0.3s ease;
 }
 
 .card-glow:hover {
-  box-shadow: 0 0 25px rgba(158, 0, 255, 0.5);
+   box-shadow: 0 0 25px rgba(158, 0, 255, 0.5);
 }
 
 /* Custom cursor */
 .cursor-dot,
 .cursor-outline {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 9999;
-  transition: opacity 0.3s ease-in-out;
+   pointer-events: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+   z-index: 9999;
+   transition: opacity 0.3s ease-in-out;
 }
 
 .cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary);
+   width: 8px;
+   height: 8px;
+   background-color: var(--primary);
 }
 
 .cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--secondary);
-  transition: all 0.2s ease-out;
+   width: 40px;
+   height: 40px;
+   border: 2px solid var(--secondary);
+   transition: all 0.2s ease-out;
 }
 
 .hide-cursor {
-  cursor: none;
+   cursor: none;
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+   background: var(--muted);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+   background: var(--primary);
+   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
+   background: var(--secondary);
 }
 
 @theme inline {
-  --animate-marquee: marquee var(--duration) infinite linear;
---animate-marquee-vertical: marquee-vertical var(--duration) infinite linear;
+   --animate-marquee: marquee var(--duration) infinite linear;
+   --animate-marquee-vertical: marquee-vertical var(--duration) infinite linear;
 }
-
 
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-  }
+   from {
+      transform: translateX(0);
+   }
+   to {
+      transform: translateX(calc(-100% - var(--gap)));
+   }
 }
 @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-  }
+   from {
+      transform: translateY(0);
+   }
+   to {
+      transform: translateY(calc(-100% - var(--gap)));
+   }
+}
+
+.bg-hero {
+   background: url('https://res.cloudinary.com/dp2bzu9e2/image/upload/w_1600,q_auto,f_auto/v1751846759/ss2_egehcj_62a517.png')
+         center center / cover no-repeat,
+      #0e2235;
+}
+
+/* ~ mobile background for index.js */
+@media (max-width: 767px) {
+   .bg-hero {
+      background: url('https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751860868/photo_6034909838565294116_y_ysor8d.jpg')
+            center center / cover no-repeat,
+         #0e2235;
+   }
 }

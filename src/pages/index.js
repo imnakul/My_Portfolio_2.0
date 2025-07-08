@@ -152,9 +152,9 @@ export default function Home() {
                <path
                   fill='none'
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='1.5'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='1.5'
                   d='m11.985 15.408l3.242 3.686c1.2 1.365 1.801 2.048 2.43 1.881c.628-.166.844-1.064 1.275-2.861l2.39-9.968c.665-2.768.997-4.151.259-4.834s-2.017-.175-4.575.84L5.14 8.865c-2.046.813-3.069 1.219-3.134 1.917a1 1 0 0 0 0 .214c.063.699 1.084 1.108 3.128 1.927c.925.371 1.388.557 1.72.912q.056.06.108.124c.306.38.436.88.697 1.876l.489 1.867c.253.97.38 1.456.713 1.522s.622-.336 1.201-1.141zm0 0l-.317-.33c-.362-.378-.543-.566-.543-.8s.18-.423.543-.8l3.573-3.724'
                   color='currentColor'
                />
@@ -245,9 +245,9 @@ export default function Home() {
                <g
                   fill='none'
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='1.5'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='1.5'
                   color='currentColor'
                >
                   <path d='M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.008 7h-.009' />
@@ -271,9 +271,9 @@ export default function Home() {
             //    <g
             //       fill='none'
             //       stroke='currentColor'
-            //       stroke-linecap='round'
-            //       stroke-linejoin='round'
-            //       stroke-width='1.5'
+            //       strokeLinecap='round'
+            //       strokeLinejoin='round'
+            //       strokeWidth='1.5'
             //       color='currentColor'
             //    >
             //       <path d='M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12.001 2.5c4.478 0 6.717 0 8.108 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.717 0-8.109-1.391c-1.39-1.392-1.39-3.63-1.39-8.109' />
@@ -289,9 +289,9 @@ export default function Home() {
                <path
                   fill='none'
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='1.5'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='1.5'
                   d='m13.081 10.712l-4.786-6.71a.6.6 0 0 0-.489-.252H5.28a.6.6 0 0 0-.488.948l6.127 8.59m2.162-2.576l6.127 8.59a.6.6 0 0 1-.488.948h-2.526a.6.6 0 0 1-.489-.252l-4.786-6.71m2.162-2.576l5.842-6.962m-8.004 9.538L5.077 20.25'
                />
             </svg>
@@ -394,22 +394,6 @@ export default function Home() {
                content='https://devnakul.me/profile.jpg'
             />
 
-            {/* Google tag (gtag.js) */}
-            <Script
-               async
-               src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
-            ></Script>
-            <Script
-               dangerouslySetInnerHTML={{
-                  __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-P4718BFDQP');
-            `,
-               }}
-            />
-
             {/* Preload critical resources */}
             <link
                rel='preload'
@@ -424,6 +408,23 @@ export default function Home() {
                media='(min-width: 768px)'
             />
          </Head>
+
+         {/* Google tag (gtag.js) */}
+         <Script
+            async
+            src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
+         ></Script>
+         <Script
+            id='google-analytics-inline'
+            dangerouslySetInnerHTML={{
+               __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P4718BFDQP');
+            `,
+            }}
+         />
 
          <div className='h-screen relative overflow-hidden bg-hero'>
             {/* Optimized Video Background */}

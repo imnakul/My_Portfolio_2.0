@@ -81,6 +81,7 @@ export default function Portfolio() {
             src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
          ></Script>
          <Script
+            id='google-analytics-inline'
             dangerouslySetInnerHTML={{
                __html: `
               window.dataLayer = window.dataLayer || [];
@@ -129,7 +130,7 @@ export default function Portfolio() {
                               proximity={64}
                               inactiveZone={0.01}
                            />
-                           <h3 className='text-2xl font-bold mb-4 text-purple-400 '>🧠 Nakul's Cognitive Twin</h3>
+                           <h3 className='text-2xl font-bold mb-4 text-purple-400 '>🧠 Nakul&apos;s Cognitive Twin</h3>
                            <CognitiveTwinTooltip />
                            <AnimatedContent
                               direction='horizontal'
@@ -162,7 +163,7 @@ export default function Portfolio() {
                            proximity={64}
                            inactiveZone={0.01}
                         />
-                        <h3 className='text-xl font-bold mb-2 text-purple-400 ml-2'>🧠 Nakul's Cognitive Twin</h3>
+                        <h3 className='text-xl font-bold mb-2 text-purple-400 ml-2'>🧠 Nakul&apos;s Cognitive Twin</h3>
                         <CognitiveTwinTooltip />
                         <CognitiveTwin />
                      </div>

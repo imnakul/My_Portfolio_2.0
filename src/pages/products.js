@@ -86,6 +86,7 @@ export default function Products() {
             src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
          ></Script>
          <Script
+            id='google-analytics-inline'
             dangerouslySetInnerHTML={{
                __html: `
                        window.dataLayer = window.dataLayer || [];
@@ -195,7 +196,9 @@ export default function Products() {
             <div className='bg-gradient-to-r from-purple-900/30 to-blue-900/30 py-8'>
                <div className='max-w-4xl mx-auto text-center px-4'>
                   <h2 className='text-3xl font-bold mb-4'>Have a Product Idea?</h2>
-                  <p className='text-gray-300 mb-8'>Let's collaborate and bring your digital product vision to life</p>
+                  <p className='text-gray-300 mb-8'>
+                     Let&apos;s collaborate and bring your digital product vision to life
+                  </p>
                   <Link
                      href='/services'
                      className='inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors'

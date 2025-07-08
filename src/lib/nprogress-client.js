@@ -1,6 +1,5 @@
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import '../styles/nprogress.css'
 
 NProgress.configure({ showSpinner: false, speed: 400, minimum: 0.15 })
 
@@ -8,12 +7,12 @@ let timer
 const delay = 100 // ms, to avoid flashing bar on super-fast transitions
 
 function start() {
-  clearTimeout(timer)
-  timer = setTimeout(() => NProgress.start(), delay)
+   clearTimeout(timer)
+   timer = setTimeout(() => NProgress.start(), delay)
 }
 function done() {
-  clearTimeout(timer)
-  NProgress.done()
+   clearTimeout(timer)
+   NProgress.done()
 }
 
 Router.events.on('routeChangeStart', start)

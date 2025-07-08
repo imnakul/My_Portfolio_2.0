@@ -4,7 +4,7 @@ export default function Document() {
    return (
       <Html lang='en'>
          <Head>
-            <title>Portfolio</title>
+            {/* <title>Portfolio</title> */}
             <meta
                name='description'
                content='Learn more about Nakul, a web developer passionate about frontend tech.'

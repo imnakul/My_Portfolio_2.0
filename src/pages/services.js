@@ -128,6 +128,7 @@ export default function Services() {
             src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
          ></Script>
          <Script
+            id='google-analytics-inline'
             dangerouslySetInnerHTML={{
                __html: `
               window.dataLayer = window.dataLayer || [];
@@ -171,7 +172,7 @@ export default function Services() {
 
                         {selectedService === index && (
                            <div className='border-t border-gray-700 pt-4 mt-4'>
-                              <h4 className='font-semibold mb-2'>What's Included:</h4>
+                              <h4 className='font-semibold mb-2'>What&apos;s Included:</h4>
                               <ul className='text-sm text-gray-300 space-y-1 mb-4'>
                                  {service.features.map((feature, i) => (
                                     <li
@@ -253,7 +254,7 @@ export default function Services() {
                <div className='max-w-4xl mx-auto text-center px-4'>
                   <h2 className='text-3xl font-bold mb-4'>Ready to Start Your Project?</h2>
                   <p className='text-gray-300 mb-8'>
-                     Let's discuss your requirements and create something amazing together
+                     Let&apos;s discuss your requirements and create something amazing together
                   </p>
                   <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                      <a

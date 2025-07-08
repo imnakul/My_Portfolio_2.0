@@ -1,68 +1,68 @@
 /*
-	Installed from https://reactbits.dev/tailwind/
+  Installed from https://reactbits.dev/tailwind/
 */
 
 import { useRef, useEffect, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { motion } from "framer-motion";
+
 
 const AnimatedContent = ({
   children,
   distance = 100,
   direction = "vertical",
   reverse = false,
-  config = { tension: 50, friction: 25 },
   initialOpacity = 0,
   animateOpacity = true,
   scale = 1,
   threshold = 0.1,
   delay = 0,
+  duration = 0.6, // seconds
 }) => {
   const [inView, setInView] = useState(false);
   const ref = useRef();
 
   useEffect(() => {
     if (!ref.current) return;
-
-    const observer = new IntersectionObserver(
+    const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           observer.unobserve(ref.current);
-          setTimeout(() => {
-            setInView(true);
-          }, delay);
+          setTimeout(() => setInView(true), delay);
         }
       },
-      { threshold },
+      { threshold }
     );
-
     observer.observe(ref.current);
-
     return () => observer.disconnect();
   }, [threshold, delay]);
 
-  const directions = {
-    vertical: "Y",
-    horizontal: "X",
-  };
-
-  const springProps = useSpring({
-    from: {
-      transform: `translate${directions[direction]}(${reverse ? `-${distance}px` : `${distance}px`}) scale(${scale})`,
-      opacity: animateOpacity ? initialOpacity : 1,
-    },
-    to: inView
-      ? {
-          transform: `translate${directions[direction]}(0px) scale(1)`,
-          opacity: 1,
-        }
-      : undefined,
-    config,
-  });
+  const axis = direction === "vertical" ? "Y" : "X";
+  const fromValue = reverse ? -distance : distance;
 
   return (
-    <animated.div ref={ref} style={springProps} data-oid="49yh:.3">
+    <motion.div
+      ref={ref}
+      initial={{
+        opacity: animateOpacity ? initialOpacity : 1,
+        scale,
+        ["translate" + axis]: fromValue,
+      }}
+      animate={inView ? {
+        opacity: 1,
+        scale: 1,
+        ["translate" + axis]: 0,
+      } : {}}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 25,
+        duration,
+        delay: delay / 1000,
+      }}
+      data-oid="49yh:.3"
+    >
       {children}
-    </animated.div>
+    </motion.div>
   );
 };
 

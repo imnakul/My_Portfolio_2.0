@@ -413,9 +413,11 @@ export default function Home() {
          <Script
             async
             src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
+            strategy='lazyOnload'
          ></Script>
          <Script
             id='google-analytics-inline'
+            strategy='lazyOnload'
             dangerouslySetInnerHTML={{
                __html: `
               window.dataLayer = window.dataLayer || [];
@@ -503,10 +505,10 @@ export default function Home() {
                            priority
                         />
                      </div>
-                     <h1 className='text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
+                     <h1 className='text-3xl sm:text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
                      <p className='text-xl text-gray-200 mb-3'>Web Developer | Gen AI Engineer</p>
                      {/* Social Links - Minimal Icons */}
-                     <div className='flex justify-center space-x-4 mb-6'>
+                     <div className='flex justify-center space-x-4 mb-8'>
                         {socialLinks.map((link) => (
                            <a
                               key={link.name}
@@ -533,7 +535,7 @@ export default function Home() {
                   </p>
 
                   {/* Main Links - Only Portfolio, Products, Services */}
-                  <div className='space-y-4 mb-8'>
+                  <div className='space-y-4 mb-4'>
                      {mainLinks.map((link) => (
                         <Link
                            key={link.name}

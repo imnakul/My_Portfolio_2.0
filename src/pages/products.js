@@ -84,9 +84,11 @@ export default function Products() {
          <Script
             async
             src='https://www.googletagmanager.com/gtag/js?id=G-P4718BFDQP'
+            strategy='lazyOnload'
          ></Script>
          <Script
             id='google-analytics-inline'
+            strategy='lazyOnload'
             dangerouslySetInnerHTML={{
                __html: `
                        window.dataLayer = window.dataLayer || [];

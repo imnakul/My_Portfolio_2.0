@@ -12,7 +12,7 @@ export default function Document() {
 
             <link
                rel='icon'
-               href='/image.png'
+               href='/finallogo.png'
             />
          </Head>
          <body className='antialiased'>

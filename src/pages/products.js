@@ -8,58 +8,65 @@ export default function Products() {
       {
          name: 'SaveSpark',
          description: 'AI-powered Idea Management Tool',
-         image: '/image.png', // Replace with actual product image
-         status: 'Coming Soon',
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752027892/302_1x_shots_so_t19gxx.png', // Replace with actual product image
+         status: 'Live',
          link: 'https://savespark.com',
          tech: ['Next.js', 'AI', 'Firebase'],
          category: 'SaaS',
+         type: 'Personal',
       },
       {
-         name: 'Powerhouse Gym Website',
+         name: 'Powerhouse Gym',
          description: 'Website for Powerhouse Gym at Meerut',
-         image: '/image.png', // Replace with actual product image
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752026104/469shiots_so_tl9bx8.png',
          status: 'Live',
          link: 'https://www.powerhousegymmrt.site',
          tech: ['React'],
          category: 'Website',
+         type: 'Client',
       },
 
       {
          name: 'BuildifyWeb',
-         description: 'Python GUI builder with Drag & Drop - No Code.',
-         image: '/image.png', // Replace with actual product image
+         description: 'Python GUI No-code drag & drop builder.',
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751990243/311_1x_shots_so_uh5ukw.png', // Replace with actual product image
          status: 'Live',
          link: 'https://buildfy.online',
          tech: ['React'],
          category: 'Platform',
+         type: 'Collaboration',
       },
       {
          name: 'JB Sweets',
          description: 'Sweet Shop Website',
-         image: '/image.png', // Replace with actual product image
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752027184/360_1x_shots_so_goxesz.png',
          status: 'Live',
          link: 'https://www.jbsweets.vercel.app',
          tech: ['Next.js'],
          category: 'Website',
-      },
-      {
-         name: 'AskMark',
-         description: 'You can talk to your Bookmarks',
-         image: '/image.png', // Replace with actual product image
-         status: 'Coming Soon',
-         link: 'https://www.askmark.vercel.app',
-         tech: ['Next.js , Firebase , Gen AI'],
-         category: 'Platform',
+         type: 'Client',
       },
       {
          name: 'Flexitasks',
-         description: 'Task Manager with Flexible layout, themes and Features.',
-         image: '/image.png', // Replace with actual product image
+         description: 'Task Manager with Flexibility in its DNA.',
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752029103/210shots_lso_k2oypg.png',
          status: 'Live',
          link: 'https://www.flexitasks.devnakul.me',
          tech: ['React, Tailwind , Framer'],
          category: 'Platform',
+         type: 'Personal',
       },
+      {
+         name: 'AskMark',
+         description: 'Bookmarks you can talk to!',
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752031041/725shots_so_xtnegs.png',
+         status: 'Coming Soon',
+         link: 'https://www.askmark.vercel.app',
+         tech: ['Next.js , Firebase , Gen AI'],
+         category: 'Platform',
+         type: 'Personal',
+      },
+
       // Add more products as needed
    ]
 
@@ -99,13 +106,15 @@ export default function Products() {
             }}
          />
 
-         <div className='min-h-screen bg-gray-900 text-white'>
+         <div className='min-h-screen text-white bg-gradient-to-br from-[#1a1333] via-[#18122b] to-[#1e2240]'>
             {/* Header */}
-            <div className='relative bg-gradient-to-b from-purple-900/20 to-transparent'>
-               <div className='absolute inset-0 bg-black/30' />
+            <div className='relative bg-gradient-to-b from-purple-900/40 via-transparent to-transparent'>
+               <div className='absolute inset-0 bg-black/30 pointer-events-none' />
                <div className='relative z-10 max-w-6xl mx-auto px-4 py-8'>
-                  <h1 className='text-5xl font-bold mb-4 gradient-text'>Digital Products</h1>
-                  <p className='text-xl text-gray-300 max-w-2xl'>
+                  <h1 className='text-5xl font-bold mb-4 gradient-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent'>
+                     Digital Products
+                  </h1>
+                  <p className='text-xl text-gray-300 max-w-3xl'>
                      Innovative SaaS solutions and digital products that solve real-world problems
                   </p>
                </div>
@@ -121,14 +130,27 @@ export default function Products() {
                      >
                         <div className='relative h-48 bg-gradient-to-br from-purple-600 to-blue-600'>
                            <Image
-                              src={product.image}
+                              src={
+                                 product.image.includes('cloudinary.com')
+                                    ? product.image.replace('/upload/', '/upload/w_600,q_auto,f_auto/')
+                                    : product.image
+                              }
                               alt={product.name}
                               fill
                               className='object-cover'
+                              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                              priority={index < 3}
                            />
-                           <div className='absolute top-4 right-4'>
+                           {/* Type & Category Badges (top left) */}
+                           <div className='absolute top-4 left-4 flex flex-col gap-1 z-10'>
+                              <span className='text-xs px-2 py-1 rounded-full font-semibold bg-purple-800/90 text-white border border-purple-400/30 shadow-sm'>
+                                 {product.type}
+                              </span>
+                           </div>
+                           {/* Status Badge (top right) */}
+                           <div className='absolute top-4 right-4 z-10'>
                               <span
-                                 className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                                 className={`px-3 py-1 rounded-full text-xs font-semibold shadow-md ${
                                     product.status === 'Live' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-black'
                                  }`}
                               >
@@ -140,7 +162,7 @@ export default function Products() {
                         <div className='p-6'>
                            <div className='flex items-start justify-between mb-4'>
                               <h3 className='text-xl font-bold'>{product.name}</h3>
-                              <span className='text-xs text-purple-400 bg-purple-400/20 px-2 py-1 rounded'>
+                              <span className='text-xs text-purple-400 bg-purple-400/20 px-2 py-1 rounded mt-1'>
                                  {product.category}
                               </span>
                            </div>
@@ -158,36 +180,40 @@ export default function Products() {
                               ))}
                            </div>
 
-                           {product.status === 'Live' ? (
-                              <a
-                                 href={product.link}
-                                 target='_blank'
-                                 rel='noopener noreferrer'
-                                 className='inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors'
-                              >
-                                 Visit Product
-                                 <svg
-                                    className='w-4 h-4'
-                                    fill='none'
-                                    stroke='currentColor'
-                                    viewBox='0 0 24 24'
+                           <div className='flex items-start justify-between'>
+                              {product.status === 'Live' ? (
+                                 <a
+                                    href={product.link}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors'
                                  >
-                                    <path
-                                       strokeLinecap='round'
-                                       strokeLinejoin='round'
-                                       strokeWidth={2}
-                                       d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
-                                    />
-                                 </svg>
-                              </a>
-                           ) : (
-                              <button
-                                 disabled
-                                 className='inline-flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-lg text-sm font-semibold cursor-not-allowed opacity-60'
-                              >
-                                 Coming Soon
-                              </button>
-                           )}
+                                    Visit
+                                    <svg
+                                       className='w-4 h-4'
+                                       fill='none'
+                                       stroke='currentColor'
+                                       viewBox='0 0 24 24'
+                                    >
+                                       <path
+                                          strokeLinecap='round'
+                                          strokeLinejoin='round'
+                                          strokeWidth={2}
+                                          d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+                                       />
+                                    </svg>
+                                 </a>
+                              ) : (
+                                 <button
+                                    disabled
+                                    className='inline-flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-lg text-sm font-semibold cursor-not-allowed opacity-60'
+                                 >
+                                    Coming Soon
+                                 </button>
+                              )}
+
+                              {/* Type & Category badges moved to image top left for better clarity and symmetry */}
+                           </div>
                         </div>
                      </div>
                   ))}

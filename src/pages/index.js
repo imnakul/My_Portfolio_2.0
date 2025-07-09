@@ -319,7 +319,7 @@ export default function Home() {
             />
             <link
                rel='icon'
-               href='/logo2.svg'
+               href='/finallogo.png'
             />
             <link
                rel='canonical'

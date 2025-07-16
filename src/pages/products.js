@@ -37,6 +37,27 @@ export default function Products() {
          type: 'Collaboration',
       },
       {
+         name: 'DataVista',
+         description: 'AI Powered Data Analytics.',
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752640153/Datavista_b5sntq.png', // Replace with actual product image
+         status: 'Live',
+         link: 'https://datavista1.vercel.app',
+         tech: ['React', 'Gemini', 'Firebase'],
+         category: 'SaaS',
+         type: 'Collaboration',
+      },
+
+      {
+         name: 'Flexitasks',
+         description: 'Task Manager with Flexibility in its DNA.',
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752029103/210shots_lso_k2oypg.png',
+         status: 'Live',
+         link: 'https://www.flexitasks.devnakul.me',
+         tech: ['React', 'Tailwind', 'Framer'],
+         category: 'Platform',
+         type: 'Personal',
+      },
+      {
          name: 'JB Sweets',
          description: 'Sweet Shop Website',
          image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752027184/360_1x_shots_so_goxesz.png',
@@ -47,22 +68,12 @@ export default function Products() {
          type: 'Client',
       },
       {
-         name: 'Flexitasks',
-         description: 'Task Manager with Flexibility in its DNA.',
-         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752029103/210shots_lso_k2oypg.png',
-         status: 'Live',
-         link: 'https://www.flexitasks.devnakul.me',
-         tech: ['React, Tailwind , Framer'],
-         category: 'Platform',
-         type: 'Personal',
-      },
-      {
          name: 'AskMark',
          description: 'Bookmarks you can talk to!',
          image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752031041/725shots_so_xtnegs.png',
          status: 'Coming Soon',
          link: 'https://www.askmark.vercel.app',
-         tech: ['Next.js , Firebase , Gen AI'],
+         tech: ['Next.js', 'Firebase', 'Gen AI'],
          category: 'Platform',
          type: 'Personal',
       },
@@ -211,8 +222,6 @@ export default function Products() {
                                     Coming Soon
                                  </button>
                               )}
-
-                              {/* Type & Category badges moved to image top left for better clarity and symmetry */}
                            </div>
                         </div>
                      </div>

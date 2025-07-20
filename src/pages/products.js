@@ -39,7 +39,7 @@ export default function Products() {
       {
          name: 'DataVista',
          description: 'AI Powered Data Analytics.',
-         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752640153/Datavista_b5sntq.png', // Replace with actual product image
+         image: 'https://res.cloudinary.com/dp2bzu9e2/image/upload/v1752850640/858_1x_shots_so_p64ves.png', // Replace with actual product image
          status: 'Live',
          link: 'https://datavista1.vercel.app',
          tech: ['React', 'Gemini', 'Firebase'],
@@ -129,6 +129,15 @@ export default function Products() {
                      Innovative SaaS solutions and digital products that solve real-world problems
                   </p>
                </div>
+
+               {/* <Link href='/'>
+                  <Image
+                     width={40}
+                     height={40}
+                     src='/home.png'
+                     className='hidden lg:block relative -top-30 left-30 hover:scale-90 opacity-90 transition-all duration-400 '
+                  />
+               </Link> */}
             </div>
 
             {/* Products Grid */}
@@ -230,7 +239,7 @@ export default function Products() {
             </div>
 
             {/* CTA Section */}
-            <div className='bg-gradient-to-r from-purple-900/30 to-blue-900/30 py-8'>
+            <div className='bg-gradient-to-b from-purple-900/40 via-transparent to-transparent py-8'>
                <div className='max-w-4xl mx-auto text-center px-4'>
                   <h2 className='text-3xl font-bold mb-4'>Have a Product Idea?</h2>
                   <p className='text-gray-300 mb-8'>

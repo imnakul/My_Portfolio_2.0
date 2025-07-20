@@ -141,9 +141,38 @@ export default function Services() {
             }}
          />
 
+         {/* NeetoCal Integration */}
+         <Script
+            id='neetocal-init'
+            strategy='lazyOnload'
+            dangerouslySetInnerHTML={{
+               __html: `
+              window.neetoCal = window.neetoCal || { embed: function(){(neetoCal.q=neetoCal.q||[]).push(arguments)} };
+            `,
+            }}
+         />
+         <Script
+            src='https://cdn.neetocal.com/javascript/embed.js'
+            strategy='lazyOnload'
+         />
+         <Script
+            id='neetocal-embed'
+            strategy='lazyOnload'
+            dangerouslySetInnerHTML={{
+               __html: `
+              neetoCal.embed({
+                type: "elementClick",
+                id: "80f92cfe-b995-4c6c-961b-0fe360b701e6",
+                organization: "imnakul",
+                elementSelector: "#schedule-call-button",
+              });
+            `,
+            }}
+         />
+
          <div className='min-h-screen bg-gray-900 text-white'>
             {/* Header */}
-            <div className='relative bg-gradient-to-b from-blue-900/20 to-transparent'>
+            <div className='relative bg-gradient-to-b from-purple-900/40 via-transparent to-transparent'>
                <div className='absolute inset-0 bg-black/30' />
                <div className='relative z-10 max-w-6xl mx-auto px-4 py-8'>
                   <h1 className='text-5xl font-bold mb-4 gradient-text'>Professional Services</h1>
@@ -252,7 +281,7 @@ export default function Services() {
             </div>
 
             {/* CTA Section */}
-            <div className='py-8'>
+            <div className='py-8 bg-gradient-to-b from-transparent via-transparent to-purple-900/40'>
                <div className='max-w-4xl mx-auto text-center px-4'>
                   <h2 className='text-3xl font-bold mb-4'>Ready to Start Your Project?</h2>
                   <p className='text-gray-300 mb-8'>
@@ -265,14 +294,12 @@ export default function Services() {
                      >
                         📧 Email Me
                      </a>
-                     <a
-                        href='https://calendly.com/your-link' // Replace with your Calendly link
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='inline-flex items-center gap-2 bg-white text-black hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors'
+                     <button
+                        id='schedule-call-button'
+                        className='inline-flex items-center gap-2 bg-white text-black hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors cursor-pointer'
                      >
-                        📅 Schedule a Call
-                     </a>
+                        📅 Schedule a Meet
+                     </button>
                   </div>
                </div>
             </div>

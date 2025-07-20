@@ -506,7 +506,7 @@ export default function Home() {
                         />
                      </div>
                      <h1 className='text-3xl sm:text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
-                     <p className='text-xl text-gray-200 mb-3'>Web Developer | Gen AI Engineer</p>
+                     <p className='text-xl text-gray-200 mb-3'>Web Developer | AI Engineer | Technophile</p>
                      {/* Social Links - Minimal Icons */}
                      <div className='flex justify-center space-x-4 mb-8'>
                         {socialLinks.map((link) => (

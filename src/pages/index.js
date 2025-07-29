@@ -110,7 +110,7 @@ export default function Home() {
          description: 'View my projects',
       },
       {
-         name: 'Products',
+         name: 'Work',
          href: '/products',
          icon: '🚀',
          description: `Software & services I've developed`,

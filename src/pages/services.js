@@ -242,9 +242,9 @@ export default function Services() {
                            </div>
                         )}
 
-                        <button className='w-full bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors mt-4'>
+                        {/* <button className='w-full bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors mt-4'>
                            Get Quote
-                        </button>
+                        </button> */}
                      </div>
                   ))}
                </div>

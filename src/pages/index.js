@@ -462,7 +462,7 @@ export default function Home() {
                   >
                      <source
                         src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1751718171/The_City_In_The_Rain_fdmraq.mp4'
-                        // src='/c.mp4'
+                        // src='https://res.cloudinary.com/dp2bzu9e2/video/upload/v1756258160/small-vecteezy_circuit-background-big-data-technology-and-data-science_42719751_small_tetei6.mp4'
                         type='video/mp4'
                      />
                   </video>
@@ -474,14 +474,14 @@ export default function Home() {
 
             {/* Content */}
             <div className='relative z-20 h-screen flex items-center justify-center px-4'>
-               <div className='max-w-md w-full text-center'>
+               <div className='max-w-md xl:max-w-lg w-full text-center'>
                   {/* Profile Section */}
                   <div className='text-center mb-4'>
-                     <div className='relative w-24 h-24 mx-auto mb-6'>
+                     <div className='relative w-24 h-24 xl:h-44 xl:w-44 mx-auto mb-6 xl:mb-8'>
                         <button
                            onClick={handleShare}
                            aria-label='Share this page'
-                           className='absolute top-2 -left-36 sm:-left-44 z-30 p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:shadow-lg transition-all duration-300 flex items-center justify-center shadow-md'
+                           className='absolute top-2 -left-36 sm:-left-44 z-30 p-2 xl:p-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:shadow-lg transition-all duration-300 flex items-center justify-center shadow-md'
                            style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.12)', willChange: 'transform' }}
                         >
                            {/* Share Icon */}
@@ -498,15 +498,15 @@ export default function Home() {
                            </svg>
                         </button>
                         <Image
-                           src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_256,h_256,c_fill,q_auto,f_auto/v1751677501/profile_1_aoltbw.png'
+                           src='https://res.cloudinary.com/dp2bzu9e2/image/upload/w_256,h_256,c_fill,q_auto,f_auto/v1756257168/profile_orig_p8ss6s.png'
                            alt='Nakul Srivastava'
                            fill
                            className='rounded-full object-cover ring-2 ring-white/50 shadow-xl'
                            priority
                         />
                      </div>
-                     <h1 className='text-3xl sm:text-4xl font-bold text-white mb-2 tracking-tight'>Nakul Srivastava</h1>
-                     <p className='text-xl text-gray-200 mb-3'>Web Developer | AI Engineer | Technophile</p>
+                     <h1 className='text-3xl sm:text-4xl xl:text-5xl font-bold text-white mb-2 xl:mb-4 tracking-tight'>Nakul Srivastava</h1>
+                     <p className='text-lg sm:text-xl xl:text-2xl text-gray-200 mb-3 xl:mb-5'>Web Developer | AI Engineer | Technophile</p>
                      {/* Social Links - Minimal Icons */}
                      <div className='flex justify-center space-x-4 mb-8'>
                         {socialLinks.map((link) => (
@@ -515,7 +515,7 @@ export default function Home() {
                               href={link.href}
                               target={link.external ? '_blank' : '_self'}
                               rel={link.external ? 'noopener noreferrer' : undefined}
-                              className='backdrop-blur-sm  text-white/60 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
+                              className='backdrop-blur-sm text-white/60 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10 group'
                               title={link.name}
                               style={{ willChange: 'transform' }}
                            >
@@ -530,12 +530,12 @@ export default function Home() {
                      </div>
                   </div>
 
-                  <p className='text-sm text-gray-300 mb-4'>
+                  <p className='text-sm xm:text-base lg:text-lg xl:text-lg text-gray-300 mb-4 xl:mb-6'>
                      Freelance Developer | SEO Support | AI Integrations | UI/UX Design | Digital Presence Strategist
                   </p>
 
                   {/* Main Links - Only Portfolio, Products, Services */}
-                  <div className='space-y-4 mb-4'>
+                  <div className='space-y-4 xl:space-y-6 mb-4 xl:mb-6'>
                      {mainLinks.map((link) => (
                         <Link
                            key={link.name}
@@ -544,7 +544,7 @@ export default function Home() {
                            style={{ willChange: 'transform' }}
                         >
                            <div
-                              className='bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group'
+                              className='bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group'
                               style={{ willChange: 'transform' }}
                            >
                               <div className='flex items-center justify-between'>
@@ -556,8 +556,8 @@ export default function Home() {
                                        {link.icon}
                                     </span>
                                     <div className='text-left'>
-                                       <h3 className='text-white font-bold text-xl tracking-wide'>{link.name}</h3>
-                                       <p className='text-gray-300 text-sm leading-relaxed'>{link.description || ''}</p>
+                                       <h3 className='text-white font-bold text-xl xl:text-2xl tracking-wide'>{link.name}</h3>
+                                       <p className='text-gray-300 text-sm xl:text-base leading-relaxed'>{link.description || ''}</p>
                                     </div>
                                  </div>
                                  <svg

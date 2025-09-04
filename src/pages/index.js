@@ -304,14 +304,14 @@ export default function Home() {
    return (
       <>
          <Head>
-            <title>Nakul Srivastava | Web Developer & AI Engineer | Portfolio & Products</title>
+            <title>Nakul Srivastava | Web Developer & AI Developer | Portfolio & Products</title>
             <meta
                name='description'
                content='Nakul Srivastava - Full-stack web developer specializing in Next.js, AI integration, and modern web applications. Explore my portfolio and digital solutions.'
             />
             <meta
                name='keywords'
-               content='Nakul Srivastava, web developer, full stack developer, Next.js developer, Gen AI engineer, freelance developer, frontend developer, tools enthusiast, techy, technology lover, devotee'
+               content='Nakul Srivastava, web developer, full stack developer, Next.js developer, Gen AI Developer, freelance developer, frontend developer, tools enthusiast, techy, technology lover, devotee'
             />
             <meta
                name='viewport'
@@ -337,7 +337,7 @@ export default function Home() {
             />
             <meta
                property='og:title'
-               content='Nakul Srivastava | Full Stack Developer & AI Engineer'
+               content='Nakul Srivastava | Full Stack Developer & AI Developer'
             />
             <meta
                property='og:description'
@@ -357,7 +357,7 @@ export default function Home() {
             />
             <meta
                property='og:image:alt'
-               content='Nakul Srivastava - Full Stack Developer & AI Engineer'
+               content='Nakul Srivastava - Full Stack Developer & AI Developer'
             />
             <meta
                property='og:url'
@@ -383,7 +383,7 @@ export default function Home() {
             />
             <meta
                name='twitter:title'
-               content='Nakul Srivastava | Full Stack Developer & AI Engineer'
+               content='Nakul Srivastava | Full Stack Developer & AI Developer'
             />
             <meta
                name='twitter:description'
@@ -506,7 +506,7 @@ export default function Home() {
                         />
                      </div>
                      <h1 className='text-3xl sm:text-4xl xl:text-5xl font-bold text-white mb-2 xl:mb-4 tracking-tight'>Nakul Srivastava</h1>
-                     <p className='text-lg sm:text-xl xl:text-2xl text-gray-200 mb-3 xl:mb-5'>Web Developer | AI Engineer | Technophile</p>
+                     <p className='text-lg sm:text-xl xl:text-2xl text-gray-200 mb-3 xl:mb-5'>Web Developer | AI Developer | Technophile</p>
                      {/* Social Links - Minimal Icons */}
                      <div className='flex justify-center space-x-4 mb-8'>
                         {socialLinks.map((link) => (

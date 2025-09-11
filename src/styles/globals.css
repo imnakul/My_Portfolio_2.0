@@ -181,6 +181,23 @@ button,
    }
 }
 
+@theme inline {
+  --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+ 
+  @keyframes orbit {
+      0% {
+         /* keep the element centered with translate(-50%,-50%) and then orbit */
+         transform: translate(-50%, -50%) rotate(calc(var(--angle) * 1deg))
+            translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+      }
+      100% {
+         transform: translate(-50%, -50%) rotate(calc(var(--angle) * 1deg + 360deg))
+            translateY(calc(var(--radius) * 1px))
+            rotate(calc((var(--angle) * -1deg) - 360deg));
+      }
+  }
+}
+
 /* https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751864670/35bc91437d4034e5f680b562fa0de6b3_enatjy.jpg */
 
 /* https://res.cloudinary.com/dp2bzu9e2/image/upload/v1751864671/de18f5dc6711d339754e3b9971978cdd_eixbf8.jpg */

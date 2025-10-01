@@ -6,11 +6,12 @@ import Image from 'next/image'
 import Script from 'next/script'
 import { GridBeams } from "../components/ui/GridBeams.jsx";
 import { OrbitingCircles } from "../components/ui/OrbitingCircles";
-import { siSimpleanalytics, siNotepadplusplus } from 'simple-icons'
 
 export default function Home() {
    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
    const [isMobile, setIsMobile] = useState(false)
+   const [radius, setRadius] = useState(100)
+   const [iconSize, setIconSize] = useState(30)
    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
    const [hasMounted, setHasMounted] = useState(false)
 
@@ -39,6 +40,21 @@ export default function Home() {
       }
    }
 
+   // Function to get radius based on screen size
+   const getRadius = () => {
+      if (window.innerWidth < 640) return 50; // Small screens
+      if (window.innerWidth < 768) return 50; // Medium screens
+      if (window.innerWidth < 1024) return 80; // Large screens
+      return 100; // Extra large screens
+   }
+
+   const getIconSize = () => {
+      if (window.innerWidth < 640) return 20; // Small screens
+      if (window.innerWidth < 768) return 24; // Medium screens
+      if (window.innerWidth < 1024) return 28; // Large screens
+      return 30; // Extra large screens
+   }
+
    // Debug: Log video loaded state changes
    // useEffect(() => {
    //    console.log('isVideoLoaded state changed:', isVideoLoaded)
@@ -49,14 +65,16 @@ export default function Home() {
    }, [])
 
    useEffect(() => {
-      // Function to check mobile state
-      const checkMobile = () => {
+      // Function to check mobile state and set radius
+      const checkMobileAndRadius = () => {
          const mobile = window.innerWidth < 768
          setIsMobile(mobile)
-         console.log('isMobile state changed:', mobile, '| window.innerWidth:', window.innerWidth)
+         setRadius(getRadius())
+         setIconSize(getIconSize())
+         // console.log('isMobile state changed:', mobile, '| window.innerWidth:', window.innerWidth, '| radius:', getRadius())
       }
-      checkMobile()
-      window.addEventListener('resize', checkMobile)
+      checkMobileAndRadius()
+      window.addEventListener('resize', checkMobileAndRadius)
 
       // Handle video load with better error handling
       const video = document.querySelector('#background-video')
@@ -101,7 +119,7 @@ export default function Home() {
       window.addEventListener('mousemove', handleMouseMove)
       return () => {
          window.removeEventListener('mousemove', handleMouseMove)
-         window.removeEventListener('resize', checkMobile)
+         window.removeEventListener('resize', checkMobileAndRadius)
       }
    }, [isMobile])
 
@@ -446,10 +464,10 @@ export default function Home() {
          <div className='h-screen relative overflow-hidden'>
             
             {/* Optimized Video Background */}
-            <div className='fixed inset-0 z-0'>
+            {/* <div className='fixed inset-0 z-0'> */}
                {/* Video overlay that fades in smoothly */}
                {/* Dark Overlay for better text readability */}
-               <div
+               {/* <div
                   className="absolute inset-0 z-10"
                   style={{
                      backgroundColor: isMobile ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0.15)',
@@ -458,8 +476,8 @@ export default function Home() {
                      backgroundSize: 'cover',
                      backgroundRepeat: 'no-repeat',
                   }}
-               />
-            </div>
+               /> */}
+            {/* </div> */}
 
             
 
@@ -469,7 +487,7 @@ export default function Home() {
                   {/* Profile Section */}
                   <div className='text-center mb-4'>
                       
-                     <div className='relative w-20 h-20 sm:w-24 sm:h-24 xl:h-44 xl:w-44 mx-auto mb-4 sm:mb-6 xl:mb-16'>
+                     <div className='relative w-24 h-24 xl:h-44 xl:w-44 mx-auto mb-4 sm:mb-6 xl:mb-16'>
                         <button
                            onClick={handleShare}
                            aria-label='Share this page'
@@ -482,8 +500,8 @@ export default function Home() {
     <path d="M8 11C6.59987 11 5.8998 11 5.36502 11.2725C4.89462 11.5122 4.51217 11.8946 4.27248 12.365C4 12.8998 4 13.5999 4 15V16C4 18.357 4 19.5355 4.73223 20.2678C5.46447 21 6.64298 21 9 21H15C17.357 21 18.5355 21 19.2678 20.2678C20 19.5355 20 18.357 20 16V15C20 13.5999 20 12.8998 19.7275 12.365C19.4878 11.8946 19.1054 11.5122 18.635 11.2725C18.1002 11 17.4001 11 16 11" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
                         </button>
-                        <div className="hidden lg:block absolute bottom-22 flex w-full flex-col items-center justify-center ">
-                        <OrbitingCircles iconSize={30}>
+                        <div className="block absolute bottom-12 lg:bottom-22 flex w-full flex-col items-center justify-center ">
+                        <OrbitingCircles iconSize={iconSize} radius={radius}>
         <Icons.notes />
         <Icons.laptop />
         <Icons.tasks />
@@ -503,12 +521,13 @@ export default function Home() {
                            fill
                            className='rounded-full object-cover ring-2 ring-white/50 shadow-xl'
                            priority
+                           fetchPriority='high'
                         />
                      </div>
-                     <h1 className='text-3xl sm:text-4xl xl:text-5xl font-bold text-white mb-2 xl:mb-4 tracking-tight'>Nakul Srivastava</h1>
+                     <h1 className='text-3xl sm:text-4xl xl:text-5xl font-bold text-white mb-2 xl:mb-4 tracking-tight pt-8 lg:pt-0'>Nakul Srivastava</h1>
                      <p className='text-base sm:text-xl xl:text-2xl text-gray-200 mb-3 xl:mb-5'>Web Developer | AI Developer | Technophile</p>
                      {/* Social Links - Minimal Icons */}
-                     <div className='flex justify-center space-x-4 mb-8'>
+                     <div className='flex justify-center space-x-4 mb-4 lg:mb-8'>
                         {socialLinks.map((link) => (
                            <a
                               key={link.name}
